@@ -204,38 +204,6 @@ Our earlier CreditWatch build claimed 60% Indian recall at 4 quarters. The audit
 - No lender-specific (ALM) module.
 - Alok, Bhushan and Coffee Day may have earlier undocumented payment stress, which would make their lead times shorter than shown.
 
-# 10. Anticipated questions
-
-**Q: Your Indian recall is 0–20%. Why should we trust the system?**
-Because it tells you so. The benchmark, the leakage guard, the freeze and the policy all work. The ratio model does not transfer to standalone Indian filings, and we measured that instead of hiding it. The debt-service diagnostic points to the fix.
-
-**Q: Could the 2/10 be luck?**
-Yes. The Wilson interval is 6% to 51%. That is why we also report threshold-free AUC (0.46).
-
-**Q: How do we know you did not tune on the Indian cases?**
-The frozen config, with model hashes, was committed before scoring, and evaluation refuses edited settings. The v2 variant was frozen separately and is labelled post-hoc.
-
-**Q: Why median imputation instead of LightGBM's native NaN handling?**
-In UCI data, missingness predicts bankruptcy (Attr27: 31.5% vs 5.2%). An Indian firm with a blank line item would be flagged for the wrong reason.
-
-**Q: Why the 5year file for the 4Q model?**
-UCI's 5year file labels bankruptcy within one year, which is the same target as a 4-quarter lead.
-
-**Q: Why peers as the cutoff population?**
-No point-in-time 800-firm Indian universe was available. Defaulters are about 2% of a book, so its 95th percentile is the performing firms' 95th percentile. A Polish-background book gives the same answer.
-
-**Q: Why exclude the IL&FS parent?**
-It was unlisted and had no exchange filings. ITNL, its listed road subsidiary, defaulted on 28 Sep 2018.
-
-**Q: How is the 5% budget enforced?**
-By a hard cap of 40, with an overflow list. More than 40 names above p* triggers a capacity review; it never widens the list silently.
-
-**Q: Does the 20:1 cost change the cutoff?**
-Yes: p* = 1/(1 + 20). If the ratio changes to *r*, p* = 1/(1 + *r*), applied to prior-shifted calibrated probabilities.
-
-**Q: What would you build next?**
-Consolidated statements, market signals (price, pledge history), and a monotone debt-service scorecard trained on Indian defaults and validated out-of-time.
-
 # Appendix: sources and reproduction
 
 - **Benchmark:** UCI Polish Companies Bankruptcy, https://archive.ics.uci.edu/dataset/365/polish+companies+bankruptcy+data

@@ -111,7 +111,7 @@ frontend/                  React 18 + TypeScript + Tailwind web app (7 pages)
 config/                    frozen_config.json (primary), frozen_config_v2.json (post-hoc variant)
 data/                      Polish benchmark + sourced Indian panel
 artifacts/                 models, metrics, curves, Indian results, figures
-docs/                      REPORT.md (+ PDF; Q&A in section 10), METHODOLOGY.md, DEVIATIONS.md, DATA_ENTRY.md
+docs/                      REPORT.md (+ PDF), METHODOLOGY.md, DEVIATIONS.md, DATA_ENTRY.md
 tests/                     40 tests: leakage, provenance, scores by hand, pre-registration, API, end-to-end
 ```
 
