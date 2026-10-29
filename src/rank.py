@@ -8,7 +8,7 @@ import shap
 import warnings
 warnings.filterwarnings("ignore", message="LightGBM binary classifier")
 
-from .features import FEATURES, format_value
+from .features import FEATURES, MONOTONE, format_value
 from .model import ART, COST_FN, COST_FP
 
 # ---- overlay: policy priors added to the model's log-odds (NOT fitted: 10 defaulters cannot support fitting) ----
@@ -106,8 +106,17 @@ def top_drivers(bundle: dict, X: pd.DataFrame, k: int = 3) -> list[list[dict]]:
     out = []
     for i in range(len(X)):
         rows = []
-        # rank only ratios that were actually computed: an imputed (missing) ratio is "no information", never a driver
-        order = [j for j in np.argsort(-sv[i]) if pd.notna(X.iloc[i][feats[j]])][:k]
+        # A driver is shown only if (a) the ratio was actually computed (imputed = "no information") and (b) the firm's value
+        # is on the risky side of the healthy-peer median under credit logic (MONOTONE sign). Tree models can attach risk to
+        # a healthy-looking value (e.g. high EBITDA/assets) through non-monotone patterns in the benchmark data; such
+        # contributions are model artefacts, not reasons a credit officer can act on, so they are never written up.
+        def credible(j):
+            f = feats[j]
+            v, m, sgn = X.iloc[i][f], med.get(f), MONOTONE.get(f, 0)
+            if pd.isna(v) or m is None or sgn == 0:
+                return False
+            return (v > m) if sgn > 0 else (v < m)
+        order = [j for j in np.argsort(-sv[i]) if credible(j)][:k]
         for j in order:
             if sv[i, j] <= 0:
                 continue

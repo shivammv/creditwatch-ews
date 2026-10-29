@@ -14,30 +14,28 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Quick ratio of 0.30 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
   Driver 3: Gross margin is -64.7% (healthy peers 5.6%); pricing power or input-cost control is weak.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-5739,0.5945629854447211,1,4,Borrower-5739,"Operating profit is -53.7% of assets (healthy peers 6.6%); core business earnings are weak. | Gross margin is -20.8% (healthy peers 5.6%); pricing power or input-cost control is weak. | Inventory equals 0.58 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.","WATCH-LIST MEMO | Borrower-5739 | Rank #4 | Risk 59.5% (calibrated distress probability)
+5739,0.5945629854447211,1,4,Borrower-5739,Operating profit is -53.7% of assets (healthy peers 6.6%); core business earnings are weak. | Gross margin is -20.8% (healthy peers 5.6%); pricing power or input-cost control is weak. | Operating margin is -21.0% (healthy peers 4.4%); core operations are under pressure.,"WATCH-LIST MEMO | Borrower-5739 | Rank #4 | Risk 59.5% (calibrated distress probability)
   Driver 1: Operating profit is -53.7% of assets (healthy peers 6.6%); core business earnings are weak.
   Driver 2: Gross margin is -20.8% (healthy peers 5.6%); pricing power or input-cost control is weak.
-  Driver 3: Inventory equals 0.58 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
+  Driver 3: Operating margin is -21.0% (healthy peers 4.4%); core operations are under pressure.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-4987,0.5815505964256517,0,5,Borrower-4987,Operating profit is -97.4% of assets (healthy peers 6.6%); core business earnings are weak. | Operating margin is -12.3% (healthy peers 4.4%); core operations are under pressure. | Costs absorb 0.82 of sales (healthy peers 0.95); there is no operating headroom.,"WATCH-LIST MEMO | Borrower-4987 | Rank #5 | Risk 58.2% (calibrated distress probability)
+4987,0.5815505964256517,0,5,Borrower-4987,Operating profit is -97.4% of assets (healthy peers 6.6%); core business earnings are weak. | Operating margin is -12.3% (healthy peers 4.4%); core operations are under pressure. | Net cash earnings repay only -0.64x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-4987 | Rank #5 | Risk 58.2% (calibrated distress probability)
   Driver 1: Operating profit is -97.4% of assets (healthy peers 6.6%); core business earnings are weak.
   Driver 2: Operating margin is -12.3% (healthy peers 4.4%); core operations are under pressure.
-  Driver 3: Costs absorb 0.82 of sales (healthy peers 0.95); there is no operating headroom.
+  Driver 3: Net cash earnings repay only -0.64x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 3369,0.5665094749636673,0,6,Borrower-3369,Operating profit is -13.5% of assets (healthy peers 6.6%); core business earnings are weak. | Quick ratio of 0.39 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Net cash earnings repay only -0.21x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-3369 | Rank #6 | Risk 56.7% (calibrated distress probability)
   Driver 1: Operating profit is -13.5% of assets (healthy peers 6.6%); core business earnings are weak.
   Driver 2: Quick ratio of 0.39 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
   Driver 3: Net cash earnings repay only -0.21x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-2038,0.5416659150602144,0,7,Borrower-2038,"Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs. | Retained earnings are -105.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Receivables turn only 16.29x a year (healthy peers 6.19x); collections are slowing, a classic early stress or revenue-quality signal.","WATCH-LIST MEMO | Borrower-2038 | Rank #7 | Risk 54.2% (calibrated distress probability)
-  Driver 1: Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
-  Driver 2: Retained earnings are -105.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
-  Driver 3: Receivables turn only 16.29x a year (healthy peers 6.19x); collections are slowing, a classic early stress or revenue-quality signal.
+2038,0.5416659150602144,0,7,Borrower-2038,Retained earnings are -105.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-2038 | Rank #7 | Risk 54.2% (calibrated distress probability)
+  Driver 1: Retained earnings are -105.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-3709,0.5386871626444809,0,8,Borrower-3709,"Operating profit is -24.4% of assets (healthy peers 6.6%); core business earnings are weak. | Net cash earnings repay only -0.18x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low. | Inventory equals 3.61 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.","WATCH-LIST MEMO | Borrower-3709 | Rank #8 | Risk 53.9% (calibrated distress probability)
+3709,0.5386871626444809,0,8,Borrower-3709,Operating profit is -24.4% of assets (healthy peers 6.6%); core business earnings are weak. | Net cash earnings repay only -0.18x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low. | Gross margin is -4.0% (healthy peers 5.6%); pricing power or input-cost control is weak.,"WATCH-LIST MEMO | Borrower-3709 | Rank #8 | Risk 53.9% (calibrated distress probability)
   Driver 1: Operating profit is -24.4% of assets (healthy peers 6.6%); core business earnings are weak.
   Driver 2: Net cash earnings repay only -0.18x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
-  Driver 3: Inventory equals 3.61 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
+  Driver 3: Gross margin is -4.0% (healthy peers 5.6%); pricing power or input-cost control is weak.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 4433,0.533067974738807,0,9,Borrower-4433,Gross margin is -44.2% (healthy peers 5.6%); pricing power or input-cost control is weak. | Quick ratio of 0.03 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Long-term funding is 22.0% of assets (healthy peers 63.4%); long assets may be funded with short-term money (ALM risk).,"WATCH-LIST MEMO | Borrower-4433 | Rank #9 | Risk 53.3% (calibrated distress probability)
   Driver 1: Gross margin is -44.2% (healthy peers 5.6%); pricing power or input-cost control is weak.
@@ -54,10 +52,10 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Operating margin is -16.7% (healthy peers 4.4%); core operations are under pressure.
   Driver 3: Gross margin is -16.8% (healthy peers 5.6%); pricing power or input-cost control is weak.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-4613,0.5165191535056421,0,12,Borrower-4613,"Operating profit is -24.9% of assets (healthy peers 6.6%); core business earnings are weak. | Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs. | Net cash earnings repay only -0.35x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.","WATCH-LIST MEMO | Borrower-4613 | Rank #12 | Risk 51.7% (calibrated distress probability)
+4613,0.5165191535056421,0,12,Borrower-4613,Operating profit is -24.9% of assets (healthy peers 6.6%); core business earnings are weak. | Net cash earnings repay only -0.35x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low. | Operating margin is -2.5% (healthy peers 4.4%); core operations are under pressure.,"WATCH-LIST MEMO | Borrower-4613 | Rank #12 | Risk 51.7% (calibrated distress probability)
   Driver 1: Operating profit is -24.9% of assets (healthy peers 6.6%); core business earnings are weak.
-  Driver 2: Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
-  Driver 3: Net cash earnings repay only -0.35x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
+  Driver 2: Net cash earnings repay only -0.35x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
+  Driver 3: Operating margin is -2.5% (healthy peers 4.4%); core operations are under pressure.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 2635,0.5054976198002343,0,13,Borrower-2635,Operating profit is -7.2% of assets (healthy peers 6.6%); core business earnings are weak. | Quick ratio of 0.24 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Net cash earnings repay only -0.12x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-2635 | Rank #13 | Risk 50.5% (calibrated distress probability)
   Driver 1: Operating profit is -7.2% of assets (healthy peers 6.6%); core business earnings are weak.
@@ -69,10 +67,10 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Quick ratio of 0.37 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
   Driver 3: Net cash earnings repay only -0.33x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-4527,0.503829062755627,0,15,Borrower-4527,"Inventory equals 4.76 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs. | Receivables turn only 29.68x a year (healthy peers 6.19x); collections are slowing, a classic early stress or revenue-quality signal. | Cash-style margin is 0.5% (healthy peers 7.2%); operations generate little cash per rupee of sales.","WATCH-LIST MEMO | Borrower-4527 | Rank #15 | Risk 50.4% (calibrated distress probability)
-  Driver 1: Inventory equals 4.76 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
-  Driver 2: Receivables turn only 29.68x a year (healthy peers 6.19x); collections are slowing, a classic early stress or revenue-quality signal.
-  Driver 3: Cash-style margin is 0.5% (healthy peers 7.2%); operations generate little cash per rupee of sales.
+4527,0.503829062755627,0,15,Borrower-4527,Cash-style margin is 0.5% (healthy peers 7.2%); operations generate little cash per rupee of sales. | Gross margin is 2.0% (healthy peers 5.6%); pricing power or input-cost control is weak. | Profit before financing costs is 1.1% of sales (healthy peers 4.7%); little margin left to pay lenders.,"WATCH-LIST MEMO | Borrower-4527 | Rank #15 | Risk 50.4% (calibrated distress probability)
+  Driver 1: Cash-style margin is 0.5% (healthy peers 7.2%); operations generate little cash per rupee of sales.
+  Driver 2: Gross margin is 2.0% (healthy peers 5.6%); pricing power or input-cost control is weak.
+  Driver 3: Profit before financing costs is 1.1% of sales (healthy peers 4.7%); little margin left to pay lenders.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 5295,0.4907646786813756,0,16,Borrower-5295,Quick ratio of 0.19 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Operating profit is -8.3% of assets (healthy peers 6.6%); core business earnings are weak. | Net cash earnings repay only -0.07x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-5295 | Rank #16 | Risk 49.1% (calibrated distress probability)
   Driver 1: Quick ratio of 0.19 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
@@ -84,10 +82,10 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Operating profit is -37.4% of assets (healthy peers 6.6%); core business earnings are weak.
   Driver 3: Operating margin is -287.6% (healthy peers 4.4%); core operations are under pressure.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-5784,0.467267473129143,1,18,Borrower-5784,"Operating margin is -182.8% (healthy peers 4.4%); core operations are under pressure. | Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs. | Costs absorb 0.70 of sales (healthy peers 0.95); there is no operating headroom.","WATCH-LIST MEMO | Borrower-5784 | Rank #18 | Risk 46.7% (calibrated distress probability)
+5784,0.467267473129143,1,18,Borrower-5784,Operating margin is -182.8% (healthy peers 4.4%); core operations are under pressure. | Cash-style margin is -158.2% (healthy peers 7.2%); operations generate little cash per rupee of sales. | Retained earnings are -453.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-5784 | Rank #18 | Risk 46.7% (calibrated distress probability)
   Driver 1: Operating margin is -182.8% (healthy peers 4.4%); core operations are under pressure.
-  Driver 2: Inventory equals 0.00 days of sales (healthy peers 38.73); stock is building up, tying cash and risking write-downs.
-  Driver 3: Costs absorb 0.70 of sales (healthy peers 0.95); there is no operating headroom.
+  Driver 2: Cash-style margin is -158.2% (healthy peers 7.2%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are -453.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 5468,0.4609400691560331,1,19,Borrower-5468,Operating profit is -14.3% of assets (healthy peers 6.6%); core business earnings are weak. | Net cash earnings repay only -0.22x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low. | Operating margin is -9.7% (healthy peers 4.4%); core operations are under pressure.,"WATCH-LIST MEMO | Borrower-5468 | Rank #19 | Risk 46.1% (calibrated distress probability)
   Driver 1: Operating profit is -14.3% of assets (healthy peers 6.6%); core business earnings are weak.
@@ -179,10 +177,10 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Net cash earnings repay only -0.11x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
   Driver 3: Quick ratio of 0.57 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-3156,0.288049397275639,0,37,Borrower-3156,Quick ratio of 0.29 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Costs absorb 0.08 of sales (healthy peers 0.95); there is no operating headroom. | Operating margin is -2.0% (healthy peers 4.4%); core operations are under pressure.,"WATCH-LIST MEMO | Borrower-3156 | Rank #37 | Risk 28.8% (calibrated distress probability)
+3156,0.288049397275639,0,37,Borrower-3156,Quick ratio of 0.29 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Operating margin is -2.0% (healthy peers 4.4%); core operations are under pressure. | Net cash earnings repay only -0.04x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-3156 | Rank #37 | Risk 28.8% (calibrated distress probability)
   Driver 1: Quick ratio of 0.29 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
-  Driver 2: Costs absorb 0.08 of sales (healthy peers 0.95); there is no operating headroom.
-  Driver 3: Operating margin is -2.0% (healthy peers 4.4%); core operations are under pressure.
+  Driver 2: Operating margin is -2.0% (healthy peers 4.4%); core operations are under pressure.
+  Driver 3: Net cash earnings repay only -0.04x of total liabilities per year (healthy peers 0.24x); deleveraging capacity is low.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 2712,0.286560504904783,0,38,Borrower-2712,Operating profit is -19.4% of assets (healthy peers 6.6%); core business earnings are weak. | Gross margin is -36.2% (healthy peers 5.6%); pricing power or input-cost control is weak. | Quick ratio of 0.28 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.,"WATCH-LIST MEMO | Borrower-2712 | Rank #38 | Risk 28.7% (calibrated distress probability)
   Driver 1: Operating profit is -19.4% of assets (healthy peers 6.6%); core business earnings are weak.
@@ -194,10 +192,10 @@ row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
   Driver 2: Gross margin is -1.2% (healthy peers 5.6%); pricing power or input-cost control is weak.
   Driver 3: Cash-like assets cover only 0.01x of current liabilities (healthy peers 0.19x); immediate liquidity is thin.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
-5294,0.2785534849974559,0,40,Borrower-5294,Quick ratio of 0.56 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Retained earnings are 1.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-like assets cover only 0.01x of current liabilities (healthy peers 0.19x); immediate liquidity is thin.,"WATCH-LIST MEMO | Borrower-5294 | Rank #40 | Risk 27.9% (calibrated distress probability)
+5294,0.2785534849974559,0,40,Borrower-5294,Quick ratio of 0.56 (healthy peers 1.11) means liquid assets do not cover near-term liabilities. | Cash-like assets cover only 0.01x of current liabilities (healthy peers 0.19x); immediate liquidity is thin. | Gross margin is 0.4% (healthy peers 5.6%); pricing power or input-cost control is weak.,"WATCH-LIST MEMO | Borrower-5294 | Rank #40 | Risk 27.9% (calibrated distress probability)
   Driver 1: Quick ratio of 0.56 (healthy peers 1.11) means liquid assets do not cover near-term liabilities.
-  Driver 2: Retained earnings are 1.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
-  Driver 3: Cash-like assets cover only 0.01x of current liabilities (healthy peers 0.19x); immediate liquidity is thin.
+  Driver 2: Cash-like assets cover only 0.01x of current liabilities (healthy peers 0.19x); immediate liquidity is thin.
+  Driver 3: Gross margin is 0.4% (healthy peers 5.6%); pricing power or input-cost control is weak.
   Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
 1854,0.2762135440384597,0,41,Borrower-1854,,,False
 1148,0.2529752612702343,0,42,Borrower-1148,,,False
