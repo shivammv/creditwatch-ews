@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "dataset": "UCI Polish Companies Bankruptcy, file polish_5year.csv",
+    "lead": "4Q",
+    "label_horizon_years": 1,
+    "model_version": "3.0.0-lead-matched",
+    "training_timestamp": "2026-10-29T16:13:18.803471+00:00",
+    "training_duration_seconds": 9.05,
+    "n_rows": 5850,
+    "n_duplicates_removed": 60,
+    "bankrupt_rate": 0.0697,
+    "missing_cell_rate": 0.0124,
+    "rows_with_any_missing": 0.488,
+    "split": "80/20 stratified; dev-set 5-fold OOF for calibration+threshold; hold-out touched once",
+    "horizon_note": "UCI file 5year: financial ratios observed 1 year(s) before the bankruptcy label. This model serves the 4Q lead time, so the benchmark target matches the Indian test.",
+    "no_calendar_time": "The dataset has no calendar dates or firm IDs, so a time-ordered split is impossible; the hold-out is a never-seen-during-fitting sample within one file. Treat PR-AUC as an upper bound on out-of-time performance.",
+    "cost": {
+      "fn": 20.0,
+      "fp": 1.0,
+      "bayes_threshold": 0.0476
+    },
+    "leakage_controls": [
+      "duplicates removed pre-split",
+      "hold-out carved first and untouched during tuning",
+      "median imputation fitted on training rows only (inside every CV fold), so missingness carries no signal",
+      "calibration + threshold on dev-set OOF only",
+      "no post-event data in any Indian feature (asserted at runtime and in tests)"
+    ],
+    "hyperparameters": {
+      "n_estimators": 400,
+      "learning_rate": 0.03,
+      "num_leaves": 15,
+      "min_child_samples": 15,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 5.0,
+      "random_state": 42,
+      "verbose": -1,
+      "n_jobs": 2
+    }
+  },
+  "production": {
+    "name": "production_india_portable_4q_monotone",
+    "n_features": 39,
+    "n_dev": 4680,
+    "n_test": 1170,
+    "test_positives": 82,
+    "test_negatives": 1088,
+    "test_bankrupt_rate": 0.0701,
+    "pr_auc": 0.3952,
+    "pr_auc_ci95": [
+      0.2923,
+      0.5173
+    ],
+    "pr_auc_baseline": 0.0701,
+    "roc_auc": 0.8563,
+    "roc_auc_ci95": [
+      0.8047,
+      0.8996
+    ],
+    "brier_score": 0.05189,
+    "oof_pr_auc": 0.3719,
+    "oof_roc_auc": 0.8352,
+    "oof_brier_score": 0.05303,
+    "at_bayes_threshold": {
+      "threshold": 0.0476,
+      "tp": 69,
+      "fp": 347,
+      "fn": 13,
+      "tn": 741,
+      "precision": 0.1659,
+      "recall": 0.8415,
+      "f1_score": 0.2771,
+      "accuracy": 0.6923,
+      "alert_rate": 0.3556,
+      "expected_cost": 607.0
+    },
+    "at_empirical_threshold": {
+      "threshold": 0.055,
+      "tp": 67,
+      "fp": 300,
+      "fn": 15,
+      "tn": 788,
+      "precision": 0.1826,
+      "recall": 0.8171,
+      "f1_score": 0.2984,
+      "accuracy": 0.7308,
+      "alert_rate": 0.3137,
+      "expected_cost": 600.0
+    },
+    "at_5pct_cap": {
+      "k": 59,
+      "budget_pct": 0.05,
+      "hits": 29,
+      "misses": 53,
+      "recall": 0.3537,
+      "precision": 0.4915,
+      "expected_cost": 1090.0
+    },
+    "baseline_flag_none": {
+      "expected_cost": 1640.0,
+      "recall": 0.0,
+      "alerts": 0
+    },
+    "baseline_flag_all": {
+      "expected_cost": 1088.0,
+      "recall": 1.0,
+      "alerts": 1170
+    },
+    "empirical_threshold_oof": 0.055,
+    "bayes_threshold": 0.0476,
+    "feature_importances": [
+      {
+        "feature": "payback_days",
+        "importance": 1239
+      },
+      {
+        "feature": "ltl_equity",
+        "importance": 727
+      },
+      {
+        "feature": "quick_ratio",
+        "importance": 336
+      },
+      {
+        "feature": "retained_ta",
+        "importance": 306
+      },
+      {
+        "feature": "gross_margin",
+        "importance": 281
+      },
+      {
+        "feature": "ebitda_proxy_sales",
+        "importance": 242
+      },
+      {
+        "feature": "sales_recv",
+        "importance": 192
+      },
+      {
+        "feature": "recv_days",
+        "importance": 168
+      },
+      {
+        "feature": "cash_like_ratio",
+        "importance": 165
+      },
+      {
+        "feature": "cf_liab2",
+        "importance": 133
+      },
+      {
+        "feature": "asset_turn",
+        "importance": 126
+      },
+      {
+        "feature": "const_cap_ta",
+        "importance": 126
+      },
+      {
+        "feature": "stl_ta",
+        "importance": 119
+      },
+      {
+        "feature": "inv_days_sales",
+        "importance": 116
+      },
+      {
+        "feature": "op_profit_ta",
+        "importance": 110
+      }
+    ]
+  },
+  "reference": {},
+  "ablation": {},
+  "model_comparison": []
+}

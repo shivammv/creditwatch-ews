@@ -1,0 +1,70 @@
+{
+  "label": "POST-HOC (descriptive; frozen model and weights, no re-tuning)",
+  "lead_4q_auc": {
+    "p_model": {
+      "auc": 0.461,
+      "ci95": [
+        0.214,
+        0.729
+      ]
+    },
+    "risk": {
+      "auc": 0.461,
+      "ci95": [
+        0.213,
+        0.721
+      ]
+    }
+  },
+  "lead_4q_share_of_matched_peers_outranked_median": 0.417,
+  "lead_8q_auc": {
+    "p_model": {
+      "auc": 0.457,
+      "ci95": [
+        0.239,
+        0.696
+      ]
+    },
+    "risk": {
+      "auc": 0.464,
+      "ci95": [
+        0.24,
+        0.708
+      ]
+    }
+  },
+  "lead_8q_share_of_matched_peers_outranked_median": 0.5,
+  "flagged_by_lead": {
+    "1": 3,
+    "2": 1,
+    "3": 1,
+    "4": 0,
+    "5": 0,
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1
+  },
+  "n_defaulters_by_lead": {
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 10,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 10,
+    "9": 10,
+    "10": 10,
+    "11": 10,
+    "12": 10
+  },
+  "earliest_flag_lead_q_per_defaulter": {
+    "Alok Industries": 3,
+    "Future Retail": 1,
+    "Jet Airways": 12
+  }
+}

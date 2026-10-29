@@ -1,0 +1,232 @@
+{
+  "lead_4q": {
+    "model": "production",
+    "n_defaulters": 10,
+    "n_peers": 31,
+    "defaulters_evaluated": [
+      "Alok Industries",
+      "Bhushan Steel",
+      "Coffee Day Enterprises",
+      "DHFL",
+      "Future Retail",
+      "IL&FS Transportation Networks",
+      "Jet Airways",
+      "Reliance Capital",
+      "Reliance Communications",
+      "Sintex Industries"
+    ],
+    "defaulters_missing": [],
+    "primary_peer_cutoff": {
+      "model_only": {
+        "cutoff": 0.1196,
+        "cutoff_ci95": [
+          0.0505,
+          0.2241
+        ],
+        "caught": 2,
+        "n_defaulters": 10,
+        "recall": 0.2,
+        "recall_wilson95": [
+          0.057,
+          0.51
+        ],
+        "peers_flagged": 2,
+        "n_peers": 31
+      },
+      "model_plus_forensic": {
+        "cutoff": 0.2857,
+        "cutoff_ci95": [
+          0.0812,
+          0.5146
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 31
+      },
+      "full": {
+        "cutoff": 0.2857,
+        "cutoff_ci95": [
+          0.0812,
+          0.5146
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 31
+      },
+      "forensic_only": {
+        "cutoff": 0.0566,
+        "cutoff_ci95": [
+          0.0351,
+          0.0697
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 31
+      },
+      "soft_only": {
+        "cutoff": 0.02,
+        "cutoff_ci95": [
+          0.02,
+          0.02
+        ],
+        "caught": 1,
+        "n_defaulters": 10,
+        "recall": 0.1,
+        "recall_wilson95": [
+          0.018,
+          0.404
+        ],
+        "peers_flagged": 0,
+        "n_peers": 31
+      }
+    },
+    "recall_full": 0.0,
+    "recall_model_only": 0.2,
+    "secondary_polish_background": {
+      "universe": 800,
+      "budget": 40,
+      "background_default_rate": 0.02,
+      "draws": 500,
+      "recall_model_only": 0.0,
+      "recall_full": 0.0,
+      "recall_full_ci95_over_draws": [
+        0.0,
+        0.0
+      ],
+      "caveat": "Background firms are Polish hold-out firms; they receive Z'' and interest-cover overlays but no M/F/soft signals, which favours flagging Indian firms. Use the primary peer-cutoff metric for claims."
+    }
+  },
+  "lead_8q": {
+    "model": "production_8q",
+    "n_defaulters": 10,
+    "n_peers": 28,
+    "defaulters_evaluated": [
+      "Alok Industries",
+      "Bhushan Steel",
+      "Coffee Day Enterprises",
+      "DHFL",
+      "Future Retail",
+      "IL&FS Transportation Networks",
+      "Jet Airways",
+      "Reliance Capital",
+      "Reliance Communications",
+      "Sintex Industries"
+    ],
+    "defaulters_missing": [],
+    "primary_peer_cutoff": {
+      "model_only": {
+        "cutoff": 0.1193,
+        "cutoff_ci95": [
+          0.0657,
+          0.4199
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 28
+      },
+      "model_plus_forensic": {
+        "cutoff": 0.2308,
+        "cutoff_ci95": [
+          0.0657,
+          0.7265
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 28
+      },
+      "full": {
+        "cutoff": 0.2308,
+        "cutoff_ci95": [
+          0.0657,
+          0.7265
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 2,
+        "n_peers": 28
+      },
+      "forensic_only": {
+        "cutoff": 0.0434,
+        "cutoff_ci95": [
+          0.0268,
+          0.0697
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 1,
+        "n_peers": 28
+      },
+      "soft_only": {
+        "cutoff": 0.02,
+        "cutoff_ci95": [
+          0.02,
+          0.02
+        ],
+        "caught": 0,
+        "n_defaulters": 10,
+        "recall": 0.0,
+        "recall_wilson95": [
+          0.0,
+          0.278
+        ],
+        "peers_flagged": 0,
+        "n_peers": 28
+      }
+    },
+    "recall_full": 0.0,
+    "recall_model_only": 0.0,
+    "secondary_polish_background": {
+      "universe": 800,
+      "budget": 40,
+      "background_default_rate": 0.02,
+      "draws": 500,
+      "recall_model_only": 0.0,
+      "recall_full": 0.0,
+      "recall_full_ci95_over_draws": [
+        0.0,
+        0.0
+      ],
+      "caveat": "Background firms are Polish hold-out firms; they receive Z'' and interest-cover overlays but no M/F/soft signals, which favours flagging Indian firms. Use the primary peer-cutoff metric for claims."
+    }
+  }
+}

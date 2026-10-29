@@ -43,7 +43,14 @@ def model_input(bundle: dict, X: pd.DataFrame) -> pd.DataFrame:
     imp = bundle.get("imputer")
     if imp is None:
         return Xf
-    return pd.DataFrame(imp.transform(Xf), columns=Xf.columns, index=Xf.index)
+    out = pd.DataFrame(imp.transform(Xf), columns=Xf.columns, index=Xf.index)
+    if bundle.get("consistency_clamp"):
+        # v2: an imputed quick / cash-like ratio can never exceed the firm's own current ratio (quick <= current by definition)
+        cr = Xf["current_ratio"]
+        for c in ("quick_ratio", "cash_like_ratio"):
+            m = Xf[c].isna() & cr.notna()
+            out.loc[m, c] = np.minimum(out.loc[m, c], cr[m])
+    return out
 
 
 def predict_proba(bundle: dict, X: pd.DataFrame) -> np.ndarray:

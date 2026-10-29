@@ -198,3 +198,16 @@ def format_value(v: float, unit: str) -> str:
     if v is None or not np.isfinite(v):
         return "n/a"
     return f"{v*100:.1f}%" if unit == "pct" else f"{v:.2f}"
+
+
+# Credit-logic monotone constraints for the v2 model (+1: higher ratio may only RAISE risk, -1: only LOWER it,
+# 0: unconstrained because the sign flips with negative equity or losses). Set from credit logic, not fitted.
+MONOTONE = {
+    "net_profit_ta": -1, "liabilities_ta": +1, "wc_ta": -1, "current_ratio": -1, "retained_ta": -1, "ebit_ta": -1,
+    "equity_liab": -1, "asset_turn": -1, "equity_ta": -1, "gp_stl": -1, "ebitda_proxy_sales": -1, "int_adj_ta": -1,
+    "cf_liab": -1, "assets_liab": -1, "gp_ta": -1, "gp_sales": -1, "op_profit_ta": -1, "net_margin": -1,
+    "const_cap_ta": -1, "op_margin": -1, "quick_ratio": -1, "ebitda_ta": -1, "ebitda_margin": -1, "ca_liab": -1,
+    "stl_ta": +1, "cost_sales": +1, "ltl_equity": 0, "sales_stl": -1, "cf_liab2": -1, "netdebt_sales": +1,
+    "int_adj_sales": -1, "cash_like_ratio": -1, "gross_margin": -1, "sales_recv": -1, "stl_days_sales": +1,
+    "payback_days": 0, "inv_days_sales": +1, "recv_days": +1, "cl_days_cogs": +1,
+}

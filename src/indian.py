@@ -132,11 +132,16 @@ def assert_no_leakage(obs_df: pd.DataFrame) -> None:
 LEAD_BUNDLE = {4: ("production", ""), 8: ("production_8q", "_8q")}   # lead quarters -> (model bundle, artifact suffix)
 
 
-def _background(lead: int):
+def lead_bundle(lead: int, variant: str = "") -> tuple[str, str]:
+    name, suf = LEAD_BUNDLE[lead]
+    return name + variant, suf + variant
+
+
+def _background(lead: int, variant: str = ""):
     """Secondary method: 'rest of the book' = Polish hold-out firms of the lead-matched file, scored by the SAME model.
     They get the Z'' and interest-cover overlays (computable from Polish ratios); M/F/soft signals are not available
     for them, so this method slightly favours flagging Indian firms. The primary metric (peer cutoff) has no such bias."""
-    _, suf = LEAD_BUNDLE[lead]
+    _, suf = lead_bundle(lead, variant)
     h = pd.read_csv(ART / f"holdout_predictions{suf}.csv")
     df = pd.read_pickle(ART / f"polish_dedup{suf}.pkl")
     a = df.loc[h.row]
@@ -172,18 +177,19 @@ def peer_cutoff_recall(obs_df: pd.DataFrame, col: str, q: float = 0.95, n_boot: 
 
 
 def evaluate(lead_quarters=(4, 8), n_universe: int = 800, budget: int = 40, bg_rate: float = 0.02, draws: int = 500,
-             seed: int = 11, check_frozen: bool = True) -> dict:
+             seed: int = 11, check_frozen: bool = True, variant: str = "") -> dict:
+    """variant "" = primary pre-registered system; "_v2" = post-hoc monotone variant (separately frozen)."""
     from .config import verify_frozen
     if check_frozen:
-        verify_frozen()          # refuses to score Indian cases if the pre-registered configuration was edited
+        verify_frozen(variant)   # refuses to score Indian cases if the frozen configuration was edited
     fin, soft, ev, peers = load_financials(), load_soft(), load_events(), load_peers()
     ev = ev[(ev.tier == "core") & ev.event_date.notna()]
     rng = np.random.default_rng(seed)
     out = {}
     all_rows = []
     for lead in lead_quarters:
-        bundle = load_bundle(LEAD_BUNDLE[lead][0])
-        p_bg_model, p_bg_adj, y_bg = _background(lead)
+        bundle = load_bundle(lead_bundle(lead, variant)[0])
+        p_bg_model, p_bg_adj, y_bg = _background(lead, variant)
         rows = []
         for _, e in ev.iterrows():
             o = obs_date(e.event_date, lead)
@@ -239,7 +245,7 @@ def evaluate(lead_quarters=(4, 8), n_universe: int = 800, budget: int = 40, bg_r
         obs_df["drivers"] = [" | ".join(x["text"] for x in d) for d in dr]
         all_rows.append(obs_df)
         out[f"lead_{lead}q"] = dict(
-            model=LEAD_BUNDLE[lead][0], n_defaulters=int(obs_df.is_defaulter.sum()), n_peers=int((obs_df.is_defaulter == 0).sum()),
+            model=lead_bundle(lead, variant)[0], n_defaulters=int(obs_df.is_defaulter.sum()), n_peers=int((obs_df.is_defaulter == 0).sum()),
             defaulters_evaluated=sorted(obs_df.loc[obs_df.is_defaulter == 1, "company"].tolist()),
             defaulters_missing=sorted(set(ev.company) - set(obs_df.loc[obs_df.is_defaulter == 1, "company"])),
             primary_peer_cutoff=primary,
@@ -251,6 +257,6 @@ def evaluate(lead_quarters=(4, 8), n_universe: int = 800, budget: int = 40, bg_r
                 caveat="Background firms are Polish hold-out firms; they receive Z'' and interest-cover overlays but no M/F/soft "
                        "signals, which favours flagging Indian firms. Use the primary peer-cutoff metric for claims."))
     if all_rows:
-        pd.concat(all_rows).to_csv(ART / "indian_scored.csv", index=False)
-    (ART / "indian_summary.json").write_text(json.dumps(out, indent=2, default=float))
+        pd.concat(all_rows).to_csv(ART / f"indian_scored{variant}.csv", index=False)
+    (ART / f"indian_summary{variant}.json").write_text(json.dumps(out, indent=2, default=float))
     return out

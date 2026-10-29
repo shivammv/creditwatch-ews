@@ -47,10 +47,14 @@ def _synthetic(tmp):
 
 @pytest.fixture
 def no_synthetic_outputs():
-    """The synthetic panel must never leave results behind in artifacts/."""
+    """The synthetic panel must never leave results behind in artifacts/, and must not destroy real results either:
+    real files are backed up before the test and restored afterwards."""
+    saved = {f: (indian.ART / f).read_bytes() for f in ("indian_scored.csv", "indian_summary.json") if (indian.ART / f).exists()}
     yield
     for f in ("indian_scored.csv", "indian_summary.json"):
         (indian.ART / f).unlink(missing_ok=True)
+    for f, blob in saved.items():
+        (indian.ART / f).write_bytes(blob)
 
 def test_end_to_end_and_leakage_guard(tmp_path, monkeypatch, no_synthetic_outputs):
     fin = _synthetic(tmp_path)

@@ -38,7 +38,7 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import StratifiedKFold, train_test_split
 
-from .features import FEATURE_NAMES, polish_to_portable
+from .features import FEATURE_NAMES, MONOTONE, polish_to_portable
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "polish"
@@ -131,13 +131,17 @@ def _imp(imputer, X: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(imputer.transform(X), columns=X.columns, index=X.index)
 
 
-def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, impute: bool = True) -> tuple[dict, dict]:
+def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, impute: bool = True, monotone: bool = False) -> tuple[dict, dict]:
     """impute=True (production): median-impute missing ratios with statistics learned on training rows only, so that
     *missingness itself* cannot become a bankruptcy signal. In the UCI file missing values are concentrated in bankrupt
     firms (a data-collection artefact); an Indian firm with an uncollected line item must not be scored as distressed
     for that reason. impute=False is kept only for the 64-attribute REFERENCE model that demonstrates the artefact."""
     X_dev, X_te, y_dev, y_te = train_test_split(X, y, test_size=0.20, stratify=y, random_state=seed)
     new_imp = lambda: SimpleImputer(strategy="median", keep_empty_features=True) if impute else None
+    params = dict(LGB_PARAMS)
+    if monotone:   # v2: credit-logic monotone constraints (signs in src/features.py MONOTONE)
+        params["monotone_constraints"] = [MONOTONE.get(c, 0) for c in X.columns]
+        params["monotone_constraints_method"] = "advanced"
 
     # 5-fold Out-Of-Fold probabilities on dev set -> calibrator + threshold (imputer refitted inside every fold)
     oof = np.zeros(len(y_dev))
@@ -145,7 +149,7 @@ def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, imput
         imp = new_imp()
         if imp is not None:
             imp.fit(X_dev.iloc[tr])
-        m = LGBMClassifier(**LGB_PARAMS).fit(_imp(imp, X_dev.iloc[tr]), y_dev[tr])
+        m = LGBMClassifier(**params).fit(_imp(imp, X_dev.iloc[tr]), y_dev[tr])
         oof[va] = m.predict_proba(_imp(imp, X_dev.iloc[va]))[:, 1]
 
     cal = Calibrator().fit(oof, y_dev)
@@ -156,7 +160,7 @@ def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, imput
     imputer = new_imp()
     if imputer is not None:
         imputer.fit(X_dev)
-    model = LGBMClassifier(**LGB_PARAMS).fit(_imp(imputer, X_dev), y_dev)
+    model = LGBMClassifier(**params).fit(_imp(imputer, X_dev), y_dev)
     raw_te = model.predict_proba(_imp(imputer, X_te))[:, 1]
     p_te = cal.predict(raw_te)
 
@@ -249,6 +253,8 @@ def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, imput
         model=model,
         calibrator=cal,
         imputer=imputer,
+        consistency_clamp=bool(monotone),
+        monotone=bool(monotone),
         features=feat_names,
         bayes_threshold=BAYES_T,
         empirical_threshold=t_emp,
@@ -366,7 +372,7 @@ HORIZON_YEARS = {1: 5, 2: 4, 3: 3, 4: 2, 5: 1}
 
 
 def train_all(horizon: int = 5, run_full_comparison: bool = True, suffix: str = "", lead: str = "4q",
-              with_reference: bool = True) -> dict:
+              with_reference: bool = True, monotone: bool = False) -> dict:
     """
     Reproducible training workflow for ONE lead-time model.
       horizon : UCI file number (polish_{horizon}year.csv). 5 -> 1-year label horizon (4Q lead), 4 -> 2-year (8Q lead).
@@ -386,7 +392,8 @@ def train_all(horizon: int = 5, run_full_comparison: bool = True, suffix: str = 
     y = df["bankrupt"].astype(int).values
     attrs = [c for c in df.columns if c.startswith("Attr")]
 
-    prod_rep, prod = _fit_eval(polish_to_portable(df)[FEATURE_NAMES], y, f"production_india_portable_{lead}", impute=True)
+    prod_rep, prod = _fit_eval(polish_to_portable(df)[FEATURE_NAMES], y,
+                               f"production_india_portable_{lead}{'_monotone' if monotone else ''}", impute=True, monotone=monotone)
     if with_reference:
         ref_rep, ref = _fit_eval(df[attrs], y, "reference_all_64_native_nan", impute=False)
         ablation = artifact_ablation(df)
@@ -438,7 +445,7 @@ def train_all(horizon: int = 5, run_full_comparison: bool = True, suffix: str = 
 
     holdout = pd.DataFrame({"row": prod["test_idx"], "p": prod["p_test"], "y": prod["y_test"]})
     holdout.to_csv(ART / f"holdout_predictions{suffix}.csv", index=False)
-    if suffix == "":
+    if suffix in ("",):
         pd.DataFrame({"precision": prod["pr_curve"][0], "recall": prod["pr_curve"][1]}).to_csv(ART / "pr_curve.csv", index=False)
         pd.DataFrame({"fpr": prod["roc_curve"][0], "tpr": prod["roc_curve"][1]}).to_csv(ART / "roc_curve.csv", index=False)
         pd.DataFrame({"prob_true": prod["cal_curve"][0], "prob_pred": prod["cal_curve"][1]}).to_csv(
@@ -446,6 +453,13 @@ def train_all(horizon: int = 5, run_full_comparison: bool = True, suffix: str = 
         df[["bankrupt"]].assign(row=df.index).to_csv(ART / "polish_row_index.csv", index=False)
     df.to_pickle(ART / f"polish_dedup{suffix}.pkl")
     return report
+
+
+def train_v2_models() -> dict:
+    """v2 (post-hoc): same data, features, imputation and hyper-parameters, plus credit-logic monotone constraints."""
+    rep4 = train_all(horizon=LEAD_FILES["4q"], run_full_comparison=False, suffix="_v2", lead="4q", with_reference=False, monotone=True)
+    rep8 = train_all(horizon=LEAD_FILES["8q"], run_full_comparison=False, suffix="_8q_v2", lead="8q", with_reference=False, monotone=True)
+    return {"4q": rep4, "8q": rep8}
 
 
 def train_lead_models(run_full_comparison: bool = True) -> dict:

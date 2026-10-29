@@ -12,10 +12,10 @@
    "lead_years": 5,
    "n": 6945,
    "bankrupt_rate": 0.039,
-   "pr_auc": 0.3394,
+   "pr_auc": 0.3361,
    "pr_auc_ci95": [
-    0.2344,
-    0.49
+    0.2347,
+    0.4853
    ],
    "pr_auc_baseline": 0.0389,
    "recall_at_5pct": 0.4815
@@ -25,10 +25,10 @@
    "lead_years": 4,
    "n": 10083,
    "bankrupt_rate": 0.0395,
-   "pr_auc": 0.3991,
+   "pr_auc": 0.3918,
    "pr_auc_ci95": [
-    0.2965,
-    0.5079
+    0.287,
+    0.4991
    ],
    "pr_auc_baseline": 0.0397,
    "recall_at_5pct": 0.4375
@@ -38,39 +38,39 @@
    "lead_years": 3,
    "n": 10416,
    "bankrupt_rate": 0.0473,
-   "pr_auc": 0.3327,
+   "pr_auc": 0.3419,
    "pr_auc_ci95": [
-    0.2468,
-    0.4369
+    0.2545,
+    0.4458
    ],
    "pr_auc_baseline": 0.0475,
-   "recall_at_5pct": 0.3636
+   "recall_at_5pct": 0.3838
   },
   "4": {
    "file": "polish_4year.csv",
    "lead_years": 2,
    "n": 9710,
    "bankrupt_rate": 0.0528,
-   "pr_auc": 0.3922,
+   "pr_auc": 0.3946,
    "pr_auc_ci95": [
-    0.3047,
-    0.4753
+    0.3099,
+    0.479
    ],
    "pr_auc_baseline": 0.053,
-   "recall_at_5pct": 0.3786
+   "recall_at_5pct": 0.3495
   },
   "5": {
    "file": "polish_5year.csv",
    "lead_years": 1,
    "n": 5850,
    "bankrupt_rate": 0.0697,
-   "pr_auc": 0.4844,
+   "pr_auc": 0.4857,
    "pr_auc_ci95": [
-    0.3779,
-    0.6021
+    0.376,
+    0.6093
    ],
    "pr_auc_baseline": 0.0701,
-   "recall_at_5pct": 0.4024
+   "recall_at_5pct": 0.3902
   }
  },
  "cross_file": [
