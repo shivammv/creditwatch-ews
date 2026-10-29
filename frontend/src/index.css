@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl border border-slate-200/90 shadow-sm p-5 transition-shadow;
+  }
+
+  .metric-card {
+    @apply bg-white rounded-xl border border-slate-200/90 shadow-sm p-4 transition-all hover:shadow;
+  }
+
+  .btn {
+    @apply px-3.5 py-2 rounded-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed text-xs;
+  }
+
+  .btn-primary {
+    @apply bg-brand-700 text-white hover:bg-brand-800 focus:ring-brand-500 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 hover:text-slate-900 focus:ring-slate-400 shadow-sm;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold;
+  }
+
+  .badge-primary {
+    @apply bg-brand-50 text-brand-800 border border-brand-200;
+  }
+
+  .badge-danger {
+    @apply bg-red-50 text-red-800 border border-red-200;
+  }
+
+  .badge-warning {
+    @apply bg-amber-50 text-amber-800 border border-amber-200;
+  }
+
+  .badge-success {
+    @apply bg-emerald-50 text-emerald-800 border border-emerald-200;
+  }
+
+  .badge-neutral {
+    @apply bg-slate-100 text-slate-700 border border-slate-200;
+  }
+}
+
+/* Custom scrollbars for enterprise data tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}

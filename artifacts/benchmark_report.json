@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "dataset": "UCI Polish Companies Bankruptcy, file polish_1year.csv",
+    "model_version": "2.0.0-production",
+    "training_timestamp": "2026-10-27T07:11:39.823822+00:00",
+    "training_duration_seconds": 106.69,
+    "n_rows": 6945,
+    "n_duplicates_removed": 82,
+    "bankrupt_rate": 0.039,
+    "missing_cell_rate": 0.013,
+    "rows_with_any_missing": 0.546,
+    "split": "80/20 stratified; dev-set 5-fold OOF for calibration+threshold; hold-out touched once",
+    "horizon_note": "UCI documents the '1year' file as ratios from the first of five forecasting years with the bankruptcy label observed 5 years later, i.e. a LONG lead time (~5 years). Multi-horizon lead curve written by src/horizons.py.",
+    "no_calendar_time": "The dataset has no calendar dates, so a time-ordered split is impossible; the hold-out is a company-disjoint, never-seen-during-fitting sample. Treat PR-AUC as an upper bound on out-of-time performance.",
+    "cost": {
+      "fn": 20.0,
+      "fp": 1.0,
+      "bayes_threshold": 0.0476
+    },
+    "leakage_controls": [
+      "duplicates removed pre-split",
+      "hold-out carved first and untouched during tuning",
+      "no imputation (native NaN)",
+      "calibration + threshold on dev-set OOF only",
+      "no post-event data in any feature"
+    ],
+    "hyperparameters": {
+      "n_estimators": 400,
+      "learning_rate": 0.03,
+      "num_leaves": 15,
+      "min_child_samples": 15,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 5.0,
+      "random_state": 42,
+      "verbose": -1,
+      "n_jobs": 2
+    }
+  },
+  "production": {
+    "name": "production_india_portable",
+    "n_features": 39,
+    "n_dev": 5556,
+    "n_test": 1389,
+    "test_positives": 54,
+    "test_negatives": 1335,
+    "test_bankrupt_rate": 0.0389,
+    "pr_auc": 0.3394,
+    "pr_auc_ci95": [
+      0.2344,
+      0.49
+    ],
+    "pr_auc_baseline": 0.0389,
+    "roc_auc": 0.8179,
+    "roc_auc_ci95": [
+      0.7579,
+      0.8755
+    ],
+    "brier_score": 0.03144,
+    "oof_pr_auc": 0.2036,
+    "oof_roc_auc": 0.7978,
+    "oof_brier_score": 0.03432,
+    "at_bayes_threshold": {
+      "threshold": 0.0476,
+      "tp": 38,
+      "fp": 289,
+      "fn": 16,
+      "tn": 1046,
+      "precision": 0.1162,
+      "recall": 0.7037,
+      "f1_score": 0.1995,
+      "accuracy": 0.7804,
+      "alert_rate": 0.2354,
+      "expected_cost": 609.0
+    },
+    "at_empirical_threshold": {
+      "threshold": 0.035,
+      "tp": 40,
+      "fp": 410,
+      "fn": 14,
+      "tn": 925,
+      "precision": 0.0889,
+      "recall": 0.7407,
+      "f1_score": 0.1587,
+      "accuracy": 0.6947,
+      "alert_rate": 0.324,
+      "expected_cost": 690.0
+    },
+    "at_5pct_cap": {
+      "k": 70,
+      "budget_pct": 0.05,
+      "hits": 26,
+      "misses": 28,
+      "recall": 0.4815,
+      "precision": 0.3714,
+      "expected_cost": 604.0
+    },
+    "baseline_flag_none": {
+      "expected_cost": 1080.0,
+      "recall": 0.0,
+      "alerts": 0
+    },
+    "baseline_flag_all": {
+      "expected_cost": 1335.0,
+      "recall": 1.0,
+      "alerts": 1389
+    },
+    "empirical_threshold_oof": 0.035,
+    "bayes_threshold": 0.0476,
+    "feature_importances": [
+      {
+        "feature": "quick_ratio",
+        "importance": 366
+      },
+      {
+        "feature": "retained_ta",
+        "importance": 360
+      },
+      {
+        "feature": "inv_days_sales",
+        "importance": 328
+      },
+      {
+        "feature": "cost_sales",
+        "importance": 306
+      },
+      {
+        "feature": "cash_like_ratio",
+        "importance": 240
+      },
+      {
+        "feature": "sales_recv",
+        "importance": 234
+      },
+      {
+        "feature": "asset_turn",
+        "importance": 205
+      },
+      {
+        "feature": "wc_ta",
+        "importance": 201
+      },
+      {
+        "feature": "gross_margin",
+        "importance": 184
+      },
+      {
+        "feature": "netdebt_sales",
+        "importance": 181
+      },
+      {
+        "feature": "ltl_equity",
+        "importance": 166
+      },
+      {
+        "feature": "ebitda_proxy_sales",
+        "importance": 162
+      },
+      {
+        "feature": "ebitda_ta",
+        "importance": 161
+      },
+      {
+        "feature": "ca_liab",
+        "importance": 154
+      },
+      {
+        "feature": "op_profit_ta",
+        "importance": 148
+      }
+    ]
+  },
+  "reference": {
+    "name": "reference_all_64",
+    "n_features": 64,
+    "n_dev": 5556,
+    "n_test": 1389,
+    "test_positives": 54,
+    "test_negatives": 1335,
+    "test_bankrupt_rate": 0.0389,
+    "pr_auc": 0.783,
+    "pr_auc_ci95": [
+      0.6629,
+      0.8727
+    ],
+    "pr_auc_baseline": 0.0389,
+    "roc_auc": 0.961,
+    "roc_auc_ci95": [
+      0.9301,
+      0.9824
+    ],
+    "brier_score": 0.01543,
+    "oof_pr_auc": 0.7389,
+    "oof_roc_auc": 0.9504,
+    "oof_brier_score": 0.01678,
+    "at_bayes_threshold": {
+      "threshold": 0.0476,
+      "tp": 46,
+      "fp": 98,
+      "fn": 8,
+      "tn": 1237,
+      "precision": 0.3194,
+      "recall": 0.8519,
+      "f1_score": 0.4646,
+      "accuracy": 0.9237,
+      "alert_rate": 0.1037,
+      "expected_cost": 258.0
+    },
+    "at_empirical_threshold": {
+      "threshold": 0.045,
+      "tp": 46,
+      "fp": 105,
+      "fn": 8,
+      "tn": 1230,
+      "precision": 0.3046,
+      "recall": 0.8519,
+      "f1_score": 0.4488,
+      "accuracy": 0.9186,
+      "alert_rate": 0.1087,
+      "expected_cost": 265.0
+    },
+    "at_5pct_cap": {
+      "k": 70,
+      "budget_pct": 0.05,
+      "hits": 42,
+      "misses": 12,
+      "recall": 0.7778,
+      "precision": 0.6,
+      "expected_cost": 268.0
+    },
+    "baseline_flag_none": {
+      "expected_cost": 1080.0,
+      "recall": 0.0,
+      "alerts": 0
+    },
+    "baseline_flag_all": {
+      "expected_cost": 1335.0,
+      "recall": 1.0,
+      "alerts": 1389
+    },
+    "empirical_threshold_oof": 0.045,
+    "bayes_threshold": 0.0476,
+    "feature_importances": [
+      {
+        "feature": "Attr27",
+        "importance": 480
+      },
+      {
+        "feature": "Attr5",
+        "importance": 259
+      },
+      {
+        "feature": "Attr34",
+        "importance": 253
+      },
+      {
+        "feature": "Attr46",
+        "importance": 253
+      },
+      {
+        "feature": "Attr11",
+        "importance": 250
+      },
+      {
+        "feature": "Attr21",
+        "importance": 240
+      },
+      {
+        "feature": "Attr29",
+        "importance": 228
+      },
+      {
+        "feature": "Attr58",
+        "importance": 224
+      },
+      {
+        "feature": "Attr9",
+        "importance": 161
+      },
+      {
+        "feature": "Attr24",
+        "importance": 151
+      },
+      {
+        "feature": "Attr45",
+        "importance": 151
+      },
+      {
+        "feature": "Attr37",
+        "importance": 150
+      },
+      {
+        "feature": "Attr47",
+        "importance": 129
+      },
+      {
+        "feature": "Attr25",
+        "importance": 111
+      },
+      {
+        "feature": "Attr40",
+        "importance": 102
+      }
+    ]
+  },
+  "ablation": {
+    "all_64_attributes": 0.766,
+    "all_64_minus_Attr27": 0.368,
+    "india_portable_39": 0.243,
+    "india_portable_39_plus_Attr27_missing_flag": 0.697,
+    "attr27_missing_flag_only": 0.186,
+    "note": "Attr27 (operating profit / financial expenses) is NaN for 309 firms of which 38.8% went bankrupt (2.3% otherwise). That missing-data pattern, not the ratio itself, carries about half of the apparent skill of the 64-attribute model and cannot transfer to Indian filings (a debt-free company has zero interest cost). The production model therefore excludes it."
+  },
+  "model_comparison": [
+    {
+      "model": "Logistic Regression (Median Imputed + Scaled)",
+      "pr_auc": 0.1154,
+      "roc_auc": 0.7385,
+      "brier_score": 0.19179,
+      "recall_at_5pct": 0.2166,
+      "cv_training_time_sec": 6.04,
+      "supports_native_nan": false,
+      "selected_as_production": false
+    },
+    {
+      "model": "Random Forest (Median Imputed)",
+      "pr_auc": 0.1413,
+      "roc_auc": 0.7617,
+      "brier_score": 0.07781,
+      "recall_at_5pct": 0.2488,
+      "cv_training_time_sec": 14.39,
+      "supports_native_nan": false,
+      "selected_as_production": false
+    },
+    {
+      "model": "XGBoost (Native NaN)",
+      "pr_auc": 0.2139,
+      "roc_auc": 0.8012,
+      "brier_score": 0.0342,
+      "recall_at_5pct": 0.3041,
+      "cv_training_time_sec": 8.49,
+      "supports_native_nan": true,
+      "selected_as_production": false
+    },
+    {
+      "model": "LightGBM Baseline (Native NaN)",
+      "pr_auc": 0.2036,
+      "roc_auc": 0.7978,
+      "brier_score": 0.03455,
+      "recall_at_5pct": 0.3134,
+      "cv_training_time_sec": 6.6,
+      "supports_native_nan": true,
+      "selected_as_production": true
+    },
+    {
+      "model": "LightGBM Optimized (Native NaN)",
+      "pr_auc": 0.2148,
+      "roc_auc": 0.7976,
+      "brier_score": 0.03418,
+      "recall_at_5pct": 0.318,
+      "cv_training_time_sec": 5.67,
+      "supports_native_nan": true,
+      "selected_as_production": true
+    },
+    {
+      "model": "LightGBM (Median Imputed)",
+      "pr_auc": 0.2097,
+      "roc_auc": 0.7945,
+      "brier_score": 0.03431,
+      "recall_at_5pct": 0.3041,
+      "cv_training_time_sec": 4.61,
+      "supports_native_nan": false,
+      "selected_as_production": false
+    }
+  ]
+}

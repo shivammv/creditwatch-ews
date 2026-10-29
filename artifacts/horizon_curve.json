@@ -1,0 +1,259 @@
+{
+ "files_found": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "within_file": {
+  "1": {
+   "file": "polish_1year.csv",
+   "lead_years": 5,
+   "n": 6945,
+   "bankrupt_rate": 0.039,
+   "pr_auc": 0.3394,
+   "pr_auc_ci95": [
+    0.2344,
+    0.49
+   ],
+   "pr_auc_baseline": 0.0389,
+   "recall_at_5pct": 0.4815
+  },
+  "2": {
+   "file": "polish_2year.csv",
+   "lead_years": 4,
+   "n": 10083,
+   "bankrupt_rate": 0.0395,
+   "pr_auc": 0.3991,
+   "pr_auc_ci95": [
+    0.2965,
+    0.5079
+   ],
+   "pr_auc_baseline": 0.0397,
+   "recall_at_5pct": 0.4375
+  },
+  "3": {
+   "file": "polish_3year.csv",
+   "lead_years": 3,
+   "n": 10416,
+   "bankrupt_rate": 0.0473,
+   "pr_auc": 0.3327,
+   "pr_auc_ci95": [
+    0.2468,
+    0.4369
+   ],
+   "pr_auc_baseline": 0.0475,
+   "recall_at_5pct": 0.3636
+  },
+  "4": {
+   "file": "polish_4year.csv",
+   "lead_years": 2,
+   "n": 9710,
+   "bankrupt_rate": 0.0528,
+   "pr_auc": 0.3922,
+   "pr_auc_ci95": [
+    0.3047,
+    0.4753
+   ],
+   "pr_auc_baseline": 0.053,
+   "recall_at_5pct": 0.3786
+  },
+  "5": {
+   "file": "polish_5year.csv",
+   "lead_years": 1,
+   "n": 5850,
+   "bankrupt_rate": 0.0697,
+   "pr_auc": 0.4844,
+   "pr_auc_ci95": [
+    0.3779,
+    0.6021
+   ],
+   "pr_auc_baseline": 0.0701,
+   "recall_at_5pct": 0.4024
+  }
+ },
+ "cross_file": [
+  {
+   "train_file": 1,
+   "test_file": 2,
+   "train_lead_years": 5,
+   "test_lead_years": 4,
+   "pr_auc": 0.23433226461667778,
+   "baseline": 0.03947237925220669,
+   "recall_at_5pct": 0.3165829145728643
+  },
+  {
+   "train_file": 1,
+   "test_file": 3,
+   "train_lead_years": 5,
+   "test_lead_years": 3,
+   "pr_auc": 0.2470333413328476,
+   "baseline": 0.047331029185867894,
+   "recall_at_5pct": 0.30425963488843816
+  },
+  {
+   "train_file": 1,
+   "test_file": 4,
+   "train_lead_years": 5,
+   "test_lead_years": 2,
+   "pr_auc": 0.302111206457233,
+   "baseline": 0.052832131822863025,
+   "recall_at_5pct": 0.3333333333333333
+  },
+  {
+   "train_file": 1,
+   "test_file": 5,
+   "train_lead_years": 5,
+   "test_lead_years": 1,
+   "pr_auc": 0.4278687197249439,
+   "baseline": 0.06974358974358974,
+   "recall_at_5pct": 0.3480392156862745
+  },
+  {
+   "train_file": 2,
+   "test_file": 1,
+   "train_lead_years": 4,
+   "test_lead_years": 5,
+   "pr_auc": 0.3881280910602854,
+   "baseline": 0.039020878329733624,
+   "recall_at_5pct": 0.42066420664206644
+  },
+  {
+   "train_file": 2,
+   "test_file": 3,
+   "train_lead_years": 4,
+   "test_lead_years": 3,
+   "pr_auc": 0.3800583280322285,
+   "baseline": 0.047331029185867894,
+   "recall_at_5pct": 0.39553752535496955
+  },
+  {
+   "train_file": 2,
+   "test_file": 4,
+   "train_lead_years": 4,
+   "test_lead_years": 2,
+   "pr_auc": 0.3942924590318801,
+   "baseline": 0.052832131822863025,
+   "recall_at_5pct": 0.3840155945419103
+  },
+  {
+   "train_file": 2,
+   "test_file": 5,
+   "train_lead_years": 4,
+   "test_lead_years": 1,
+   "pr_auc": 0.45801312572555086,
+   "baseline": 0.06974358974358974,
+   "recall_at_5pct": 0.35784313725490197
+  },
+  {
+   "train_file": 3,
+   "test_file": 1,
+   "train_lead_years": 3,
+   "test_lead_years": 5,
+   "pr_auc": 0.3690755371686988,
+   "baseline": 0.039020878329733624,
+   "recall_at_5pct": 0.45387453874538747
+  },
+  {
+   "train_file": 3,
+   "test_file": 2,
+   "train_lead_years": 3,
+   "test_lead_years": 4,
+   "pr_auc": 0.35941958535063073,
+   "baseline": 0.03947237925220669,
+   "recall_at_5pct": 0.40703517587939697
+  },
+  {
+   "train_file": 3,
+   "test_file": 4,
+   "train_lead_years": 3,
+   "test_lead_years": 2,
+   "pr_auc": 0.42418829931079566,
+   "baseline": 0.052832131822863025,
+   "recall_at_5pct": 0.4152046783625731
+  },
+  {
+   "train_file": 3,
+   "test_file": 5,
+   "train_lead_years": 3,
+   "test_lead_years": 1,
+   "pr_auc": 0.49915797874516954,
+   "baseline": 0.06974358974358974,
+   "recall_at_5pct": 0.3872549019607843
+  },
+  {
+   "train_file": 4,
+   "test_file": 1,
+   "train_lead_years": 2,
+   "test_lead_years": 5,
+   "pr_auc": 0.3750345351655589,
+   "baseline": 0.039020878329733624,
+   "recall_at_5pct": 0.42435424354243545
+  },
+  {
+   "train_file": 4,
+   "test_file": 2,
+   "train_lead_years": 2,
+   "test_lead_years": 4,
+   "pr_auc": 0.2884423109006472,
+   "baseline": 0.03947237925220669,
+   "recall_at_5pct": 0.32663316582914576
+  },
+  {
+   "train_file": 4,
+   "test_file": 3,
+   "train_lead_years": 2,
+   "test_lead_years": 3,
+   "pr_auc": 0.3689212877357742,
+   "baseline": 0.047331029185867894,
+   "recall_at_5pct": 0.39553752535496955
+  },
+  {
+   "train_file": 4,
+   "test_file": 5,
+   "train_lead_years": 2,
+   "test_lead_years": 1,
+   "pr_auc": 0.5524346793984275,
+   "baseline": 0.06974358974358974,
+   "recall_at_5pct": 0.4338235294117647
+  },
+  {
+   "train_file": 5,
+   "test_file": 1,
+   "train_lead_years": 1,
+   "test_lead_years": 5,
+   "pr_auc": 0.22180899746921248,
+   "baseline": 0.039020878329733624,
+   "recall_at_5pct": 0.2988929889298893
+  },
+  {
+   "train_file": 5,
+   "test_file": 2,
+   "train_lead_years": 1,
+   "test_lead_years": 4,
+   "pr_auc": 0.1576184354752223,
+   "baseline": 0.03947237925220669,
+   "recall_at_5pct": 0.2562814070351759
+  },
+  {
+   "train_file": 5,
+   "test_file": 3,
+   "train_lead_years": 1,
+   "test_lead_years": 3,
+   "pr_auc": 0.20249663476549065,
+   "baseline": 0.047331029185867894,
+   "recall_at_5pct": 0.24949290060851928
+  },
+  {
+   "train_file": 5,
+   "test_file": 4,
+   "train_lead_years": 1,
+   "test_lead_years": 2,
+   "pr_auc": 0.2765057552414681,
+   "baseline": 0.052832131822863025,
+   "recall_at_5pct": 0.30994152046783624
+  }
+ ],
+ "warning": "Cross-file rows are NOT company-disjoint (same firms recur across horizon files); treat as optimistic."
+}

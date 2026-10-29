@@ -1,0 +1,961 @@
+row,risk,defaulted_within_horizon_hindsight,rank,borrower,drivers,memo,in_budget
+6813,0.5253674844168934,1,1,Borrower-6813,Quick ratio of 0.11 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Net cash earnings repay only -0.41x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Net margin is -55.5% (healthy peers 4.4%); the business is barely profitable after all costs.,"WATCH-LIST MEMO | Borrower-6813 | Rank #1 | Risk 52.5% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.11 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Net cash earnings repay only -0.41x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Net margin is -55.5% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5645,0.4287371181701181,0,2,Borrower-5645,Quick ratio of 0.15 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Costs absorb 0.92 of sales (healthy peers 0.94); there is no operating headroom. | Cash-style margin is -0.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-5645 | Rank #2 | Risk 42.9% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.15 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Costs absorb 0.92 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 3: Cash-style margin is -0.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6892,0.4253607639115186,1,3,Borrower-6892,Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 4.6% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Costs absorb 0.98 of sales (healthy peers 0.94); there is no operating headroom.,"WATCH-LIST MEMO | Borrower-6892 | Rank #3 | Risk 42.5% (calibrated distress probability)
+  Driver 1: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-style margin is 4.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Costs absorb 0.98 of sales (healthy peers 0.94); there is no operating headroom.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3440,0.4233269893903075,0,4,Borrower-3440,Quick ratio of 0.16 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Net margin is -44.5% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.17x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-3440 | Rank #4 | Risk 42.3% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.16 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Net margin is -44.5% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 3: Net cash earnings repay only -0.17x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6912,0.3647336611722585,1,5,Borrower-6912,Quick ratio of 0.10 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Net margin is -23.4% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.07x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-6912 | Rank #5 | Risk 36.5% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.10 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Net margin is -23.4% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 3: Net cash earnings repay only -0.07x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6928,0.3634488578022914,1,6,Borrower-6928,Quick ratio of 0.05 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 1.4% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Gross margin is 1.1% (healthy peers 6.4%); pricing power or input-cost control is weak.,"WATCH-LIST MEMO | Borrower-6928 | Rank #6 | Risk 36.3% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.05 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Cash-style margin is 1.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Gross margin is 1.1% (healthy peers 6.4%); pricing power or input-cost control is weak.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+769,0.3437803974073832,0,7,Borrower-0769,Quick ratio of 0.27 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Costs absorb 0.96 of sales (healthy peers 0.94); there is no operating headroom. | Cash-style margin is 2.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-0769 | Rank #7 | Risk 34.4% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.27 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Costs absorb 0.96 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 3: Cash-style margin is 2.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6728,0.3383996021502187,1,8,Borrower-6728,Retained earnings are 0.7% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 3.1% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Current liabilities equal 87.46 days of cost of goods (healthy peers 75.26); the firm is stretching suppliers and short-term creditors.,"WATCH-LIST MEMO | Borrower-6728 | Rank #8 | Risk 33.8% (calibrated distress probability)
+  Driver 1: Retained earnings are 0.7% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-style margin is 3.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Current liabilities equal 87.46 days of cost of goods (healthy peers 75.26); the firm is stretching suppliers and short-term creditors.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3348,0.2812480753896602,0,9,Borrower-3348,Quick ratio of 0.06 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Net margin is -33.8% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.36x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-3348 | Rank #9 | Risk 28.1% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.06 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Net margin is -33.8% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 3: Net cash earnings repay only -0.36x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6871,0.2672474234215809,1,10,Borrower-6871,"Quick ratio of 0.07 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Inventory equals 2.26 days of sales (healthy peers 35.70); stock is building up, tying cash and risking write-downs. | Cash-style margin is 1.9% (healthy peers 8.3%); operations generate little cash per rupee of sales.","WATCH-LIST MEMO | Borrower-6871 | Rank #10 | Risk 26.7% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.07 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Inventory equals 2.26 days of sales (healthy peers 35.70); stock is building up, tying cash and risking write-downs.
+  Driver 3: Cash-style margin is 1.9% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4892,0.2655574056981221,0,11,Borrower-4892,Costs absorb 0.79 of sales (healthy peers 0.94); there is no operating headroom. | Cash-style margin is 0.4% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-4892 | Rank #11 | Risk 26.6% (calibrated distress probability)
+  Driver 1: Costs absorb 0.79 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Cash-style margin is 0.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+675,0.2505734474060932,0,12,Borrower-0675,Costs absorb 0.84 of sales (healthy peers 0.94); there is no operating headroom. | Retained earnings are 0.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Net cash earnings repay only 0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-0675 | Rank #12 | Risk 25.1% (calibrated distress probability)
+  Driver 1: Costs absorb 0.84 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Retained earnings are 0.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 3: Net cash earnings repay only 0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4972,0.206622652594061,0,13,Borrower-4972,Quick ratio of 0.51 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 5.1% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are -18.1% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-4972 | Rank #13 | Risk 20.7% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.51 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Cash-style margin is 5.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are -18.1% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5240,0.2050481510561487,0,14,Borrower-5240,Quick ratio of 0.51 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 2.6% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are -53.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-5240 | Rank #14 | Risk 20.5% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.51 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Cash-style margin is 2.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are -53.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4895,0.2010180598220416,0,15,Borrower-4895,Costs absorb 0.76 of sales (healthy peers 0.94); there is no operating headroom. | Quick ratio of 0.27 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 1.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-4895 | Rank #15 | Risk 20.1% (calibrated distress probability)
+  Driver 1: Costs absorb 0.76 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Quick ratio of 0.27 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 3: Cash-style margin is 1.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4978,0.1893760677472159,0,16,Borrower-4978,Retained earnings are -11.3% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Quick ratio of 0.50 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 0.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-4978 | Rank #16 | Risk 18.9% (calibrated distress probability)
+  Driver 1: Retained earnings are -11.3% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Quick ratio of 0.50 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 3: Cash-style margin is 0.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4177,0.1861393921171495,0,17,Borrower-4177,Net margin is -77.0% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.69x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Cash-style margin is -74.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-4177 | Rank #17 | Risk 18.6% (calibrated distress probability)
+  Driver 1: Net margin is -77.0% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Net cash earnings repay only -0.69x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Cash-style margin is -74.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5463,0.1832218492584638,0,18,Borrower-5463,Retained earnings are 2.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 2.1% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Quick ratio of 0.67 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.,"WATCH-LIST MEMO | Borrower-5463 | Rank #18 | Risk 18.3% (calibrated distress probability)
+  Driver 1: Retained earnings are 2.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-style margin is 2.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Quick ratio of 0.67 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3818,0.1633775467113413,0,19,Borrower-3818,Quick ratio of 0.29 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 2.6% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are -22.1% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-3818 | Rank #19 | Risk 16.3% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.29 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Cash-style margin is 2.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are -22.1% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4547,0.1610337991441303,0,20,Borrower-4547,Cash-style margin is 3.4% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Cash-like assets cover only 0.03x of current liabilities (healthy peers 0.16x); immediate liquidity is thin. | Retained earnings are 11.4% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-4547 | Rank #20 | Risk 16.1% (calibrated distress probability)
+  Driver 1: Cash-style margin is 3.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 2: Cash-like assets cover only 0.03x of current liabilities (healthy peers 0.16x); immediate liquidity is thin.
+  Driver 3: Retained earnings are 11.4% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3261,0.1570516885842106,0,21,Borrower-3261,Retained earnings are 3.6% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-like assets cover only 0.03x of current liabilities (healthy peers 0.16x); immediate liquidity is thin. | Cash-style margin is 5.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-3261 | Rank #21 | Risk 15.7% (calibrated distress probability)
+  Driver 1: Retained earnings are 3.6% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-like assets cover only 0.03x of current liabilities (healthy peers 0.16x); immediate liquidity is thin.
+  Driver 3: Cash-style margin is 5.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6696,0.1495065680410693,1,22,Borrower-6696,Net margin is -14.1% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.14x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-6696 | Rank #22 | Risk 15.0% (calibrated distress probability)
+  Driver 1: Net margin is -14.1% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Net cash earnings repay only -0.14x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5423,0.1494484365366648,0,23,Borrower-5423,Costs absorb 0.04 of sales (healthy peers 0.94); there is no operating headroom. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Net cash earnings repay only 0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.,"WATCH-LIST MEMO | Borrower-5423 | Rank #23 | Risk 14.9% (calibrated distress probability)
+  Driver 1: Costs absorb 0.04 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 3: Net cash earnings repay only 0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3847,0.1484384505478072,0,24,Borrower-3847,Net margin is -12.4% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.03x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Cash-style margin is -3.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-3847 | Rank #24 | Risk 14.8% (calibrated distress probability)
+  Driver 1: Net margin is -12.4% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Net cash earnings repay only -0.03x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Cash-style margin is -3.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5308,0.147152970570692,0,25,Borrower-5308,Retained earnings are 2.3% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 1.7% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Quick ratio of 0.54 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.,"WATCH-LIST MEMO | Borrower-5308 | Rank #25 | Risk 14.7% (calibrated distress probability)
+  Driver 1: Retained earnings are 2.3% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-style margin is 1.7% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Quick ratio of 0.54 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6880,0.1330576146137494,1,26,Borrower-6880,"Quick ratio of 0.25 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Inventory equals 4.49 days of sales (healthy peers 35.70); stock is building up, tying cash and risking write-downs. | Costs absorb 0.89 of sales (healthy peers 0.94); there is no operating headroom.","WATCH-LIST MEMO | Borrower-6880 | Rank #26 | Risk 13.3% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.25 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Inventory equals 4.49 days of sales (healthy peers 35.70); stock is building up, tying cash and risking write-downs.
+  Driver 3: Costs absorb 0.89 of sales (healthy peers 0.94); there is no operating headroom.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4662,0.1303368624671755,0,27,Borrower-4662,Long-term funding is 23.7% of assets (healthy peers 59.6%); long assets may be funded with short-term money (ALM risk). | EBITDA is 18.1% of assets (healthy peers 4.4%); cash operating returns are low. | Cash-style margin is 2.9% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-4662 | Rank #27 | Risk 13.0% (calibrated distress probability)
+  Driver 1: Long-term funding is 23.7% of assets (healthy peers 59.6%); long assets may be funded with short-term money (ALM risk).
+  Driver 2: EBITDA is 18.1% of assets (healthy peers 4.4%); cash operating returns are low.
+  Driver 3: Cash-style margin is 2.9% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+1081,0.1301985139140669,0,28,Borrower-1081,Net cash earnings repay only -0.90x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Net margin is -39.6% (healthy peers 4.4%); the business is barely profitable after all costs. | Cash-style margin is -31.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-1081 | Rank #28 | Risk 13.0% (calibrated distress probability)
+  Driver 1: Net cash earnings repay only -0.90x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 2: Net margin is -39.6% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 3: Cash-style margin is -31.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+202,0.127888816188544,0,29,Borrower-0202,Net margin is -14.1% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.09x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Retained earnings are -0.6% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-0202 | Rank #29 | Risk 12.8% (calibrated distress probability)
+  Driver 1: Net margin is -14.1% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Net cash earnings repay only -0.09x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Retained earnings are -0.6% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+3177,0.1274483239083382,0,30,Borrower-3177,Net cash earnings repay only -0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is -0.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-3177 | Rank #30 | Risk 12.7% (calibrated distress probability)
+  Driver 1: Net cash earnings repay only -0.00x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 2: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 3: Cash-style margin is -0.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4807,0.1241787999783792,0,31,Borrower-4807,Net cash earnings repay only -1.38x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Net margin is -49.1% (healthy peers 4.4%); the business is barely profitable after all costs. | Cash-style margin is -47.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-4807 | Rank #31 | Risk 12.4% (calibrated distress probability)
+  Driver 1: Net cash earnings repay only -1.38x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 2: Net margin is -49.1% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 3: Cash-style margin is -47.0% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+6396,0.1218981263001731,0,32,Borrower-6396,Retained earnings are 2.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Net cash earnings repay only -0.06x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Cash-style margin is -0.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-6396 | Rank #32 | Risk 12.2% (calibrated distress probability)
+  Driver 1: Retained earnings are 2.5% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Net cash earnings repay only -0.06x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Cash-style margin is -0.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+878,0.1178441329669802,0,33,Borrower-0878,Costs absorb 0.92 of sales (healthy peers 0.94); there is no operating headroom. | Cash-style margin is 6.6% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are 8.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-0878 | Rank #33 | Risk 11.8% (calibrated distress probability)
+  Driver 1: Costs absorb 0.92 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Cash-style margin is 6.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are 8.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+1678,0.1126755822607785,0,34,Borrower-1678,Retained earnings are -2.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 2.4% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Net margin is -0.2% (healthy peers 4.4%); the business is barely profitable after all costs.,"WATCH-LIST MEMO | Borrower-1678 | Rank #34 | Risk 11.3% (calibrated distress probability)
+  Driver 1: Retained earnings are -2.2% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 2: Cash-style margin is 2.4% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Net margin is -0.2% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+4859,0.1121589657692784,0,35,Borrower-4859,Costs absorb 0.89 of sales (healthy peers 0.94); there is no operating headroom. | Cash-style margin is 4.9% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Quick ratio of 0.26 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.,"WATCH-LIST MEMO | Borrower-4859 | Rank #35 | Risk 11.2% (calibrated distress probability)
+  Driver 1: Costs absorb 0.89 of sales (healthy peers 0.94); there is no operating headroom.
+  Driver 2: Cash-style margin is 4.9% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Quick ratio of 0.26 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5953,0.1114180823412251,0,36,Borrower-5953,Net cash earnings repay only -0.15x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is -7.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-5953 | Rank #36 | Risk 11.1% (calibrated distress probability)
+  Driver 1: Net cash earnings repay only -0.15x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 2: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 3: Cash-style margin is -7.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+1906,0.1078122900073434,0,37,Borrower-1906,Quick ratio of 0.21 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion. | Cash-style margin is 6.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-1906 | Rank #37 | Risk 10.8% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.21 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Retained earnings are 0.0% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Driver 3: Cash-style margin is 6.8% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5795,0.106725816778621,0,38,Borrower-5795,Net margin is -30.3% (healthy peers 4.4%); the business is barely profitable after all costs. | Net cash earnings repay only -0.11x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low. | Cash-style margin is -19.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-5795 | Rank #38 | Risk 10.7% (calibrated distress probability)
+  Driver 1: Net margin is -30.3% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Net cash earnings repay only -0.11x of total liabilities per year (healthy peers 0.29x); deleveraging capacity is low.
+  Driver 3: Cash-style margin is -19.6% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+301,0.1044957199551331,0,39,Borrower-0301,Net margin is -32.5% (healthy peers 4.4%); the business is barely profitable after all costs. | Quick ratio of 0.31 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is -21.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.,"WATCH-LIST MEMO | Borrower-0301 | Rank #39 | Risk 10.4% (calibrated distress probability)
+  Driver 1: Net margin is -32.5% (healthy peers 4.4%); the business is barely profitable after all costs.
+  Driver 2: Quick ratio of 0.31 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 3: Cash-style margin is -21.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5203,0.1015727327621627,0,40,Borrower-5203,Quick ratio of 0.38 (healthy peers 0.98) means liquid assets do not cover near-term liabilities. | Cash-style margin is 3.1% (healthy peers 8.3%); operations generate little cash per rupee of sales. | Retained earnings are 2.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.,"WATCH-LIST MEMO | Borrower-5203 | Rank #40 | Risk 10.2% (calibrated distress probability)
+  Driver 1: Quick ratio of 0.38 (healthy peers 0.98) means liquid assets do not cover near-term liabilities.
+  Driver 2: Cash-style margin is 3.1% (healthy peers 8.3%); operations generate little cash per rupee of sales.
+  Driver 3: Retained earnings are 2.8% of assets (healthy peers 0.0%); accumulated losses have eroded the equity cushion.
+  Action: analyst deep-review within 15 working days; escalate to sector head if two or more drivers are confirmed.",True
+5618,0.1001103509553568,0,41,Borrower-5618,,,False
+5949,0.0990637160925873,0,42,Borrower-5949,,,False
+5142,0.0983284710734074,0,43,Borrower-5142,,,False
+5225,0.0976109917616968,0,44,Borrower-5225,,,False
+1680,0.097568687948313,0,45,Borrower-1680,,,False
+5323,0.0962326231855555,0,46,Borrower-5323,,,False
+6287,0.0952524440527216,0,47,Borrower-6287,,,False
+539,0.0948958193463539,0,48,Borrower-0539,,,False
+3514,0.0946541187812094,0,49,Borrower-3514,,,False
+3067,0.0938314931660096,0,50,Borrower-3067,,,False
+2214,0.0931775343577719,0,51,Borrower-2214,,,False
+6553,0.092845610403056,0,52,Borrower-6553,,,False
+3448,0.0926758766558157,0,53,Borrower-3448,,,False
+4893,0.0917709466755676,0,54,Borrower-4893,,,False
+1816,0.0907406126060872,0,55,Borrower-1816,,,False
+6056,0.0906805891254036,0,56,Borrower-6056,,,False
+4659,0.0893819850430868,0,57,Borrower-4659,,,False
+1597,0.0884122372397084,0,58,Borrower-1597,,,False
+3736,0.0881788912854045,0,59,Borrower-3736,,,False
+6172,0.0871323575782063,0,60,Borrower-6172,,,False
+4544,0.086679445830867,0,61,Borrower-4544,,,False
+5182,0.0864793374524014,0,62,Borrower-5182,,,False
+2081,0.0859570160614204,0,63,Borrower-2081,,,False
+2278,0.0859564453109864,0,64,Borrower-2278,,,False
+2976,0.0856152661470792,0,65,Borrower-2976,,,False
+3502,0.0840018754870575,0,66,Borrower-3502,,,False
+477,0.0839682974675621,0,67,Borrower-0477,,,False
+253,0.0826711217573786,0,68,Borrower-0253,,,False
+9,0.082367337250457,0,69,Borrower-0009,,,False
+3687,0.0823306809892488,0,70,Borrower-3687,,,False
+4721,0.0822952931619037,0,71,Borrower-4721,,,False
+5299,0.0822722003724095,0,72,Borrower-5299,,,False
+6926,0.082200694353836,1,73,Borrower-6926,,,False
+1217,0.0799066347753841,0,74,Borrower-1217,,,False
+827,0.0798179751114088,0,75,Borrower-0827,,,False
+922,0.0791880875419059,0,76,Borrower-0922,,,False
+3374,0.0785415108674449,0,77,Borrower-3374,,,False
+1529,0.0776692232803933,0,78,Borrower-1529,,,False
+5215,0.0776170244619338,0,79,Borrower-5215,,,False
+6823,0.0776145370197934,1,80,Borrower-6823,,,False
+4495,0.0770475259083542,0,81,Borrower-4495,,,False
+5249,0.0770327204715722,0,82,Borrower-5249,,,False
+2898,0.0759425916379693,0,83,Borrower-2898,,,False
+5134,0.0746986493526593,0,84,Borrower-5134,,,False
+3449,0.0731490265201244,0,85,Borrower-3449,,,False
+5734,0.0722494899762348,0,86,Borrower-5734,,,False
+3325,0.0720908119035698,0,87,Borrower-3325,,,False
+6404,0.0719793364630668,0,88,Borrower-6404,,,False
+1166,0.0718234651498043,0,89,Borrower-1166,,,False
+5615,0.0699039105880348,0,90,Borrower-5615,,,False
+600,0.0698547670342226,0,91,Borrower-0600,,,False
+4777,0.0694168260890908,0,92,Borrower-4777,,,False
+5772,0.0693940606740832,0,93,Borrower-5772,,,False
+2158,0.0691733978437087,0,94,Borrower-2158,,,False
+4033,0.0689300521498565,0,95,Borrower-4033,,,False
+4117,0.0683185701056682,0,96,Borrower-4117,,,False
+4433,0.0682624757117535,0,97,Borrower-4433,,,False
+3627,0.0674669340500289,0,98,Borrower-3627,,,False
+5622,0.0670639374954324,0,99,Borrower-5622,,,False
+5083,0.0666672125467466,0,100,Borrower-5083,,,False
+412,0.0662697674454575,0,101,Borrower-0412,,,False
+4804,0.066099354564704,0,102,Borrower-4804,,,False
+2811,0.0658601456589059,0,103,Borrower-2811,,,False
+1834,0.065359237893488,0,104,Borrower-1834,,,False
+536,0.0652864470564993,0,105,Borrower-0536,,,False
+1990,0.065209461994644,0,106,Borrower-1990,,,False
+5467,0.0640813221378119,0,107,Borrower-5467,,,False
+2558,0.0632992550997336,0,108,Borrower-2558,,,False
+6305,0.0632739691063958,0,109,Borrower-6305,,,False
+5535,0.063207440060731,0,110,Borrower-5535,,,False
+5493,0.0628042787630945,0,111,Borrower-5493,,,False
+1312,0.0626555697515943,0,112,Borrower-1312,,,False
+5053,0.0623802625521454,0,113,Borrower-5053,,,False
+3140,0.0619894282032046,0,114,Borrower-3140,,,False
+943,0.061504783085253,0,115,Borrower-0943,,,False
+5236,0.0614525361527144,0,116,Borrower-5236,,,False
+1148,0.0614153776669516,0,117,Borrower-1148,,,False
+154,0.0612110892636922,0,118,Borrower-0154,,,False
+5450,0.0607236179057159,0,119,Borrower-5450,,,False
+5175,0.0606785652754992,0,120,Borrower-5175,,,False
+1856,0.0605917294951366,0,121,Borrower-1856,,,False
+4465,0.0605530666198953,0,122,Borrower-4465,,,False
+1687,0.0602648049846304,0,123,Borrower-1687,,,False
+3301,0.0591213661564716,0,124,Borrower-3301,,,False
+4014,0.0589075288454382,0,125,Borrower-4014,,,False
+953,0.058069546947699,0,126,Borrower-0953,,,False
+894,0.0575862004337428,0,127,Borrower-0894,,,False
+5757,0.0570642471763932,0,128,Borrower-5757,,,False
+5699,0.0570094829635433,0,129,Borrower-5699,,,False
+4809,0.0570032384199864,0,130,Borrower-4809,,,False
+5801,0.0567509558328577,0,131,Borrower-5801,,,False
+1542,0.056643519001891,0,132,Borrower-1542,,,False
+5881,0.0565152136166488,0,133,Borrower-5881,,,False
+1722,0.0564011042578012,0,134,Borrower-1722,,,False
+954,0.0561679234023392,0,135,Borrower-0954,,,False
+4530,0.0556068761297972,0,136,Borrower-4530,,,False
+3212,0.0551435310860454,0,137,Borrower-3212,,,False
+4429,0.05507116731874,0,138,Borrower-4429,,,False
+3389,0.0539065078523673,0,139,Borrower-3389,,,False
+5569,0.0532850712356718,0,140,Borrower-5569,,,False
+5131,0.0532659851680033,0,141,Borrower-5131,,,False
+946,0.0529830758852588,0,142,Borrower-0946,,,False
+2061,0.0526654807492826,0,143,Borrower-2061,,,False
+4432,0.0526237770301166,0,144,Borrower-4432,,,False
+3391,0.0526116919006127,0,145,Borrower-3391,,,False
+5948,0.0519423326053139,0,146,Borrower-5948,,,False
+3876,0.0514363605076026,0,147,Borrower-3876,,,False
+4779,0.0513343880568957,0,148,Borrower-4779,,,False
+357,0.0511398947507656,0,149,Borrower-0357,,,False
+3987,0.0509013885619969,0,150,Borrower-3987,,,False
+3462,0.0504379734441789,0,151,Borrower-3462,,,False
+1696,0.0498201200217025,0,152,Borrower-1696,,,False
+4468,0.0496487349996937,0,153,Borrower-4468,,,False
+2790,0.0492525681028502,0,154,Borrower-2790,,,False
+1306,0.0492402358678501,0,155,Borrower-1306,,,False
+3763,0.0491814050867068,0,156,Borrower-3763,,,False
+5919,0.0490837918986705,0,157,Borrower-5919,,,False
+3991,0.0487705945147826,0,158,Borrower-3991,,,False
+3823,0.04868742973682,0,159,Borrower-3823,,,False
+3645,0.0484612859588638,0,160,Borrower-3645,,,False
+161,0.0483538896923205,0,161,Borrower-0161,,,False
+5923,0.0483033061895637,0,162,Borrower-5923,,,False
+5980,0.0482076255380654,0,163,Borrower-5980,,,False
+6226,0.0479250678935027,0,164,Borrower-6226,,,False
+5644,0.0477659574578218,0,165,Borrower-5644,,,False
+5529,0.0476347745496781,0,166,Borrower-5529,,,False
+4598,0.0474810066592518,0,167,Borrower-4598,,,False
+2831,0.0474724692229188,0,168,Borrower-2831,,,False
+5052,0.0471943056252889,0,169,Borrower-5052,,,False
+5056,0.0470447902476043,0,170,Borrower-5056,,,False
+5254,0.0467637664321825,0,171,Borrower-5254,,,False
+5800,0.0464748820488367,0,172,Borrower-5800,,,False
+2180,0.0463760400014781,0,173,Borrower-2180,,,False
+417,0.0460155867355268,0,174,Borrower-0417,,,False
+5732,0.0457596652267553,0,175,Borrower-5732,,,False
+4946,0.0452192832786291,0,176,Borrower-4946,,,False
+2368,0.0451857092693407,0,177,Borrower-2368,,,False
+5581,0.0449526594975973,0,178,Borrower-5581,,,False
+1806,0.0449310747892987,0,179,Borrower-1806,,,False
+6413,0.0448749261767587,0,180,Borrower-6413,,,False
+327,0.0448405372356506,0,181,Borrower-0327,,,False
+3369,0.0446593809388361,0,182,Borrower-3369,,,False
+6084,0.0444455728866228,0,183,Borrower-6084,,,False
+3146,0.0439707679266381,0,184,Borrower-3146,,,False
+4057,0.0436619141777144,0,185,Borrower-4057,,,False
+2265,0.0435694719453674,0,186,Borrower-2265,,,False
+4123,0.0435330548389938,0,187,Borrower-4123,,,False
+364,0.0425525102492558,0,188,Borrower-0364,,,False
+2261,0.0423929580208294,0,189,Borrower-2261,,,False
+832,0.0422586694300505,0,190,Borrower-0832,,,False
+5468,0.0421309417889671,0,191,Borrower-5468,,,False
+2433,0.0420389399681629,0,192,Borrower-2433,,,False
+3472,0.0418474279716153,0,193,Borrower-3472,,,False
+6133,0.0416490439864688,0,194,Borrower-6133,,,False
+4242,0.0413119553013714,0,195,Borrower-4242,,,False
+2136,0.0412038436795303,0,196,Borrower-2136,,,False
+335,0.0410035765826696,0,197,Borrower-0335,,,False
+562,0.0403358508178885,0,198,Borrower-0562,,,False
+164,0.0403310928464311,0,199,Borrower-0164,,,False
+4474,0.0403285164336146,0,200,Borrower-4474,,,False
+899,0.0401956815652606,0,201,Borrower-0899,,,False
+4916,0.0401431738720469,0,202,Borrower-4916,,,False
+4548,0.0399905583339018,0,203,Borrower-4548,,,False
+3183,0.0397959183298341,0,204,Borrower-3183,,,False
+2128,0.0395276373659087,0,205,Borrower-2128,,,False
+2935,0.0389523829565961,0,206,Borrower-2935,,,False
+4729,0.0386730377756675,0,207,Borrower-4729,,,False
+2993,0.0386721015870718,0,208,Borrower-2993,,,False
+5486,0.0384724305507171,0,209,Borrower-5486,,,False
+2047,0.0384675814648698,0,210,Borrower-2047,,,False
+1120,0.0384059671239873,0,211,Borrower-1120,,,False
+713,0.0383446758017393,0,212,Borrower-0713,,,False
+6540,0.0383303788735434,0,213,Borrower-6540,,,False
+2861,0.0383155550312287,0,214,Borrower-2861,,,False
+5024,0.0380060037292803,0,215,Borrower-5024,,,False
+1982,0.0379931334114638,0,216,Borrower-1982,,,False
+4131,0.0377868976373858,0,217,Borrower-4131,,,False
+1243,0.037683192822562,0,218,Borrower-1243,,,False
+1863,0.037422488329816,0,219,Borrower-1863,,,False
+4185,0.0373408220612273,0,220,Borrower-4185,,,False
+5098,0.0370896464041966,0,221,Borrower-5098,,,False
+1639,0.036984146108969,0,222,Borrower-1639,,,False
+2777,0.036793916073892,0,223,Borrower-2777,,,False
+3202,0.0363382818636135,0,224,Borrower-3202,,,False
+2745,0.0362720635800202,0,225,Borrower-2745,,,False
+2560,0.0362261210877211,0,226,Borrower-2560,,,False
+6423,0.0362152997979732,0,227,Borrower-6423,,,False
+6349,0.0361557187859562,0,228,Borrower-6349,,,False
+5207,0.0360939989230501,0,229,Borrower-5207,,,False
+3376,0.0360379814523131,0,230,Borrower-3376,,,False
+5472,0.036005123265285,0,231,Borrower-5472,,,False
+2967,0.0359380514066466,0,232,Borrower-2967,,,False
+3756,0.0359285788134477,0,233,Borrower-3756,,,False
+4492,0.0358108403021446,0,234,Borrower-4492,,,False
+4324,0.0357111134692224,0,235,Borrower-4324,,,False
+119,0.0356796995908833,0,236,Borrower-0119,,,False
+6020,0.035553754322987,0,237,Borrower-6020,,,False
+5029,0.0353969650464738,0,238,Borrower-5029,,,False
+3602,0.0353902949731085,0,239,Borrower-3602,,,False
+2449,0.0353791987859143,0,240,Borrower-2449,,,False
+6683,0.0353738988095402,1,241,Borrower-6683,,,False
+4143,0.0352126248617677,0,242,Borrower-4143,,,False
+5578,0.0351994202970126,0,243,Borrower-5578,,,False
+3294,0.035072191816671,0,244,Borrower-3294,,,False
+375,0.0350526672340367,0,245,Borrower-0375,,,False
+4136,0.0349914726881495,0,246,Borrower-4136,,,False
+4312,0.0349900887073317,0,247,Borrower-4312,,,False
+2928,0.0348804688902137,0,248,Borrower-2928,,,False
+6065,0.0347739602728828,0,249,Borrower-6065,,,False
+728,0.0347634948880707,0,250,Borrower-0728,,,False
+1679,0.0347272111470693,0,251,Borrower-1679,,,False
+6865,0.0345489955006675,1,252,Borrower-6865,,,False
+1901,0.0344969370191899,0,253,Borrower-1901,,,False
+2262,0.0344506670609754,0,254,Borrower-2262,,,False
+4097,0.0344364332460763,0,255,Borrower-4097,,,False
+2049,0.0344186381985226,0,256,Borrower-2049,,,False
+3236,0.0342100418216535,0,257,Borrower-3236,,,False
+3266,0.0340463632666747,0,258,Borrower-3266,,,False
+502,0.0339654181305185,0,259,Borrower-0502,,,False
+4234,0.0339164592886276,0,260,Borrower-4234,,,False
+2524,0.033837072030468,0,261,Borrower-2524,,,False
+3175,0.0337515441187125,0,262,Borrower-3175,,,False
+1585,0.0337299052050258,0,263,Borrower-1585,,,False
+34,0.0336057328182644,0,264,Borrower-0034,,,False
+6362,0.0334939256993607,0,265,Borrower-6362,,,False
+1218,0.0331004821297485,0,266,Borrower-1218,,,False
+5762,0.0330647955318203,0,267,Borrower-5762,,,False
+1908,0.0329983719769036,0,268,Borrower-1908,,,False
+2491,0.0329798081863321,0,269,Borrower-2491,,,False
+4491,0.0328175149606881,0,270,Borrower-4491,,,False
+3417,0.0327983109563594,0,271,Borrower-3417,,,False
+1857,0.0323255612340011,0,272,Borrower-1857,,,False
+2613,0.0321821101375361,0,273,Borrower-2613,,,False
+2919,0.032172253613213,0,274,Borrower-2919,,,False
+606,0.03207914891068,0,275,Borrower-0606,,,False
+4846,0.032074777334685,0,276,Borrower-4846,,,False
+5685,0.031982199008325,0,277,Borrower-5685,,,False
+1248,0.031479011323431,0,278,Borrower-1248,,,False
+5842,0.0311907580226628,0,279,Borrower-5842,,,False
+1958,0.0311487762095199,0,280,Borrower-1958,,,False
+846,0.0311153359655873,0,281,Borrower-0846,,,False
+5415,0.0310385544195903,0,282,Borrower-5415,,,False
+2143,0.0307989672973183,0,283,Borrower-2143,,,False
+5900,0.0305780857192815,0,284,Borrower-5900,,,False
+1625,0.0303374228870811,0,285,Borrower-1625,,,False
+2455,0.0302687350236725,0,286,Borrower-2455,,,False
+914,0.0299052478908629,0,287,Borrower-0914,,,False
+5600,0.0298490952921853,0,288,Borrower-5600,,,False
+3812,0.0296689061998203,0,289,Borrower-3812,,,False
+2026,0.0293357873998548,0,290,Borrower-2026,,,False
+5,0.029255993819464,0,291,Borrower-0005,,,False
+206,0.0292404514777372,0,292,Borrower-0206,,,False
+1969,0.0291933374459401,0,293,Borrower-1969,,,False
+2595,0.0289818101882401,0,294,Borrower-2595,,,False
+5580,0.0289737386054133,0,295,Borrower-5580,,,False
+2739,0.0282030281569219,0,296,Borrower-2739,,,False
+5791,0.0281750298281419,0,297,Borrower-5791,,,False
+3310,0.0280985305300981,0,298,Borrower-3310,,,False
+6325,0.0280711336183481,0,299,Borrower-6325,,,False
+2485,0.0280510252515084,0,300,Borrower-2485,,,False
+876,0.0278778746019052,0,301,Borrower-0876,,,False
+5986,0.027871323976897,0,302,Borrower-5986,,,False
+4249,0.0278111031733618,0,303,Borrower-4249,,,False
+5592,0.0277270675114442,0,304,Borrower-5592,,,False
+901,0.0276557866230207,0,305,Borrower-0901,,,False
+3490,0.0276543833738717,0,306,Borrower-3490,,,False
+4744,0.0275425817106712,0,307,Borrower-4744,,,False
+6915,0.0274930176982164,1,308,Borrower-6915,,,False
+3579,0.0274667609914709,0,309,Borrower-3579,,,False
+3330,0.0274397408500084,0,310,Borrower-3330,,,False
+2205,0.0271375880208654,0,311,Borrower-2205,,,False
+2391,0.0271060178107044,0,312,Borrower-2391,,,False
+1895,0.027023434516139,0,313,Borrower-1895,,,False
+499,0.0268978077846111,0,314,Borrower-0499,,,False
+1077,0.0268628163248245,0,315,Borrower-1077,,,False
+2161,0.0267654138055626,0,316,Borrower-2161,,,False
+6658,0.0262700080860934,0,317,Borrower-6658,,,False
+1396,0.0259185808467533,0,318,Borrower-1396,,,False
+3498,0.0258205290461698,0,319,Borrower-3498,,,False
+3517,0.0256700869416307,0,320,Borrower-3517,,,False
+4227,0.0256119823097059,0,321,Borrower-4227,,,False
+5373,0.0249870258664989,0,322,Borrower-5373,,,False
+3272,0.0248590573332138,0,323,Borrower-3272,,,False
+3421,0.0247524896884312,0,324,Borrower-3421,,,False
+2597,0.0247519965284945,0,325,Borrower-2597,,,False
+4212,0.0246468019708715,0,326,Borrower-4212,,,False
+5109,0.0245975014243948,0,327,Borrower-5109,,,False
+6184,0.0245649545753322,0,328,Borrower-6184,,,False
+3068,0.0245192844248658,0,329,Borrower-3068,,,False
+98,0.0244955764478429,0,330,Borrower-0098,,,False
+223,0.0244933853292892,0,331,Borrower-0223,,,False
+3851,0.0244442780562856,0,332,Borrower-3851,,,False
+5541,0.0244399253578576,0,333,Borrower-5541,,,False
+2122,0.0244069784017787,0,334,Borrower-2122,,,False
+5279,0.0242562746666873,0,335,Borrower-5279,,,False
+4964,0.0241097947797649,0,336,Borrower-4964,,,False
+4485,0.0239572372900013,0,337,Borrower-4485,,,False
+117,0.0239038807458719,0,338,Borrower-0117,,,False
+492,0.0236243821203558,0,339,Borrower-0492,,,False
+5810,0.0233897675397327,0,340,Borrower-5810,,,False
+341,0.0232490378998151,0,341,Borrower-0341,,,False
+723,0.02300137348469,0,342,Borrower-0723,,,False
+6792,0.0229270107567699,1,343,Borrower-6792,,,False
+5779,0.0229200288506198,0,344,Borrower-5779,,,False
+4646,0.0229097278743027,0,345,Borrower-4646,,,False
+66,0.0228933455961949,0,346,Borrower-0066,,,False
+3486,0.0228900396804841,0,347,Borrower-3486,,,False
+5959,0.0227717029698421,0,348,Borrower-5959,,,False
+5496,0.0226984890427383,0,349,Borrower-5496,,,False
+3368,0.0226941921565983,0,350,Borrower-3368,,,False
+804,0.0225831562923275,0,351,Borrower-0804,,,False
+395,0.0223953967142128,0,352,Borrower-0395,,,False
+4931,0.0223681857557417,0,353,Borrower-4931,,,False
+1792,0.0223447822533108,0,354,Borrower-1792,,,False
+4000,0.0222569285853957,0,355,Borrower-4000,,,False
+2612,0.022194320529624,0,356,Borrower-2612,,,False
+3005,0.0220759292517868,0,357,Borrower-3005,,,False
+3452,0.0220590604875644,0,358,Borrower-3452,,,False
+2490,0.0220543746736971,0,359,Borrower-2490,,,False
+980,0.0220142538973648,0,360,Borrower-0980,,,False
+5298,0.0219784581263097,0,361,Borrower-5298,,,False
+645,0.0219549815808332,0,362,Borrower-0645,,,False
+2645,0.0217441717560927,0,363,Borrower-2645,,,False
+4621,0.0214908377946327,0,364,Borrower-4621,,,False
+320,0.0214348546496913,0,365,Borrower-0320,,,False
+5554,0.0213911014665604,0,366,Borrower-5554,,,False
+5311,0.021354671228396,0,367,Borrower-5311,,,False
+3696,0.0213310683106819,0,368,Borrower-3696,,,False
+16,0.0212878376641409,0,369,Borrower-0016,,,False
+2816,0.0212531653733105,0,370,Borrower-2816,,,False
+3242,0.0212312563786207,0,371,Borrower-3242,,,False
+4171,0.0211666809525305,0,372,Borrower-4171,,,False
+5555,0.0211646727846034,0,373,Borrower-5555,,,False
+2079,0.020914103805582,0,374,Borrower-2079,,,False
+5287,0.0209023125196051,0,375,Borrower-5287,,,False
+2255,0.0208718482684766,0,376,Borrower-2255,,,False
+6618,0.0208649052266971,0,377,Borrower-6618,,,False
+4360,0.0207929730224603,0,378,Borrower-4360,,,False
+2735,0.020699278153476,0,379,Borrower-2735,,,False
+3314,0.0206394247230382,0,380,Borrower-3314,,,False
+262,0.0205332506264571,0,381,Borrower-0262,,,False
+4218,0.0205081776225066,0,382,Borrower-4218,,,False
+666,0.0204675715468684,0,383,Borrower-0666,,,False
+2511,0.0204620170515676,0,384,Borrower-2511,,,False
+3057,0.0204378404188921,0,385,Borrower-3057,,,False
+6664,0.0203698516378005,0,386,Borrower-6664,,,False
+1673,0.0203164052676237,0,387,Borrower-1673,,,False
+4843,0.0202564028854837,0,388,Borrower-4843,,,False
+3397,0.0202473297151071,0,389,Borrower-3397,,,False
+5248,0.0201714027302032,0,390,Borrower-5248,,,False
+603,0.0201688699389768,0,391,Borrower-0603,,,False
+1118,0.0201126603374377,0,392,Borrower-1118,,,False
+4873,0.0200901920928251,0,393,Borrower-4873,,,False
+5745,0.0199741773058509,0,394,Borrower-5745,,,False
+4175,0.019804513623352,0,395,Borrower-4175,,,False
+513,0.0196887672576245,0,396,Borrower-0513,,,False
+337,0.0196557749881252,0,397,Borrower-0337,,,False
+919,0.0196204001551924,0,398,Borrower-0919,,,False
+2933,0.0195691378999793,0,399,Borrower-2933,,,False
+2538,0.0192531399525716,0,400,Borrower-2538,,,False
+2713,0.0191907260953891,0,401,Borrower-2713,,,False
+4452,0.0191503275823441,0,402,Borrower-4452,,,False
+2712,0.0191481961438328,0,403,Borrower-2712,,,False
+77,0.0191024534017027,0,404,Borrower-0077,,,False
+2891,0.019101797461488,0,405,Borrower-2891,,,False
+3925,0.0190998747893781,0,406,Borrower-3925,,,False
+6137,0.0189724662125306,0,407,Borrower-6137,,,False
+663,0.0189354900526515,0,408,Borrower-0663,,,False
+5104,0.0188257389511108,0,409,Borrower-5104,,,False
+6176,0.0187314300139821,0,410,Borrower-6176,,,False
+2324,0.0187306060390759,0,411,Borrower-2324,,,False
+5511,0.0186938432768097,0,412,Borrower-5511,,,False
+1470,0.0186492087921305,0,413,Borrower-1470,,,False
+6015,0.0186451495244486,0,414,Borrower-6015,,,False
+6523,0.0186243467594936,0,415,Borrower-6523,,,False
+3354,0.0185955540256766,0,416,Borrower-3354,,,False
+4805,0.0184424056335185,0,417,Borrower-4805,,,False
+3969,0.0184156500642557,0,418,Borrower-3969,,,False
+6197,0.0184145257098562,0,419,Borrower-6197,,,False
+830,0.0183853971952425,0,420,Borrower-0830,,,False
+4156,0.0182988831289538,0,421,Borrower-4156,,,False
+635,0.0182952494622975,0,422,Borrower-0635,,,False
+6300,0.0182406726815653,0,423,Borrower-6300,,,False
+2035,0.0182193708640861,0,424,Borrower-2035,,,False
+4120,0.0181769142326575,0,425,Borrower-4120,,,False
+3373,0.0180913381903744,0,426,Borrower-3373,,,False
+4737,0.0179589363265893,0,427,Borrower-4737,,,False
+2056,0.0179065978155969,0,428,Borrower-2056,,,False
+5730,0.0178896008834354,0,429,Borrower-5730,,,False
+6265,0.0178014425996719,0,430,Borrower-6265,,,False
+2065,0.0177006446953964,0,431,Borrower-2065,,,False
+4569,0.0177004335311229,0,432,Borrower-4569,,,False
+2326,0.017598016983562,0,433,Borrower-2326,,,False
+3843,0.0175440099284917,0,434,Borrower-3843,,,False
+2731,0.0174327134635147,0,435,Borrower-2731,,,False
+4146,0.0173761603152564,0,436,Borrower-4146,,,False
+6651,0.0173613458159007,0,437,Borrower-6651,,,False
+4642,0.0173432751317549,0,438,Borrower-4642,,,False
+5126,0.0172770731375998,0,439,Borrower-5126,,,False
+6235,0.0172457792488668,0,440,Borrower-6235,,,False
+3120,0.0170886957262331,0,441,Borrower-3120,,,False
+1531,0.0170795507198576,0,442,Borrower-1531,,,False
+1156,0.0169796275652813,0,443,Borrower-1156,,,False
+2362,0.0169717168210233,0,444,Borrower-2362,,,False
+114,0.0169653874500765,0,445,Borrower-0114,,,False
+4142,0.0169303704883903,0,446,Borrower-4142,,,False
+3446,0.0169085631791405,0,447,Borrower-3446,,,False
+4924,0.0168901390588945,0,448,Borrower-4924,,,False
+6388,0.0168012786248467,0,449,Borrower-6388,,,False
+3099,0.0167474290803939,0,450,Borrower-3099,,,False
+6080,0.0166967516646052,0,451,Borrower-6080,,,False
+3108,0.0166860946898587,0,452,Borrower-3108,,,False
+2489,0.016616917153556,0,453,Borrower-2489,,,False
+766,0.0165975472790561,0,454,Borrower-0766,,,False
+2472,0.0165941594202852,0,455,Borrower-2472,,,False
+4533,0.0165761389565266,0,456,Borrower-4533,,,False
+5147,0.0165275278677535,0,457,Borrower-5147,,,False
+4973,0.0164821954940018,0,458,Borrower-4973,,,False
+4723,0.0164170279942226,0,459,Borrower-4723,,,False
+6904,0.016279380695636,1,460,Borrower-6904,,,False
+6310,0.0162680931231991,0,461,Borrower-6310,,,False
+6530,0.0162107636485803,0,462,Borrower-6530,,,False
+146,0.0162080664695751,0,463,Borrower-0146,,,False
+1931,0.0161643999437982,0,464,Borrower-1931,,,False
+1998,0.0161474350952796,0,465,Borrower-1998,,,False
+1970,0.0161297181637541,0,466,Borrower-1970,,,False
+688,0.0160125898348088,0,467,Borrower-0688,,,False
+4451,0.0158884984171569,0,468,Borrower-4451,,,False
+1984,0.0158748180742847,0,469,Borrower-1984,,,False
+4225,0.0158318960568851,0,470,Borrower-4225,,,False
+3009,0.0157811521592841,0,471,Borrower-3009,,,False
+2393,0.0156990889494378,0,472,Borrower-2393,,,False
+3913,0.0156866706850471,0,473,Borrower-3913,,,False
+3600,0.0156841143667534,0,474,Borrower-3600,,,False
+2038,0.0156443710491678,0,475,Borrower-2038,,,False
+1147,0.0156078312922537,0,476,Borrower-1147,,,False
+5172,0.0155349928965567,0,477,Borrower-5172,,,False
+6363,0.0155060329674092,0,478,Borrower-6363,,,False
+6115,0.0153996352405405,0,479,Borrower-6115,,,False
+3840,0.0152916380085122,0,480,Borrower-3840,,,False
+4277,0.0152738134457687,0,481,Borrower-4277,,,False
+1063,0.0152603823772616,0,482,Borrower-1063,,,False
+1759,0.0152492402461681,0,483,Borrower-1759,,,False
+995,0.0152175713403408,0,484,Borrower-0995,,,False
+2243,0.015202344761096,0,485,Borrower-2243,,,False
+2371,0.0152013189340497,0,486,Borrower-2371,,,False
+5611,0.0150840831731928,0,487,Borrower-5611,,,False
+242,0.0150324647088685,0,488,Borrower-0242,,,False
+6215,0.0150211878454059,0,489,Borrower-6215,,,False
+1733,0.0149933615091142,0,490,Borrower-1733,,,False
+2082,0.0148930950516004,0,491,Borrower-2082,,,False
+5969,0.0148893591718457,0,492,Borrower-5969,,,False
+6367,0.0148759307733671,0,493,Borrower-6367,,,False
+3561,0.014813320373059,0,494,Borrower-3561,,,False
+1500,0.0147774232068053,0,495,Borrower-1500,,,False
+3457,0.014724009906967,0,496,Borrower-3457,,,False
+2635,0.0146287022238167,0,497,Borrower-2635,,,False
+1028,0.0145986000139108,0,498,Borrower-1028,,,False
+5988,0.0145256307486381,0,499,Borrower-5988,,,False
+863,0.0144474180686368,0,500,Borrower-0863,,,False
+3797,0.0144360447481877,0,501,Borrower-3797,,,False
+1852,0.0143982738604943,0,502,Borrower-1852,,,False
+4107,0.0143626146088426,0,503,Borrower-4107,,,False
+2427,0.0143463375574307,0,504,Borrower-2427,,,False
+3531,0.0143292633884284,0,505,Borrower-3531,,,False
+4164,0.0143045079411183,0,506,Borrower-4164,,,False
+5878,0.0142968302887359,0,507,Borrower-5878,,,False
+918,0.0142213519877406,0,508,Borrower-0918,,,False
+4134,0.0141718396900872,0,509,Borrower-4134,,,False
+616,0.0141698132146739,0,510,Borrower-0616,,,False
+3073,0.0141528153639219,0,511,Borrower-3073,,,False
+928,0.0141022066271127,0,512,Borrower-0928,,,False
+1276,0.0140959714804536,0,513,Borrower-1276,,,False
+5651,0.0140820551810981,0,514,Borrower-5651,,,False
+4341,0.0140495047352521,0,515,Borrower-4341,,,False
+4835,0.0140253442832159,0,516,Borrower-4835,,,False
+6641,0.0140202842393556,0,517,Borrower-6641,,,False
+1145,0.0140029575514355,0,518,Borrower-1145,,,False
+197,0.0139969894564955,0,519,Borrower-0197,,,False
+4493,0.01388636596815,0,520,Borrower-4493,,,False
+5443,0.0138842952957952,0,521,Borrower-5443,,,False
+1635,0.0138565854512237,0,522,Borrower-1635,,,False
+784,0.0136688229987372,0,523,Borrower-0784,,,False
+6649,0.0136041867010008,0,524,Borrower-6649,,,False
+3596,0.013539078878537,0,525,Borrower-3596,,,False
+6211,0.0134796078876387,0,526,Borrower-6211,,,False
+1191,0.0134519943403403,0,527,Borrower-1191,,,False
+4720,0.013382548066535,0,528,Borrower-4720,,,False
+6173,0.0133751877969348,0,529,Borrower-6173,,,False
+2062,0.0132798940311733,0,530,Borrower-2062,,,False
+659,0.0132480617361191,0,531,Borrower-0659,,,False
+1968,0.0132043797975724,0,532,Borrower-1968,,,False
+2878,0.013200748778209,0,533,Borrower-2878,,,False
+4551,0.0131875667886506,0,534,Borrower-4551,,,False
+5897,0.0130937004511587,0,535,Borrower-5897,,,False
+3293,0.0130346424296789,0,536,Borrower-3293,,,False
+4784,0.0130324487157676,0,537,Borrower-4784,,,False
+488,0.0130054747812045,0,538,Borrower-0488,,,False
+5293,0.0129385550755257,0,539,Borrower-5293,,,False
+1997,0.0129184778502977,0,540,Borrower-1997,,,False
+1252,0.0128831067540734,0,541,Borrower-1252,,,False
+523,0.0127875696946714,0,542,Borrower-0523,,,False
+6292,0.012696730852526,0,543,Borrower-6292,,,False
+6110,0.0126942705144977,0,544,Borrower-6110,,,False
+6387,0.0126925101693222,0,545,Borrower-6387,,,False
+5222,0.0126157802573233,0,546,Borrower-5222,,,False
+1214,0.0125981542467777,0,547,Borrower-1214,,,False
+1388,0.0125751738684714,0,548,Borrower-1388,,,False
+709,0.0125094918232037,0,549,Borrower-0709,,,False
+722,0.0124736171597196,0,550,Borrower-0722,,,False
+5849,0.0123997565960558,0,551,Borrower-5849,,,False
+2734,0.0123851473969028,0,552,Borrower-2734,,,False
+6243,0.0123784564784724,0,553,Borrower-6243,,,False
+2690,0.0123326083119575,0,554,Borrower-2690,,,False
+455,0.0123320069546913,0,555,Borrower-0455,,,False
+774,0.0123164551704945,0,556,Borrower-0774,,,False
+6752,0.0123044503801321,1,557,Borrower-6752,,,False
+125,0.0121175410373021,0,558,Borrower-0125,,,False
+1331,0.0121058410904565,0,559,Borrower-1331,,,False
+6148,0.0121029736188096,0,560,Borrower-6148,,,False
+6040,0.0119811699966844,0,561,Borrower-6040,,,False
+1574,0.0119803428758047,0,562,Borrower-1574,,,False
+1828,0.0119433733672893,0,563,Borrower-1828,,,False
+4613,0.0118566786850158,0,564,Borrower-4613,,,False
+94,0.0118094370772969,0,565,Borrower-0094,,,False
+4018,0.0116832722256204,0,566,Borrower-4018,,,False
+285,0.0116266013350176,0,567,Borrower-0285,,,False
+1685,0.0116250418464788,0,568,Borrower-1685,,,False
+2141,0.0115571549608616,0,569,Borrower-2141,,,False
+6504,0.0115461880050342,0,570,Borrower-6504,,,False
+1838,0.0115388906923052,0,571,Borrower-1838,,,False
+4289,0.0115206448538812,0,572,Borrower-4289,,,False
+3367,0.0113707366469616,0,573,Borrower-3367,,,False
+2105,0.0113585390816666,0,574,Borrower-2105,,,False
+1267,0.0113554684954948,0,575,Borrower-1267,,,False
+2872,0.0113505785559557,0,576,Borrower-2872,,,False
+870,0.0113278874929228,0,577,Borrower-0870,,,False
+5855,0.0113044388571858,0,578,Borrower-5855,,,False
+474,0.0111710792817064,0,579,Borrower-0474,,,False
+5512,0.0111399875418465,0,580,Borrower-5512,,,False
+4199,0.0111187260998873,0,581,Borrower-4199,,,False
+6432,0.0110629562807585,0,582,Borrower-6432,,,False
+2502,0.0109216755418958,0,583,Borrower-2502,,,False
+6002,0.0108916939710528,0,584,Borrower-6002,,,False
+2000,0.0108849778768826,0,585,Borrower-2000,,,False
+1445,0.0108781151846426,0,586,Borrower-1445,,,False
+3019,0.0108392499950027,0,587,Borrower-3019,,,False
+4754,0.0108237976335216,0,588,Borrower-4754,,,False
+2744,0.0107728063151058,0,589,Borrower-2744,,,False
+4875,0.0107182745813949,0,590,Borrower-4875,,,False
+3117,0.010707190051276,0,591,Borrower-3117,,,False
+2048,0.0106929912531996,0,592,Borrower-2048,,,False
+5865,0.0106112283335057,0,593,Borrower-5865,,,False
+5127,0.0106081292197439,0,594,Borrower-5127,,,False
+4021,0.0106078034419737,0,595,Borrower-4021,,,False
+4380,0.0105467560868128,0,596,Borrower-4380,,,False
+5822,0.0105120760194406,0,597,Borrower-5822,,,False
+5616,0.0104438884241604,0,598,Borrower-5616,,,False
+5776,0.0104135546519213,0,599,Borrower-5776,,,False
+3283,0.0103325739965586,0,600,Borrower-3283,,,False
+1648,0.0101685544265388,0,601,Borrower-1648,,,False
+6295,0.010161337114909,0,602,Borrower-6295,,,False
+2947,0.0100877247809919,0,603,Borrower-2947,,,False
+1663,0.0100865025589718,0,604,Borrower-1663,,,False
+2888,0.0100719001494216,0,605,Borrower-2888,,,False
+6484,0.0099895856838328,0,606,Borrower-6484,,,False
+1155,0.0099590071212349,0,607,Borrower-1155,,,False
+951,0.0099278858801567,0,608,Borrower-0951,,,False
+6121,0.0098678092431592,0,609,Borrower-6121,,,False
+4682,0.0098569686043695,0,610,Borrower-4682,,,False
+4636,0.0098412222310646,0,611,Borrower-4636,,,False
+4132,0.0098181601803812,0,612,Borrower-4132,,,False
+1082,0.0097624035022791,0,613,Borrower-1082,,,False
+6666,0.0097181837347285,0,614,Borrower-6666,,,False
+1256,0.0096401297980339,0,615,Borrower-1256,,,False
+3701,0.0095648375485439,0,616,Borrower-3701,,,False
+3506,0.009523444283076,0,617,Borrower-3506,,,False
+3054,0.0095184283366986,0,618,Borrower-3054,,,False
+4673,0.0095151034520939,0,619,Borrower-4673,,,False
+5005,0.0095012576350397,0,620,Borrower-5005,,,False
+6098,0.0094605710196213,0,621,Borrower-6098,,,False
+3533,0.0094426028640419,0,622,Borrower-3533,,,False
+1646,0.0094084356819768,0,623,Borrower-1646,,,False
+1823,0.0093581039493395,0,624,Borrower-1823,,,False
+4780,0.009350795681974,0,625,Borrower-4780,,,False
+646,0.0093178151751896,0,626,Borrower-0646,,,False
+3762,0.009294256829644,0,627,Borrower-3762,,,False
+975,0.0092653836067873,0,628,Borrower-0975,,,False
+6164,0.0092462931912274,0,629,Borrower-6164,,,False
+5442,0.0092388221942925,0,630,Borrower-5442,,,False
+232,0.0091976034966983,0,631,Borrower-0232,,,False
+2327,0.0091662990790569,0,632,Borrower-2327,,,False
+1150,0.0090474629807036,0,633,Borrower-1150,,,False
+768,0.008935910832734,0,634,Borrower-0768,,,False
+6406,0.0088630144485281,0,635,Borrower-6406,,,False
+3228,0.0088470295171183,0,636,Borrower-3228,,,False
+2568,0.0088425835403273,0,637,Borrower-2568,,,False
+2797,0.0088062548433411,0,638,Borrower-2797,,,False
+3086,0.0087808457912747,0,639,Borrower-3086,,,False
+3056,0.0087621411694606,0,640,Borrower-3056,,,False
+956,0.0086961900782566,0,641,Borrower-0956,,,False
+2853,0.0086285127845706,0,642,Borrower-2853,,,False
+5975,0.008619842578229,0,643,Borrower-5975,,,False
+6316,0.0086035726174535,0,644,Borrower-6316,,,False
+3335,0.0085999913132176,0,645,Borrower-3335,,,False
+6613,0.008508841864204,0,646,Borrower-6613,,,False
+4300,0.0084701099757064,0,647,Borrower-4300,,,False
+5939,0.0083859470758387,0,648,Borrower-5939,,,False
+1693,0.0083448233123315,0,649,Borrower-1693,,,False
+2839,0.008315346238307,0,650,Borrower-2839,,,False
+384,0.0082788810438542,0,651,Borrower-0384,,,False
+4115,0.0082295682698334,0,652,Borrower-4115,,,False
+5173,0.0082004709162839,0,653,Borrower-5173,,,False
+6609,0.0081729177967544,0,654,Borrower-6609,,,False
+563,0.0081431057055366,0,655,Borrower-0563,,,False
+3923,0.008126338123763,0,656,Borrower-3923,,,False
+2444,0.0081141545518923,0,657,Borrower-2444,,,False
+6019,0.0080726430131481,0,658,Borrower-6019,,,False
+2774,0.0080718102457206,0,659,Borrower-2774,,,False
+1478,0.00793483471161,0,660,Borrower-1478,,,False
+753,0.0078907263865074,0,661,Borrower-0753,,,False
+2738,0.0078668375173533,0,662,Borrower-2738,,,False
+6170,0.0077846631792499,0,663,Borrower-6170,,,False
+4869,0.0077638944308227,0,664,Borrower-4869,,,False
+3974,0.0077469017803126,0,665,Borrower-3974,,,False
+2443,0.0077039906942354,0,666,Borrower-2443,,,False
+4188,0.0076717180110268,0,667,Borrower-4188,,,False
+1202,0.0076662211800206,0,668,Borrower-1202,,,False
+2508,0.0076518455558753,0,669,Borrower-2508,,,False
+1619,0.007643313513093,0,670,Borrower-1619,,,False
+5869,0.0075855018254293,0,671,Borrower-5869,,,False
+4854,0.0075819528611765,0,672,Borrower-4854,,,False
+6377,0.0075539129047326,0,673,Borrower-6377,,,False
+6206,0.0074904885019824,0,674,Borrower-6206,,,False
+470,0.0074572945991654,0,675,Borrower-0470,,,False
+224,0.0074119437869576,0,676,Borrower-0224,,,False
+1527,0.007391748030705,0,677,Borrower-1527,,,False
+815,0.0073405029901941,0,678,Borrower-0815,,,False
+1069,0.0073158388623356,0,679,Borrower-1069,,,False
+4208,0.0072618235683518,0,680,Borrower-4208,,,False
+3205,0.0072557597918784,0,681,Borrower-3205,,,False
+2296,0.0072445284824124,0,682,Borrower-2296,,,False
+5504,0.0072038775363359,0,683,Borrower-5504,,,False
+4637,0.0071463487350678,0,684,Borrower-4637,,,False
+1975,0.0071349286678021,0,685,Borrower-1975,,,False
+6181,0.0070605601289959,0,686,Borrower-6181,,,False
+3436,0.0070424134734305,0,687,Borrower-3436,,,False
+2871,0.0069935783037845,0,688,Borrower-2871,,,False
+1021,0.0069747269069143,0,689,Borrower-1021,,,False
+2914,0.0069672577821353,0,690,Borrower-2914,,,False
+3572,0.0069528108810563,0,691,Borrower-3572,,,False
+574,0.0069268914134266,0,692,Borrower-0574,,,False
+6660,0.0069078030432775,0,693,Borrower-6660,,,False
+2203,0.0068937664635559,0,694,Borrower-2203,,,False
+2300,0.0068135563259242,0,695,Borrower-2300,,,False
+2808,0.0067909578727622,0,696,Borrower-2808,,,False
+825,0.0067848457891575,0,697,Borrower-0825,,,False
+1254,0.0066493461995281,0,698,Borrower-1254,,,False
+3300,0.006638033437678,0,699,Borrower-3300,,,False
+732,0.0066294924138707,0,700,Borrower-0732,,,False
+1062,0.0066169400467837,0,701,Borrower-1062,,,False
+2950,0.0066159560979666,0,702,Borrower-2950,,,False
+2454,0.0066124467274441,0,703,Borrower-2454,,,False
+6051,0.0066004052298118,0,704,Borrower-6051,,,False
+3637,0.0065753211669028,0,705,Borrower-3637,,,False
+6360,0.006528060458413,0,706,Borrower-6360,,,False
+6372,0.0065090163315053,0,707,Borrower-6372,,,False
+5268,0.0064724269374764,0,708,Borrower-5268,,,False
+2965,0.0064570731209951,0,709,Borrower-2965,,,False
+345,0.0064450249674926,0,710,Borrower-0345,,,False
+6594,0.0064438096430578,0,711,Borrower-6594,,,False
+1734,0.0064072950824126,0,712,Borrower-1734,,,False
+1066,0.0063554936069793,0,713,Borrower-1066,,,False
+5804,0.0063320937126954,0,714,Borrower-5804,,,False
+6391,0.0063319343574994,0,715,Borrower-6391,,,False
+4971,0.0062840081563444,0,716,Borrower-4971,,,False
+1865,0.0062791615360439,0,717,Borrower-1865,,,False
+189,0.0061963775826785,0,718,Borrower-0189,,,False
+2961,0.0061714644815069,0,719,Borrower-2961,,,False
+2724,0.0061159354967478,0,720,Borrower-2724,,,False
+6331,0.0061152380861761,0,721,Borrower-6331,,,False
+3709,0.0061043577310082,0,722,Borrower-3709,,,False
+1484,0.0060809855704592,0,723,Borrower-1484,,,False
+2565,0.006037911790396,0,724,Borrower-2565,,,False
+2039,0.0060013980424905,0,725,Borrower-2039,,,False
+4565,0.0059449160175065,0,726,Borrower-4565,,,False
+3850,0.0058688304833541,0,727,Borrower-3850,,,False
+966,0.0058183645543211,0,728,Borrower-0966,,,False
+6430,0.0058016276097581,0,729,Borrower-6430,,,False
+2695,0.0057906951071675,0,730,Borrower-2695,,,False
+2730,0.0057670184125922,0,731,Borrower-2730,,,False
+4285,0.0057505555732242,0,732,Borrower-4285,,,False
+4007,0.005725551581932,0,733,Borrower-4007,,,False
+1819,0.005669398395731,0,734,Borrower-1819,,,False
+5642,0.0056422504686147,0,735,Borrower-5642,,,False
+2956,0.0056152052377815,0,736,Borrower-2956,,,False
+5539,0.0055709786872725,0,737,Borrower-5539,,,False
+924,0.0054973753124806,0,738,Borrower-0924,,,False
+6601,0.0054950595583362,0,739,Borrower-6601,,,False
+1570,0.0053308144170657,0,740,Borrower-1570,,,False
+3419,0.0053089495410815,0,741,Borrower-3419,,,False
+388,0.0053014187771332,0,742,Borrower-0388,,,False
+1481,0.0052420066493997,0,743,Borrower-1481,,,False
+3060,0.0052014042182947,0,744,Borrower-3060,,,False
+4344,0.0051970446885918,0,745,Borrower-4344,,,False
+2681,0.0051530069942985,0,746,Borrower-2681,,,False
+5929,0.0050586874782195,0,747,Borrower-5929,,,False
+1384,0.0050321194285799,0,748,Borrower-1384,,,False
+133,0.0050246370049974,0,749,Borrower-0133,,,False
+55,0.0050123529323572,0,750,Borrower-0055,,,False
+3394,0.0048690668025242,0,751,Borrower-3394,,,False
+4592,0.0048543236154712,0,752,Borrower-4592,,,False
+466,0.004808734758046,0,753,Borrower-0466,,,False
+362,0.0047931241136256,0,754,Borrower-0362,,,False
+4064,0.0047787282209555,0,755,Borrower-4064,,,False
+3766,0.0047784211662164,0,756,Borrower-3766,,,False
+1348,0.0047707294056811,0,757,Borrower-1348,,,False
+5794,0.0047701715126594,0,758,Borrower-5794,,,False
+2551,0.0047247293158575,0,759,Borrower-2551,,,False
+3775,0.0046867488531299,0,760,Borrower-3775,,,False
+3495,0.0046786467293113,0,761,Borrower-3495,,,False
+3636,0.0045696534563955,0,762,Borrower-3636,,,False
+1076,0.0044857486403203,0,763,Borrower-1076,,,False
+2621,0.0044663949535483,0,764,Borrower-2621,,,False
+5334,0.0043917234893329,0,765,Borrower-5334,,,False
+4070,0.0042559766027007,0,766,Borrower-4070,,,False
+3748,0.0042522691579337,0,767,Borrower-3748,,,False
+4268,0.0042489069714748,0,768,Borrower-4268,,,False
+5981,0.0042403903003793,0,769,Borrower-5981,,,False
+3327,0.004205462577767,0,770,Borrower-3327,,,False
+241,0.0041550269937243,0,771,Borrower-0241,,,False
+3445,0.0041340151364386,0,772,Borrower-3445,,,False
+2660,0.004131359095573,0,773,Borrower-2660,,,False
+6571,0.0040275115225431,0,774,Borrower-6571,,,False
+2286,0.0038922317917605,0,775,Borrower-2286,,,False
+4027,0.0038665278758692,0,776,Borrower-4027,,,False
+4106,0.0037971333796862,0,777,Borrower-4106,,,False
+2332,0.0037248922537374,0,778,Borrower-2332,,,False
+2814,0.0036223119661437,0,779,Borrower-2814,,,False
+2783,0.0035942511821434,0,780,Borrower-2783,,,False
+4821,0.0035931281039557,0,781,Borrower-4821,,,False
+1827,0.0034264937233543,0,782,Borrower-1827,,,False
+3110,0.003390435537557,0,783,Borrower-3110,,,False
+3251,0.0033875027673022,0,784,Borrower-3251,,,False
+4282,0.0033847461399918,0,785,Borrower-4282,,,False
+6366,0.0033769146309361,0,786,Borrower-6366,,,False
+116,0.0032865526516842,0,787,Borrower-0116,,,False
+6095,0.0032444600565344,0,788,Borrower-6095,,,False
+3993,0.0031927613067386,0,789,Borrower-3993,,,False
+5805,0.0030440153868123,0,790,Borrower-5805,,,False
+3723,0.0030295289101397,0,791,Borrower-3723,,,False
+4425,0.0030013218094409,0,792,Borrower-4425,,,False
+2539,0.0029683112114696,0,793,Borrower-2539,,,False
+1664,0.0028464614431377,0,794,Borrower-1664,,,False
+760,0.0027518774079035,0,795,Borrower-0760,,,False
+1167,0.0026748937349767,0,796,Borrower-1167,,,False
+740,0.0026052706058676,0,797,Borrower-0740,,,False
+1065,0.0025586802583591,0,798,Borrower-1065,,,False
+2349,0.0023966726875028,0,799,Borrower-2349,,,False
+2904,0.002264719852548,0,800,Borrower-2904,,,False

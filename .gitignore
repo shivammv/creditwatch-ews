@@ -1,0 +1,18 @@
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test cache
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+
+# Build artifacts
+build/
+dist/

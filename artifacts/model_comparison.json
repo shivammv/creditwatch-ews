@@ -1,0 +1,62 @@
+[
+  {
+    "model": "Logistic Regression (Median Imputed + Scaled)",
+    "pr_auc": 0.1154,
+    "roc_auc": 0.7385,
+    "brier_score": 0.19179,
+    "recall_at_5pct": 0.2166,
+    "cv_training_time_sec": 6.04,
+    "supports_native_nan": false,
+    "selected_as_production": false
+  },
+  {
+    "model": "Random Forest (Median Imputed)",
+    "pr_auc": 0.1413,
+    "roc_auc": 0.7617,
+    "brier_score": 0.07781,
+    "recall_at_5pct": 0.2488,
+    "cv_training_time_sec": 14.39,
+    "supports_native_nan": false,
+    "selected_as_production": false
+  },
+  {
+    "model": "XGBoost (Native NaN)",
+    "pr_auc": 0.2139,
+    "roc_auc": 0.8012,
+    "brier_score": 0.0342,
+    "recall_at_5pct": 0.3041,
+    "cv_training_time_sec": 8.49,
+    "supports_native_nan": true,
+    "selected_as_production": false
+  },
+  {
+    "model": "LightGBM Baseline (Native NaN)",
+    "pr_auc": 0.2036,
+    "roc_auc": 0.7978,
+    "brier_score": 0.03455,
+    "recall_at_5pct": 0.3134,
+    "cv_training_time_sec": 6.6,
+    "supports_native_nan": true,
+    "selected_as_production": true
+  },
+  {
+    "model": "LightGBM Optimized (Native NaN)",
+    "pr_auc": 0.2148,
+    "roc_auc": 0.7976,
+    "brier_score": 0.03418,
+    "recall_at_5pct": 0.318,
+    "cv_training_time_sec": 5.67,
+    "supports_native_nan": true,
+    "selected_as_production": true
+  },
+  {
+    "model": "LightGBM (Median Imputed)",
+    "pr_auc": 0.2097,
+    "roc_auc": 0.7945,
+    "brier_score": 0.03431,
+    "recall_at_5pct": 0.3041,
+    "cv_training_time_sec": 4.61,
+    "supports_native_nan": false,
+    "selected_as_production": false
+  }
+]
