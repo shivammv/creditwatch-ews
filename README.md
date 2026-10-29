@@ -50,7 +50,7 @@ Every choice (model files, overlay weights, lags, rules) was **frozen and commit
 ## Quick start
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt     # tested versions pinned in requirements-lock.txt (Python 3.13)
 python run_all.py            # rebuild every number: models (if missing), simulations, Indian evaluation, post-hoc, watch-list
 python -m pytest -q          # 40 unit + integration tests
 ```
@@ -111,7 +111,7 @@ frontend/                  React 18 + TypeScript + Tailwind web app (7 pages)
 config/                    frozen_config.json (primary), frozen_config_v2.json (post-hoc variant)
 data/                      Polish benchmark + sourced Indian panel
 artifacts/                 models, metrics, curves, Indian results, figures
-docs/                      REPORT.md, METHODOLOGY.md, DEVIATIONS.md, CROSS_EXAM_QA.md, DATA_ENTRY.md
+docs/                      REPORT.md (+ PDF; Q&A in section 10), METHODOLOGY.md, DEVIATIONS.md, DATA_ENTRY.md
 tests/                     40 tests: leakage, provenance, scores by hand, pre-registration, API, end-to-end
 ```
 
