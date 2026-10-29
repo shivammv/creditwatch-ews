@@ -1,33 +1,32 @@
 peer,sector,is_financial,matched_to,is_defaulter,status_check
-LIC Housing Finance,Housing finance,1,DHFL,0,confirm: no default/IBC/rating-D before the matched event date
-Can Fin Homes,Housing finance,1,DHFL,0,confirm: no default/IBC/rating-D before the matched event date
-Aavas Financiers,Housing finance,1,DHFL,0,confirm: no default/IBC/rating-D before the matched event date
-Repco Home Finance,Housing finance,1,DHFL,0,confirm: no default/IBC/rating-D before the matched event date
-InterGlobe Aviation,Aviation,0,Jet Airways,0,confirm: no default/IBC/rating-D before the matched event date
-Bajaj Finance,Financials,1,Reliance Capital,0,confirm: no default/IBC/rating-D before the matched event date
-Muthoot Finance,Financials,1,Reliance Capital,0,confirm: no default/IBC/rating-D before the matched event date
-Cholamandalam Investment,Financials,1,Reliance Capital,0,confirm: no default/IBC/rating-D before the matched event date
-IRB Infrastructure,Infrastructure / NBFC,0,IL&FS,0,confirm: no default/IBC/rating-D before the matched event date
-Ashoka Buildcon,Infrastructure / NBFC,0,IL&FS,0,confirm: no default/IBC/rating-D before the matched event date
-KNR Constructions,Infrastructure / NBFC,0,IL&FS,0,confirm: no default/IBC/rating-D before the matched event date
-PNC Infratech,Infrastructure / NBFC,0,IL&FS,0,confirm: no default/IBC/rating-D before the matched event date
-Avenue Supermarts,Retail,0,Future Retail,0,confirm: no default/IBC/rating-D before the matched event date
-Trent,Retail,0,Future Retail,0,confirm: no default/IBC/rating-D before the matched event date
-Shoppers Stop,Retail,0,Future Retail,0,confirm: no default/IBC/rating-D before the matched event date
-V-Mart Retail,Retail,0,Future Retail,0,confirm: no default/IBC/rating-D before the matched event date
-Jubilant FoodWorks,Consumer,0,Coffee Day Enterprises,0,confirm: no default/IBC/rating-D before the matched event date
-Westlife Foodworld,Consumer,0,Coffee Day Enterprises,0,confirm: no default/IBC/rating-D before the matched event date
-Devyani International,Consumer,0,Coffee Day Enterprises,0,confirm: no default/IBC/rating-D before the matched event date
-Welspun India,Textiles,0,Alok Industries,0,confirm: no default/IBC/rating-D before the matched event date
-Vardhman Textiles,Textiles,0,Alok Industries,0,confirm: no default/IBC/rating-D before the matched event date
-KPR Mill,Textiles,0,Alok Industries,0,confirm: no default/IBC/rating-D before the matched event date
-Trident,Textiles,0,Alok Industries,0,confirm: no default/IBC/rating-D before the matched event date
-JSW Steel,Metals,0,Bhushan Steel,0,confirm: no default/IBC/rating-D before the matched event date
-SAIL,Metals,0,Bhushan Steel,0,confirm: no default/IBC/rating-D before the matched event date
-APL Apollo Tubes,Metals,0,Bhushan Steel,0,confirm: no default/IBC/rating-D before the matched event date
-Bharti Airtel,Telecom,0,Reliance Communications,0,confirm: no default/IBC/rating-D before the matched event date
-Tata Communications,Telecom,0,Reliance Communications,0,confirm: no default/IBC/rating-D before the matched event date
-Supreme Industries,Industrials,0,Sintex Industries,0,confirm: no default/IBC/rating-D before the matched event date
-Finolex Industries,Industrials,0,Sintex Industries,0,confirm: no default/IBC/rating-D before the matched event date
-Nilkamal,Industrials,0,Sintex Industries,0,confirm: no default/IBC/rating-D before the matched event date
-Voltas,Industrials,0,Sintex Industries,0,confirm: no default/IBC/rating-D before the matched event date
+LIC Housing Finance,Housing finance,1,DHFL,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Can Fin Homes,Housing finance,1,DHFL,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Aavas Financiers,Housing finance,1,DHFL,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Repco Home Finance,Housing finance,1,DHFL,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+InterGlobe Aviation,Aviation,0,Jet Airways,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Bajaj Finance,Financials,1,Reliance Capital,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Muthoot Finance,Financials,1,Reliance Capital,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Cholamandalam Investment,Financials,1,Reliance Capital,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+IRB Infrastructure,Infrastructure (roads),0,IL&FS Transportation Networks,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Ashoka Buildcon,Infrastructure (roads),0,IL&FS Transportation Networks,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+KNR Constructions,Infrastructure (roads),0,IL&FS Transportation Networks,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+PNC Infratech,Infrastructure (roads),0,IL&FS Transportation Networks,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Avenue Supermarts,Retail,0,Future Retail,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Trent,Retail,0,Future Retail,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Shoppers Stop,Retail,0,Future Retail,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+V-Mart Retail,Retail,0,Future Retail,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Jubilant FoodWorks,Consumer,0,Coffee Day Enterprises,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Westlife Foodworld,Consumer,0,Coffee Day Enterprises,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Welspun India,Textiles,0,Alok Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Vardhman Textiles,Textiles,0,Alok Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+KPR Mill,Textiles,0,Alok Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Trident,Textiles,0,Alok Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+JSW Steel,Metals,0,Bhushan Steel,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+SAIL,Metals,0,Bhushan Steel,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+APL Apollo Tubes,Metals,0,Bhushan Steel,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Bharti Airtel,Telecom,0,Reliance Communications,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Tata Communications,Telecom,0,Reliance Communications,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Supreme Industries,Industrials,0,Sintex Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Finolex Industries,Industrials,0,Sintex Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Nilkamal,Industrials,0,Sintex Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)
+Voltas,Industrials,0,Sintex Industries,0,listed at event date; no default/IBC/rating-D found through event + 8 quarters (desk check)

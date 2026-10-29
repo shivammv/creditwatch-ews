@@ -31,13 +31,23 @@ SOFT_LABELS = {
 }
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=4)
 def load_bundle(name: str = "production") -> dict:
+    """'production' = 4-quarter-lead model (UCI 5year file); 'production_8q' = 8-quarter-lead model (4year file)."""
     return joblib.load(ART / f"model_{name}.joblib")
 
 
+def model_input(bundle: dict, X: pd.DataFrame) -> pd.DataFrame:
+    """Columns in model order, median-imputed with the imputer learned on benchmark training rows (if the bundle has one)."""
+    Xf = X[bundle["features"]].astype(float)
+    imp = bundle.get("imputer")
+    if imp is None:
+        return Xf
+    return pd.DataFrame(imp.transform(Xf), columns=Xf.columns, index=Xf.index)
+
+
 def predict_proba(bundle: dict, X: pd.DataFrame) -> np.ndarray:
-    raw = bundle["model"].predict_proba(X[bundle["features"]])[:, 1]
+    raw = bundle["model"].predict_proba(model_input(bundle, X))[:, 1]
     return bundle["calibrator"].predict(raw)
 
 
@@ -74,7 +84,7 @@ def shap_matrix(bundle: dict, X: pd.DataFrame) -> np.ndarray:
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         ex = shap.TreeExplainer(bundle["model"])
-        sv = ex.shap_values(X[bundle["features"]])
+        sv = ex.shap_values(model_input(bundle, X))
     if isinstance(sv, list):
         sv = sv[1] if len(sv) > 1 else sv[0]
     sv = np.asarray(sv, dtype=float)
@@ -88,19 +98,16 @@ def top_drivers(bundle: dict, X: pd.DataFrame, k: int = 3) -> list[list[dict]]:
     med = bundle["healthy_median"]
     out = []
     for i in range(len(X)):
-        order = np.argsort(-sv[i])[:k]
         rows = []
+        # rank only ratios that were actually computed: an imputed (missing) ratio is "no information", never a driver
+        order = [j for j in np.argsort(-sv[i]) if pd.notna(X.iloc[i][feats[j]])][:k]
         for j in order:
             if sv[i, j] <= 0:
                 continue
             f = feats[j]
             meta = FEATURES[f]
             v = X.iloc[i][f]
-            if pd.isna(v):
-                text = (f"{meta['label']} could not be computed (input missing or zero, e.g. no interest cost or no sales); "
-                        "in the benchmark data missing/undefined ratios are themselves associated with distress, so verify the statements.")
-            else:
-                text = meta["concern"].format(v=format_value(v, meta["unit"]), m=format_value(med[f], meta["unit"]))
+            text = meta["concern"].format(v=format_value(v, meta["unit"]), m=format_value(med[f], meta["unit"]))
             rows.append(dict(feature=f, label=meta["label"], shap=float(sv[i, j]), value=None if pd.isna(v) else float(v),
                              peer_median=float(med[f]), text=text))
         out.append(rows)

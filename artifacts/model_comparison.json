@@ -1,62 +1,62 @@
 [
   {
     "model": "Logistic Regression (Median Imputed + Scaled)",
-    "pr_auc": 0.1154,
-    "roc_auc": 0.7385,
-    "brier_score": 0.19179,
-    "recall_at_5pct": 0.2166,
-    "cv_training_time_sec": 6.04,
+    "pr_auc": 0.3207,
+    "roc_auc": 0.8079,
+    "brier_score": 0.16317,
+    "recall_at_5pct": 0.3252,
+    "cv_training_time_sec": 3.68,
     "supports_native_nan": false,
     "selected_as_production": false
   },
   {
     "model": "Random Forest (Median Imputed)",
-    "pr_auc": 0.1413,
-    "roc_auc": 0.7617,
-    "brier_score": 0.07781,
-    "recall_at_5pct": 0.2488,
-    "cv_training_time_sec": 14.39,
+    "pr_auc": 0.3752,
+    "roc_auc": 0.8552,
+    "brier_score": 0.0838,
+    "recall_at_5pct": 0.3374,
+    "cv_training_time_sec": 9.69,
     "supports_native_nan": false,
     "selected_as_production": false
   },
   {
     "model": "XGBoost (Native NaN)",
-    "pr_auc": 0.2139,
-    "roc_auc": 0.8012,
-    "brier_score": 0.0342,
-    "recall_at_5pct": 0.3041,
-    "cv_training_time_sec": 8.49,
+    "pr_auc": 0.4381,
+    "roc_auc": 0.8705,
+    "brier_score": 0.04945,
+    "recall_at_5pct": 0.3742,
+    "cv_training_time_sec": 3.58,
     "supports_native_nan": true,
     "selected_as_production": false
   },
   {
     "model": "LightGBM Baseline (Native NaN)",
-    "pr_auc": 0.2036,
-    "roc_auc": 0.7978,
-    "brier_score": 0.03455,
-    "recall_at_5pct": 0.3134,
-    "cv_training_time_sec": 6.6,
+    "pr_auc": 0.4324,
+    "roc_auc": 0.8732,
+    "brier_score": 0.05007,
+    "recall_at_5pct": 0.3712,
+    "cv_training_time_sec": 3.95,
     "supports_native_nan": true,
-    "selected_as_production": true
+    "selected_as_production": false
   },
   {
     "model": "LightGBM Optimized (Native NaN)",
-    "pr_auc": 0.2148,
-    "roc_auc": 0.7976,
-    "brier_score": 0.03418,
-    "recall_at_5pct": 0.318,
-    "cv_training_time_sec": 5.67,
+    "pr_auc": 0.4321,
+    "roc_auc": 0.8703,
+    "brier_score": 0.05008,
+    "recall_at_5pct": 0.3528,
+    "cv_training_time_sec": 3.68,
     "supports_native_nan": true,
-    "selected_as_production": true
+    "selected_as_production": false
   },
   {
     "model": "LightGBM (Median Imputed)",
-    "pr_auc": 0.2097,
-    "roc_auc": 0.7945,
-    "brier_score": 0.03431,
-    "recall_at_5pct": 0.3041,
-    "cv_training_time_sec": 4.61,
+    "pr_auc": 0.4292,
+    "roc_auc": 0.8683,
+    "brier_score": 0.05,
+    "recall_at_5pct": 0.3558,
+    "cv_training_time_sec": 3.19,
     "supports_native_nan": false,
-    "selected_as_production": false
+    "selected_as_production": true
   }
 ]

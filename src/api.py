@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 
 from src import indian, ingest
 from src.features import FEATURE_NAMES, FEATURES, RAW_COLS, format_value, indian_to_portable, polish_to_portable
-from src.model import ART, BAYES_T, COST_FN, COST_FP, LGB_PARAMS, load_polish, train_all
+from src.model import ART, BAYES_T, COST_FN, COST_FP, LGB_PARAMS, load_polish, train_lead_models
 from src.rank import (
     OVERLAY,
     SOFT_LABELS,
@@ -104,6 +104,10 @@ class FinancialInput(BaseModel):
 
 
 # Helper cache for loaded data
+def _pct(x):
+    return round(float(x) * 100, 1) if x is not None else None
+
+
 def get_portfolio_df() -> pd.DataFrame:
     p = ART / "watchlist_any.csv"
     if p.exists():
@@ -220,20 +224,20 @@ def dashboard():
             "cost_fn_ratio": 20.0,
         },
         "model_performance_snippet": {
-            "pr_auc": prod.get("pr_auc", 0.3394),
-            "pr_auc_baseline": prod.get("pr_auc_baseline", 0.0389),
-            "roc_auc": prod.get("roc_auc", 0.8179),
-            "brier_score": prod.get("brier_score", 0.0314),
-            "recall_at_5pct": round(s2.get("recall_mean", 0.49) * 100, 1),
-            "cost_reduction_vs_none": round((1 - s2.get("cost_at_budget", 604) / max(s2.get("cost_flag_none", 1080), 1)) * 100, 1),
+            "pr_auc": prod.get("pr_auc"),
+            "pr_auc_baseline": prod.get("pr_auc_baseline"),
+            "roc_auc": prod.get("roc_auc"),
+            "brier_score": prod.get("brier_score"),
+            "recall_at_5pct": round(s2["recall_mean"] * 100, 1) if "recall_mean" in s2 else None,
+            "cost_reduction_vs_none": round((1 - s2["cost_at_budget"] / max(s2["cost_flag_none"], 1)) * 100, 1) if "cost_at_budget" in s2 else None,
         },
         "indian_panel_status": {
             "ready": ind_sum.get("lead_4q") is not None,
-            "lead_4q_recall_full": round(ind_sum.get("lead_4q", {}).get("recall_full", 0.60) * 100, 1),
-            "lead_4q_recall_model_only": round(ind_sum.get("lead_4q", {}).get("recall_model_only", 0.38) * 100, 1),
-            "lead_8q_recall_full": round(ind_sum.get("lead_8q", {}).get("recall_full", 0.375) * 100, 1),
-            "defaulters_count": ind_sum.get("lead_4q", {}).get("n_defaulters", 10),
-            "peers_count": ind_sum.get("lead_4q", {}).get("n_peers", 32),
+            "lead_4q_recall_full": _pct(ind_sum.get("lead_4q", {}).get("recall_full")),
+            "lead_4q_recall_model_only": _pct(ind_sum.get("lead_4q", {}).get("recall_model_only")),
+            "lead_8q_recall_full": _pct(ind_sum.get("lead_8q", {}).get("recall_full")),
+            "defaulters_count": ind_sum.get("lead_4q", {}).get("n_defaulters", 0),
+            "peers_count": ind_sum.get("lead_4q", {}).get("n_peers", 0),
         },
         "sectors": sector_summary,
         "top_high_risk": top_high_risk,
@@ -311,7 +315,8 @@ def retrain_model(confirm: bool = Query(False)):
         )
     t0 = time.time()
     try:
-        report = train_all(horizon=1, run_full_comparison=True)
+        report = train_lead_models(run_full_comparison=True)["4q"]
+        load_bundle.cache_clear()
         # re-run simulations
         from run_all import build_sim, sample_watchlist
         build_sim()

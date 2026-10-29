@@ -150,12 +150,14 @@ def indian_to_portable(cur: dict, prev: dict | None = None) -> dict:
             return default
 
     TA, CA, CL, TL, EQ = g("total_assets"), g("current_assets"), g("current_liabilities"), g("total_liabilities"), g("equity")
-    S, EBIT, INT, PBT, NI, DEP = g("sales"), g("ebit"), g("interest_expense"), g("pbt"), g("net_income"), g("depreciation", 0.0)
-    INV = g("inventory", 0.0)
-    REC = g("receivables", 0.0)
-    CASH = g("cash", 0.0)
+    S, EBIT, INT, PBT, NI, DEP = g("sales"), g("ebit"), g("interest_expense"), g("pbt"), g("net_income"), g("depreciation")
+    # Missing line items stay NaN (never 0): a zero would fabricate e.g. a 100% gross margin or zero inventory days.
+    # NaN ratios are median-imputed inside the model, i.e. treated as "no information".
+    INV = g("inventory")
+    REC = g("receivables")
+    CASH = g("cash")
     COGS = g("cogs")
-    SGA = g("sga", 0.0)
+    SGA = g("sga")
     
     lt_liab = (TL - CL) if (np.isfinite(TL) and np.isfinite(CL)) else np.nan
     wc = (CA - CL) if (np.isfinite(CA) and np.isfinite(CL)) else np.nan
@@ -179,13 +181,13 @@ def indian_to_portable(cur: dict, prev: dict | None = None) -> dict:
         "gp_ta": _div(PBT, TA), "gp_sales": _div(PBT, S),
         "sales_growth": _div(S, prev_s),
         "op_profit_ta": _div(EBIT, TA), "net_margin": _div(NI, S), "int_cover": _div(EBIT, INT),
-        "const_cap_ta": _div(EQ + (lt_liab if np.isfinite(lt_liab) else 0.0), TA), "op_margin": _div(EBIT, S),
+        "const_cap_ta": _div(EQ + lt_liab, TA), "op_margin": _div(EBIT, S),
         "quick_ratio": _div(CA - INV, CL), "ebitda_ta": _div(EBIT + DEP, TA), "ebitda_margin": _div(EBIT + DEP, S),
-        "ca_liab": _div(CA, TL), "stl_ta": _div(CL, TA), "cost_sales": _div((COGS if np.isfinite(COGS) else 0.0) + SGA + DEP + (INT if np.isfinite(INT) else 0.0), S),
+        "ca_liab": _div(CA, TL), "stl_ta": _div(CL, TA), "cost_sales": _div(COGS + SGA + DEP + INT, S),
         "ltl_equity": _div(lt_liab, EQ), "sales_stl": _div(S, CL),
         "cf_liab2": _div(NI + DEP, TL), "netdebt_sales": _div(TL - CASH, S), "int_adj_sales": _div(PBT + INT, S),
         "cash_like_ratio": _div(CA - INV - REC, CL),
-        "gross_margin": _div(S - (COGS if np.isfinite(COGS) else 0.0), S), "sales_recv": _div(S, g("receivables")), "stl_days_sales": _div(CL * 365, S),
+        "gross_margin": _div(S - COGS, S), "sales_recv": _div(S, g("receivables")), "stl_days_sales": _div(CL * 365, S),
         "payback_days": _div(TL * 365, PBT + DEP), "inv_days_sales": _div(INV * 365, S),
         "recv_days": _div(g("receivables") * 365, S), "cl_days_cogs": _div(CL * 365, COGS),
     }

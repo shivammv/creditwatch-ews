@@ -124,22 +124,40 @@ class Calibrator:
         return self.lr.predict_proba(self._z(p))[:, 1]
 
 
-def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED) -> tuple[dict, dict]:
+def _imp(imputer, X: pd.DataFrame) -> pd.DataFrame:
+    """Apply a fitted median imputer and keep column names (needed by LightGBM and SHAP)."""
+    if imputer is None:
+        return X
+    return pd.DataFrame(imputer.transform(X), columns=X.columns, index=X.index)
+
+
+def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED, impute: bool = True) -> tuple[dict, dict]:
+    """impute=True (production): median-impute missing ratios with statistics learned on training rows only, so that
+    *missingness itself* cannot become a bankruptcy signal. In the UCI file missing values are concentrated in bankrupt
+    firms (a data-collection artefact); an Indian firm with an uncollected line item must not be scored as distressed
+    for that reason. impute=False is kept only for the 64-attribute REFERENCE model that demonstrates the artefact."""
     X_dev, X_te, y_dev, y_te = train_test_split(X, y, test_size=0.20, stratify=y, random_state=seed)
-    
-    # 5-fold Out-Of-Fold probabilities on dev set -> calibrator + threshold
+    new_imp = lambda: SimpleImputer(strategy="median", keep_empty_features=True) if impute else None
+
+    # 5-fold Out-Of-Fold probabilities on dev set -> calibrator + threshold (imputer refitted inside every fold)
     oof = np.zeros(len(y_dev))
     for tr, va in StratifiedKFold(5, shuffle=True, random_state=seed).split(X_dev, y_dev):
-        m = LGBMClassifier(**LGB_PARAMS).fit(X_dev.iloc[tr], y_dev[tr])
-        oof[va] = m.predict_proba(X_dev.iloc[va])[:, 1]
-        
+        imp = new_imp()
+        if imp is not None:
+            imp.fit(X_dev.iloc[tr])
+        m = LGBMClassifier(**LGB_PARAMS).fit(_imp(imp, X_dev.iloc[tr]), y_dev[tr])
+        oof[va] = m.predict_proba(_imp(imp, X_dev.iloc[va]))[:, 1]
+
     cal = Calibrator().fit(oof, y_dev)
     p_oof = cal.predict(oof)
     t_emp, _ = best_threshold(p_oof, y_dev)
 
-    # Train final model on entire dev set
-    model = LGBMClassifier(**LGB_PARAMS).fit(X_dev, y_dev)
-    raw_te = model.predict_proba(X_te)[:, 1]
+    # Train final model on entire dev set (imputer fitted on dev rows only; hold-out never seen)
+    imputer = new_imp()
+    if imputer is not None:
+        imputer.fit(X_dev)
+    model = LGBMClassifier(**LGB_PARAMS).fit(_imp(imputer, X_dev), y_dev)
+    raw_te = model.predict_proba(_imp(imputer, X_te))[:, 1]
     p_te = cal.predict(raw_te)
 
     # Bootstrap 95% confidence intervals on holdout PR-AUC and ROC-AUC
@@ -230,11 +248,13 @@ def _fit_eval(X: pd.DataFrame, y: np.ndarray, name: str, seed: int = SEED) -> tu
     bundle = dict(
         model=model,
         calibrator=cal,
+        imputer=imputer,
         features=feat_names,
         bayes_threshold=BAYES_T,
         empirical_threshold=t_emp,
         healthy_median=X_dev[y_dev == 0].median().to_dict(),
-        background=X_dev.sample(min(200, len(X_dev)), random_state=seed)
+        train_pos_rate=float(y_dev.mean()),
+        background=_imp(imputer, X_dev.sample(min(200, len(X_dev)), random_state=seed))
     )
     
     extras = dict(
@@ -300,7 +320,7 @@ def compare_models(df: pd.DataFrame, seed: int = SEED) -> list[dict]:
             recall_at_5pct=round(rec5, 4),
             cv_training_time_sec=fit_time,
             supports_native_nan="Native" in name,
-            selected_as_production=(name == "LightGBM Optimized (Native NaN)" or name == "LightGBM Baseline (Native NaN)")
+            selected_as_production=(name == "LightGBM (Median Imputed)")
         ))
 
     return results
@@ -324,29 +344,41 @@ def artifact_ablation(df: pd.DataFrame, seed: int = 1) -> dict:
         for tr, va in StratifiedKFold(5, shuffle=True, random_state=seed).split(X, y):
             oof[va] = LGBMClassifier(**LGB_PARAMS).fit(X.iloc[tr], y[tr]).predict_proba(X.iloc[va])[:, 1]
         out[name] = round(float(average_precision_score(y, oof)), 3)
+    miss = df["Attr27"].isna()
+    out["attr27_missing_n"] = int(miss.sum())
+    out["attr27_missing_bankrupt_rate"] = round(float(df.loc[miss, "bankrupt"].mean()), 3)
+    out["attr27_present_bankrupt_rate"] = round(float(df.loc[~miss, "bankrupt"].mean()), 3)
     out["note"] = (
-        "Attr27 (operating profit / financial expenses) is NaN for 309 firms of which 38.8% went bankrupt (2.3% otherwise). "
-        "That missing-data pattern, not the ratio itself, carries about half of the apparent skill of the 64-attribute model and "
-        "cannot transfer to Indian filings (a debt-free company has zero interest cost). The production model therefore excludes it."
+        f"Attr27 (operating profit / financial expenses) is NaN for {out['attr27_missing_n']} firms, of which "
+        f"{out['attr27_missing_bankrupt_rate']:.1%} went bankrupt ({out['attr27_present_bankrupt_rate']:.1%} otherwise). "
+        "That missing-data pattern, not the ratio itself, carries a large share of the apparent skill of the 64-attribute model "
+        "and cannot transfer to Indian filings (a debt-free company has zero interest cost). The production model excludes "
+        "Attr27 and median-imputes every other ratio, so missingness carries no signal."
     )
     return out
 
 
-def train_all(horizon: int = 1, run_full_comparison: bool = True) -> dict:
+# Lead time -> UCI file whose label horizon matches it (UCI: file k holds ratios observed 6-k years before the label).
+#   4-quarter lead  -> 5year file (bankrupt within 1 year)
+#   8-quarter lead  -> 4year file (bankrupt within 2 years)
+LEAD_FILES = {"4q": 5, "8q": 4}
+HORIZON_YEARS = {1: 5, 2: 4, 3: 3, 4: 2, 5: 1}
+
+
+def train_all(horizon: int = 5, run_full_comparison: bool = True, suffix: str = "", lead: str = "4q",
+              with_reference: bool = True) -> dict:
     """
-    Complete reproducible training workflow:
-      - Validates data
-      - Performs model comparison across Logistic Regression, Random Forest, XGBoost, and LightGBM
-      - Fits production model & reference model
-      - Backs up previous working model before saving
-      - Writes curves, metrics, and comprehensive metadata
+    Reproducible training workflow for ONE lead-time model.
+      horizon : UCI file number (polish_{horizon}year.csv). 5 -> 1-year label horizon (4Q lead), 4 -> 2-year (8Q lead).
+      suffix  : artifact suffix ("" for the 4Q production model, "_8q" for the 8Q model).
+    Writes: benchmark_report{suffix}.json, model_production{suffix}.joblib, holdout_predictions{suffix}.csv,
+            polish_dedup{suffix}.pkl, curves (4Q only), model_reference.joblib + ablation + comparison (4Q only).
     """
     t_start = time.time()
     ART.mkdir(exist_ok=True)
-    
-    # Backup existing production model if present
-    prod_path = ART / "model_production.joblib"
-    backup_path = ART / "model_production_backup.joblib"
+
+    prod_path = ART / f"model_production{suffix}.joblib"
+    backup_path = ART / f"model_production{suffix}_backup.joblib"
     if prod_path.exists():
         shutil.copyfile(prod_path, backup_path)
 
@@ -354,17 +386,22 @@ def train_all(horizon: int = 1, run_full_comparison: bool = True) -> dict:
     y = df["bankrupt"].astype(int).values
     attrs = [c for c in df.columns if c.startswith("Attr")]
 
-    prod_rep, prod = _fit_eval(polish_to_portable(df)[FEATURE_NAMES], y, "production_india_portable")
-    ref_rep, ref = _fit_eval(df[attrs], y, "reference_all_64")
-    ablation = artifact_ablation(df)
+    prod_rep, prod = _fit_eval(polish_to_portable(df)[FEATURE_NAMES], y, f"production_india_portable_{lead}", impute=True)
+    if with_reference:
+        ref_rep, ref = _fit_eval(df[attrs], y, "reference_all_64_native_nan", impute=False)
+        ablation = artifact_ablation(df)
+    else:
+        ref_rep, ref, ablation = {}, None, {}
 
-    # Multi-model cross-validation comparison
     comparison_results = compare_models(df) if run_full_comparison else []
-    (ART / "model_comparison.json").write_text(json.dumps(comparison_results, indent=2))
+    if run_full_comparison:
+        (ART / "model_comparison.json").write_text(json.dumps(comparison_results, indent=2))
 
     meta = dict(
         dataset=f"UCI Polish Companies Bankruptcy, file polish_{horizon}year.csv",
-        model_version="2.0.0-production",
+        lead=lead.upper(),
+        label_horizon_years=HORIZON_YEARS[horizon],
+        model_version="3.0.0-lead-matched",
         training_timestamp=datetime.datetime.now(datetime.timezone.utc).isoformat(),
         training_duration_seconds=round(time.time() - t_start, 2),
         n_rows=len(df),
@@ -374,58 +411,52 @@ def train_all(horizon: int = 1, run_full_comparison: bool = True) -> dict:
         rows_with_any_missing=round(df.attrs["rows_with_any_missing"], 3),
         split="80/20 stratified; dev-set 5-fold OOF for calibration+threshold; hold-out touched once",
         horizon_note=(
-            "UCI documents the '1year' file as ratios from the first of five forecasting years with the bankruptcy "
-            "label observed 5 years later, i.e. a LONG lead time (~5 years). Multi-horizon lead curve written by src/horizons.py."
+            f"UCI file {horizon}year: financial ratios observed {HORIZON_YEARS[horizon]} year(s) before the bankruptcy label. "
+            f"This model serves the {lead.upper()} lead time, so the benchmark target matches the Indian test."
         ),
         no_calendar_time=(
-            "The dataset has no calendar dates, so a time-ordered split is impossible; the hold-out is a company-disjoint, "
-            "never-seen-during-fitting sample. Treat PR-AUC as an upper bound on out-of-time performance."
+            "The dataset has no calendar dates or firm IDs, so a time-ordered split is impossible; the hold-out is a "
+            "never-seen-during-fitting sample within one file. Treat PR-AUC as an upper bound on out-of-time performance."
         ),
         cost=dict(fn=COST_FN, fp=COST_FP, bayes_threshold=round(BAYES_T, 4)),
         leakage_controls=[
             "duplicates removed pre-split",
             "hold-out carved first and untouched during tuning",
-            "no imputation (native NaN)",
+            "median imputation fitted on training rows only (inside every CV fold), so missingness carries no signal",
             "calibration + threshold on dev-set OOF only",
-            "no post-event data in any feature"
+            "no post-event data in any Indian feature (asserted at runtime and in tests)",
         ],
-        hyperparameters=LGB_PARAMS
+        hyperparameters=LGB_PARAMS,
     )
 
-    report = dict(
-        meta=meta,
-        production=prod_rep,
-        reference=ref_rep,
-        ablation=ablation,
-        model_comparison=comparison_results
-    )
+    report = dict(meta=meta, production=prod_rep, reference=ref_rep, ablation=ablation,
+                  model_comparison=comparison_results)
+    (ART / f"benchmark_report{suffix}.json").write_text(json.dumps(report, indent=2, default=float))
+    joblib.dump(prod["bundle"] | dict(lead=lead, horizon_file=horizon), prod_path)
+    if ref is not None:
+        joblib.dump(ref["bundle"], ART / "model_reference.joblib")
 
-    (ART / "benchmark_report.json").write_text(json.dumps(report, indent=2, default=float))
-    joblib.dump(prod["bundle"], prod_path)
-    joblib.dump(ref["bundle"], ART / "model_reference.joblib")
-
-    # Save holdout predictions with probabilities
     holdout = pd.DataFrame({"row": prod["test_idx"], "p": prod["p_test"], "y": prod["y_test"]})
-    holdout.to_csv(ART / "holdout_predictions.csv", index=False)
-
-    # Save Precision-Recall curve points
-    pr = pd.DataFrame({"precision": prod["pr_curve"][0], "recall": prod["pr_curve"][1]})
-    pr.to_csv(ART / "pr_curve.csv", index=False)
-
-    # Save ROC curve points
-    roc_df = pd.DataFrame({"fpr": prod["roc_curve"][0], "tpr": prod["roc_curve"][1]})
-    roc_df.to_csv(ART / "roc_curve.csv", index=False)
-
-    # Save Calibration curve points
-    cal_df = pd.DataFrame({"prob_true": prod["cal_curve"][0], "prob_pred": prod["cal_curve"][1]})
-    cal_df.to_csv(ART / "calibration_curve.csv", index=False)
-
-    df[["bankrupt"]].assign(row=df.index).to_csv(ART / "polish_row_index.csv", index=False)
-    df.to_pickle(ART / "polish_dedup.pkl")
+    holdout.to_csv(ART / f"holdout_predictions{suffix}.csv", index=False)
+    if suffix == "":
+        pd.DataFrame({"precision": prod["pr_curve"][0], "recall": prod["pr_curve"][1]}).to_csv(ART / "pr_curve.csv", index=False)
+        pd.DataFrame({"fpr": prod["roc_curve"][0], "tpr": prod["roc_curve"][1]}).to_csv(ART / "roc_curve.csv", index=False)
+        pd.DataFrame({"prob_true": prod["cal_curve"][0], "prob_pred": prod["cal_curve"][1]}).to_csv(
+            ART / "calibration_curve.csv", index=False)
+        df[["bankrupt"]].assign(row=df.index).to_csv(ART / "polish_row_index.csv", index=False)
+    df.to_pickle(ART / f"polish_dedup{suffix}.pkl")
     return report
 
 
+def train_lead_models(run_full_comparison: bool = True) -> dict:
+    """Train the 4Q production model (5year file) and the 8Q model (4year file)."""
+    rep4 = train_all(horizon=LEAD_FILES["4q"], run_full_comparison=run_full_comparison, suffix="", lead="4q")
+    rep8 = train_all(horizon=LEAD_FILES["8q"], run_full_comparison=False, suffix="_8q", lead="8q", with_reference=False)
+    return {"4q": rep4, "8q": rep8}
+
+
 if __name__ == "__main__":
-    rep = train_all(horizon=1, run_full_comparison=True)
-    print("Training successfully completed.")
-    print("Production PR-AUC:", rep["production"]["pr_auc"], "| ROC-AUC:", rep["production"]["roc_auc"])
+    reps = train_lead_models(run_full_comparison=True)
+    for k, r in reps.items():
+        print(k, "PR-AUC:", r["production"]["pr_auc"], "baseline:", r["production"]["pr_auc_baseline"],
+              "ROC-AUC:", r["production"]["roc_auc"])

@@ -104,7 +104,7 @@ with tabs[1]:
 
 # ------------------------------------------------------------------ 5% budget
 with tabs[2]:
-    rate = st.radio("Default rate in the 800-borrower book", ["0.01", "0.02", "0.039"], index=1, horizontal=True, format_func=lambda x: f"{float(x):.1%}")
+    rate = st.radio("Default rate in the 800-borrower book", ["0.01", "0.02", "0.041"], index=1, horizontal=True, format_func=lambda x: f"{float(x):.1%}")
     s = sims[rate]
     c = st.columns(4)
     c[0].metric("Defaulters in book", s["n_pos"]); c[1].metric("Recall inside 40 names", f"{s['recall_mean']:.0%}", f"CI {s['recall_ci95'][0]:.0%}-{s['recall_ci95'][1]:.0%}")

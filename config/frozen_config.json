@@ -1,0 +1,68 @@
+{
+  "config": {
+    "capacity": {
+      "alert_rate": 0.05,
+      "review_slots": 40,
+      "universe": 800
+    },
+    "cost": {
+      "bayes_threshold": "1/21",
+      "false_alarm": 1.0,
+      "missed_default": 20.0
+    },
+    "event_rule": "earliest documented credit event (payment default disclosure, rating to D, or CIRP admission) with source URL",
+    "model": {
+      "artifact_sha256": {
+        "model_production.joblib": "ce2f73e2e55f662e64f8b9cef315bf63cb31e114f1ad4cf422ab71d5dadc2331",
+        "model_production_8q.joblib": "92478bfc930045809ea29ab553dad46022949f08c779590990735bab15273275"
+      },
+      "family": "LightGBM, median-imputed (imputer fitted on training rows only), Platt-calibrated on OOF",
+      "features": "39 India-portable ratios (src/features.py FEATURE_NAMES)",
+      "hyperparameters": {
+        "colsample_bytree": 0.8,
+        "learning_rate": 0.03,
+        "min_child_samples": 15,
+        "n_estimators": 400,
+        "n_jobs": 2,
+        "num_leaves": 15,
+        "random_state": 42,
+        "reg_lambda": 5.0,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "verbose": -1
+      },
+      "lead_to_uci_file": {
+        "4q": 5,
+        "8q": 4
+      }
+    },
+    "observation_rule": "obs = event_date - 3*L months; fiscal year usable only if public_date <= obs; 2 usable years required",
+    "overlay_log_odds": {
+      "auditor_red_flag": 0.5,
+      "delayed_filing": 0.5,
+      "f_mid": 0.0,
+      "f_weak": 0.4,
+      "icr_below_1": 0.5,
+      "m_zone": 0.5,
+      "promoter_pledge_high": 0.4,
+      "rating_downgrade": 0.6,
+      "related_party_stress": 0.4,
+      "z_distress": 0.8,
+      "z_grey": 0.3
+    },
+    "primary_metric": "recall of Indian defaulters above the 95th percentile of matched non-defaulting peer scores at 4Q and 8Q lead (Wilson 95% CI); secondary: simulated 800-name book with Polish hold-out background",
+    "publication_lag_days": 120,
+    "soft_signal_cap": 1.5,
+    "soft_signal_rule": "date_public <= observation date and within prior 365 days",
+    "soft_signal_window_days": 365,
+    "soft_signals": [
+      "rating_downgrade",
+      "promoter_pledge_high",
+      "auditor_red_flag",
+      "delayed_filing",
+      "related_party_stress"
+    ]
+  },
+  "frozen_at_utc": "2026-10-29T16:05:40.068805+00:00",
+  "sha256": "4bb5c305d55a07a758c1e2576e229308b54bc9ef4905c4f079c921b95d9cbe8a"
+}

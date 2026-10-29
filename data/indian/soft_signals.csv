@@ -1,20 +1,6 @@
-company,signal,date_public,value,source_url
-IL&FS,rating_downgrade,2018-08-28,1,CARE/ICRA cascade late Aug 2018; first major default early Sep 2018
-IL&FS,related_party_stress,2018-03-31,1,Complex group SPV / related-party structure documented in ARs
-DHFL,rating_downgrade,2019-06-04,1,CARE/Brickwork downgrades mid-2019 pre RBI supersession Nov 2019
-DHFL,promoter_pledge_high,2018-09-21,1,Market stress post-IL&FS; shareholding pattern filings
-Jet Airways,rating_downgrade,2018-11-15,1,Agency actions and lessor stress FY19 before Apr 2019 grounding
-Jet Airways,delayed_filing,2019-02-01,1,Payment delays / operational stress reported Q4FY19
-Reliance Capital,rating_downgrade,2019-06-01,1,ADAG group stress rating actions well before Nov 2021 supersession
-Reliance Capital,related_party_stress,2019-03-31,1,Group inter-company exposures in filings
-Future Retail,rating_downgrade,2021-03-15,1,Rating actions during debt stress pre Jul 2022 insolvency
-Future Retail,related_party_stress,2020-12-01,1,Future Group related-party / lease structure complexity
-Coffee Day Enterprises,promoter_pledge_high,2019-06-30,1,Promoter shareholding/pledge stress; crisis surfaced Jul 2019
-Coffee Day Enterprises,auditor_red_flag,2019-07-31,1,Governance concerns around promoter event; verify AR emphasis
-Reliance Communications,rating_downgrade,2017-02-01,1,Multiple downgrades through 2017 before May 2018 IBC
-Reliance Communications,delayed_filing,2017-09-01,1,Debt restructuring / payment stress pre-admission
-Alok Industries,rating_downgrade,2016-03-31,1,Pre-IBC Jul 2017 rating deterioration
-Alok Industries,related_party_stress,2016-03-31,1,Group stress documented pre-admission
-Bhushan Steel,rating_downgrade,2016-03-31,1,Pre-IBC Jul 2017 rating deterioration
-Sintex Industries,rating_downgrade,2019-09-01,1,Pre-IBC stress; admission Apr 2021
-Sintex Industries,delayed_filing,2020-06-01,1,Payment/restructuring stress pre-admission
+company,signal,date_public,value,source_url,detail,verified
+Jet Airways,rating_downgrade,2018-09-04,1,https://www.business-standard.com/amp/article/pti-stories/icra-cuts-ratings-on-jet-airways-borrowing-programmes-118090401349_1.html,"ICRA long-term BB+ -> BB, negative outlook (sub-investment grade)",1
+IL&FS Transportation Networks,rating_downgrade,2018-07-18,1,https://www.careratings.com/upload/CompanyFiles/PR/IL&FS Transportation Networks Limited-07-18-2018.pdf,CARE A- -> BB (Negative); short-term A2+ -> A4,1
+Future Retail,rating_downgrade,2020-05-13,1,https://www.careratings.com/upload/CompanyFiles/PR/Future Retail Limited-05-13-2020.pdf,"CARE A+ -> A- (two notches), on credit watch with negative implications",1
+Reliance Capital,rating_downgrade,2019-05-19,1,https://www.business-standard.com/amp/article/companies/care-downgrades-reliance-capital-bonds-rating-from-a-to-bbb-119051900907_1.html,"CARE A -> BBB (three notches), credit watch with developing implications",1
+DHFL,rating_downgrade,2019-05-22,1,https://www.bloombergquint.com/amp/business/care-downgrades-dhfl-ratings-for-want-of-a-strategic-investor,"CARE A/A- -> BBB-, negative outlook (date: reported Wednesday 22 May 2019)",1
