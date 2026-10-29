@@ -1,5 +1,6 @@
 {
   "label": "POST-HOC (descriptive; frozen model and weights, no re-tuning)",
+  "variant": "primary",
   "lead_4q_auc": {
     "p_model": {
       "auc": 0.461,
@@ -66,5 +67,39 @@
     "Alok Industries": 3,
     "Future Retail": 1,
     "Jet Airways": 12
+  },
+  "univariate_auc_exploratory": {
+    "lead_4q": {
+      "cf_liab2": 0.765,
+      "int_cover": 0.747,
+      "net_profit_ta": 0.735,
+      "ebit_ta": 0.7,
+      "liabilities_ta": 0.697,
+      "equity_ta": 0.697,
+      "retained_ta": 0.69,
+      "asset_turn": 0.635,
+      "altman_z": 0.573,
+      "wc_ta": 0.484,
+      "op_margin": 0.481,
+      "p_model": 0.461,
+      "risk": 0.461,
+      "current_ratio": 0.439
+    },
+    "lead_8q": {
+      "cf_liab2": 0.746,
+      "ebit_ta": 0.7,
+      "net_profit_ta": 0.686,
+      "int_cover": 0.667,
+      "asset_turn": 0.646,
+      "liabilities_ta": 0.632,
+      "equity_ta": 0.632,
+      "retained_ta": 0.632,
+      "altman_z": 0.554,
+      "risk": 0.464,
+      "p_model": 0.457,
+      "wc_ta": 0.439,
+      "current_ratio": 0.418,
+      "op_margin": 0.411
+    }
   }
 }

@@ -47,10 +47,11 @@ def test_screener_transcriptions_add_up():
     for p in (IND / "screener_raw").glob("*.csv"):
         t = pd.read_csv(p).set_index("line").T.astype(float)
         lhs = t.equity_capital + t.reserves + t.borrowings + t.other_liabilities
-        assert ((lhs - t.total_liabilities_and_equity).abs() <= 1.5).all(), p.name
+        # four rounded line items -> up to +/-2 crore of rounding in the sum
+        assert ((lhs - t.total_liabilities_and_equity).abs() <= 2.0).all(), p.name
         assert ((t.total_assets - t.total_liabilities_and_equity).abs() <= 0.5).all(), p.name
         a = t.fixed_assets + t.cwip + t.investments + t.other_assets
-        assert ((a - t.total_assets).abs() <= 1.5).all(), p.name
+        assert ((a - t.total_assets).abs() <= 2.0).all(), p.name
 
 
 def test_peers_listed_and_have_data():
@@ -208,3 +209,31 @@ def test_watchlist_respects_budget():
     w = pd.read_csv(ART / "watchlist_any.csv")
     if "in_budget" in w:
         assert w.in_budget.sum() <= int(np.ceil(0.05 * len(w)))
+
+
+# ----------------------------------------------------------------------------- v2 (post-hoc) variant
+def test_v2_frozen_and_monotone():
+    assert len(config.verify_frozen("_v2")) == 64
+    b = load_bundle("production_v2")
+    assert b["monotone"] and b["consistency_clamp"]
+    from src.features import MONOTONE
+    cons = b["model"].get_params()["monotone_constraints"]
+    assert cons == [MONOTONE[f] for f in b["features"]]
+
+
+def test_v2_respects_credit_logic_on_leverage():
+    """Monotone model: raising liabilities/assets (all else equal) can never lower risk."""
+    b = load_bundle("production_v2")
+    med = dict(zip(b["features"], b["imputer"].statistics_))
+    lo, hi = pd.DataFrame([med]), pd.DataFrame([med])
+    lo["liabilities_ta"], hi["liabilities_ta"] = 0.3, 0.95
+    assert predict_proba(b, hi)[0] >= predict_proba(b, lo)[0]
+
+
+def test_v2_clamp_quick_ratio_never_exceeds_current_ratio():
+    from src.rank import model_input
+    b = load_bundle("production_v2")
+    med = dict(zip(b["features"], b["imputer"].statistics_))
+    x = pd.DataFrame([med]); x["current_ratio"] = 0.3; x["quick_ratio"] = np.nan; x["cash_like_ratio"] = np.nan
+    xi = model_input(b, x).iloc[0]
+    assert xi.quick_ratio <= 0.3 and xi.cash_like_ratio <= 0.3

@@ -201,7 +201,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             <span className="text-xs text-slate-500 font-medium">with EWS Overlay</span>
           </div>
           <p className="mt-2 text-xs text-slate-600">
-            vs {indian_panel_status.lead_4q_recall_model_only}% model-only (38.3% unaugmented)
+            vs {indian_panel_status.lead_4q_recall_model_only}% model-only (pre-registered, peer 95th-percentile cutoff)
           </p>
         </div>
       </div>

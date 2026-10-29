@@ -92,7 +92,7 @@ export const MethodologyPage: React.FC = () => {
           </div>
           <p className="text-slate-400 text-[11px] font-sans">
             Any borrower with a calibrated distress probability $p \ge 4.76\%$ is flagged for early warning oversight.
-            Evaluating the model under this policy yields a <strong>45.7% expected cost reduction</strong> over a naive non-monitoring baseline.
+            On the benchmark hold-out (simulated 800-name book, 2% default rate) reviewing the top 40 cuts expected cost by <strong>45%</strong> versus no monitoring (175.6 vs 320 cost units per quarter).
           </p>
         </div>
       </div>
@@ -161,10 +161,10 @@ export const MethodologyPage: React.FC = () => {
               Purging the Polish Attr27 Missingness Artifact
             </h4>
             <p className="text-slate-600 leading-relaxed">
-              In academic literature, models achieve ~0.78 PR-AUC on the Polish data by exploiting Attr27
+              A 64-attribute model reaches ~0.83 PR-AUC on the Polish data partly by exploiting Attr27
               (EBIT / finance expenses) missingness. We established that this missingness pattern was an artifact
               of data collection that does not exist in Indian MCA/SEBI filings. Purging it yields an honest,
-              reproducible <strong>0.3394 Holdout PR-AUC</strong> that transfers safely.
+              reproducible <strong>0.486 hold-out PR-AUC</strong> (4Q model, baseline 0.070), with every remaining missing ratio median-imputed so missingness carries no signal.
             </p>
           </div>
         </div>
@@ -269,27 +269,29 @@ export const MethodologyPage: React.FC = () => {
         </div>
 
         <p className="text-xs text-slate-700 leading-relaxed">
-          CreditWatch was evaluated against an authentic panel of <strong>10 benchmark Indian corporate insolvencies</strong>
-          (Jet Airways, Reliance Capital, Future Retail, Coffee Day, Alok Industries, Bhushan Steel, Sintex, Videocon, etc.)
-          and <strong>32 solvent peers</strong> across 8 sectors:
+          Pre-registered test on <strong>10 Indian defaulters</strong> (Jet Airways, DHFL, Reliance Capital, Future Retail, Coffee Day,
+          Alok, Bhushan Steel, Reliance Communications, Sintex, IL&amp;FS Transportation Networks; earliest documented default date, each sourced)
+          against <strong>31 matched non-defaulting peers</strong>. Alert = above the peers' 95th-percentile score (the 5% budget).
+          Honest result: the Polish-trained model does not transfer to standalone Indian statements (defaulter-vs-peer AUC 0.46);
+          simple debt-service ratios do carry signal (cash earnings / liabilities AUC 0.77 at 4Q, exploratory).
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
           <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <span className="text-slate-500 font-semibold block">4Q Lead Recall (Model Only)</span>
-            <span className="text-2xl font-bold text-slate-900 mt-1 block">38.3%</span>
+            <span className="text-2xl font-bold text-slate-900 mt-1 block">2 / 10</span>
             <span className="text-[11px] text-slate-400">Pure financial ratio model</span>
           </div>
 
           <div className="p-3 bg-emerald-50 rounded-lg border border-emerald-200 text-center">
             <span className="text-emerald-900 font-semibold block">4Q Lead Recall (Full EWS Overlay)</span>
-            <span className="text-2xl font-bold text-emerald-700 mt-1 block">60.0%</span>
-            <span className="text-[11px] text-emerald-800">+ Soft signals & forensic triggers</span>
+            <span className="text-2xl font-bold text-emerald-700 mt-1 block">0 / 10</span>
+            <span className="text-[11px] text-emerald-800">+ Z/M/F overlay (Screener working-capital proxy is noisy) + verified rating signals</span>
           </div>
 
           <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <span className="text-slate-500 font-semibold block">8Q Lead Recall (2 Years Prior)</span>
-            <span className="text-2xl font-bold text-slate-900 mt-1 block">37.5%</span>
+            <span className="text-2xl font-bold text-slate-900 mt-1 block">0 / 10</span>
             <span className="text-[11px] text-slate-400">Early warning lead detection</span>
           </div>
         </div>

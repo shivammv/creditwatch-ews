@@ -1,197 +1,125 @@
-# 🛡️ CreditWatch EWS — Intelligent Financial Risk & Fraud Analytics
+# CreditWatch EWS: corporate credit early-warning system (Zeckathon PS-02)
 
-**CreditWatch EWS** is an enterprise-grade Early Warning System (EWS) for corporate credit distress, forensic accounting anomaly screening, and portfolio risk ranking. Built for commercial credit underwriters, risk managers, and financial fraud investigation teams.
+**Team:** Shivam Verma, Homish Tripathi
+
+CreditWatch turns company financial statements and dated credit events into a **quarterly watch-list of 40 names out of an 800-borrower book** (the 5% review budget). Each name gets three plain-language drivers, Altman Z'' / Beneish M / Piotroski F screens, soft signals, and a review memo. Everything is **point-in-time**: a number is used only after the date it became public.
+
+The full write-up is in [`docs/REPORT.md`](docs/REPORT.md) (submitted as a PDF). This README covers setup, usage and the headline results.
 
 ---
 
-## ⚡ Quick Start: Running the Full-Stack Application
+## Headline results (all reproducible with `python run_all.py`)
 
-### 1. Install Dependencies
+### D1. Benchmark distress model (UCI Polish Companies Bankruptcy, untouched 20% hold-out)
+
+Each lead time gets the UCI file whose label horizon matches it: the **5year file** (bankrupt within 1 year) for the 4-quarter lead and the **4year file** (within 2 years) for the 8-quarter lead.
+
+| Model | Hold-out PR-AUC [95% CI] | No-skill baseline | Lift | ROC-AUC | Top-5% precision / recall |
+|---|---|---|---|---|---|
+| **4Q lead** (39 India-portable ratios, LightGBM, median-imputed, Platt-calibrated) | **0.486** [0.376, 0.609] | 0.070 | 6.9x | 0.890 | 54% / 39% |
+| **8Q lead** (same pipeline, 4year file) | **0.395** [0.310, 0.479] | 0.053 | 7.4x | 0.846 | 37% / 35% |
+| Reference: all 64 attributes, native NaN (not deployable) | 0.833 | 0.070 | | | |
+
+- **Missing-data artefact:** in the UCI data, Attr27 (operating profit / financial expenses) is missing for 390 firms, and 31.5% of them went bankrupt (5.2% otherwise). That missingness alone gives PR-AUC 0.146. Production models drop Attr27 and **median-impute every other ratio inside the training folds**, so "missing" can never mean "bankrupt". This costs almost nothing (dev-set CV PR-AUC 0.429 vs 0.432 with native NaN).
+- **800-borrower book at a 2% default rate** (1,000 simulated books from the hold-out): the top 40 contain 55% of defaulters (95% range 31% to 75%). Expected cost falls from 320 (flag nobody) to 175.6 (−45%). The cost-optimal list size is 43, so the 40-name cap costs only 0.8 cost units.
+
+### D2. Indian test: pre-registered, 10 defaulters vs 31 matched peers
+
+Every choice (model files, overlay weights, lags, rules) was **frozen and committed before any Indian case was scored** (`config/frozen_config.json`, verified at runtime; see the commit history).
+
+| Lead | Alert rule | Model only | Model + Z/M/F + soft signals |
+|---|---|---|---|
+| 4 quarters | above the peers' 95th-percentile score (= 5% budget) | **2 / 10** (Wilson 95% CI 6% to 51%) | **0 / 10** (0% to 28%) |
+| 8 quarters | same | **0 / 10** | **0 / 10** |
+
+**The pre-registered result is negative, and we report it as-is.** The benchmark-trained model does not transfer to standalone Indian statements: the threshold-free AUC of defaulters vs peers is 0.46 at both leads. The reasons we found (details in the report):
+
+1. **Holding and infrastructure structures:** ITNL and Coffee Day carried their stress in group companies. Their standalone balance sheets look liquid because the "other assets" line includes loans to group companies.
+2. **The working-capital proxy is noise:** Screener shows only "other assets / other liabilities". WC/TA has AUC 0.48 and the current ratio 0.44, and Z'' flags healthy peers (Ashoka Buildcon, Shoppers Stop) as distressed, which pushes the cutoff up.
+3. **Rating actions come late:** four of the five verified pre-default rating actions arrived 2 weeks to 4 months before default. Only Future Retail had one at least 4 quarters ahead (CARE A+ → A−, watch negative, 13 May 2020).
+
+**What does carry signal (exploratory, n = 10, not used to tune anything):** classic debt-service ratios separate Indian defaulters from peers 4 quarters ahead. Cash earnings / total liabilities has AUC 0.77, interest cover 0.75, ROA 0.74 and leverage 0.70. The recommended next step is an India-trained, monotone debt-service scorecard validated out-of-time; the pipeline already supports it.
+
+### D3 to D5
+- **D3:** Altman Z'' (emerging-market version), Beneish M (8 variables) and Piotroski F (9 tests) are implemented and checked against hand calculations in the tests. Banks and NBFCs skip Z/M/F. Soft signals (rating downgrade, promoter pledge, auditor red flag, delayed filing, related-party stress) are implemented; the panel ships five rating actions verified against agency and press sources.
+- **D4:** each flagged name gets its top-3 SHAP drivers written as driver → evidence vs healthy-peer median → why it matters, plus a review memo. Missing (imputed) ratios are never shown as drivers.
+- **D5:** see [`policy.md`](policy.md): p* = 1/21 ≈ 4.76% on calibrated probabilities, a hard cap of 40, overflow list, escalation path, stress trigger and recalibration.
+
+---
+
+## Quick start
+
 ```bash
 pip install -r requirements.txt
-cd frontend && npm install && cd ..
+python run_all.py            # rebuild every number: models (if missing), simulations, Indian evaluation, post-hoc, watch-list
+python -m pytest -q          # 40 unit + integration tests
 ```
 
-### 2. Launch the Web Application (FastAPI + React 18)
-In two separate terminals:
+Optional interfaces:
 
-**Terminal A — Backend API (FastAPI):**
 ```bash
+# FastAPI backend + React frontend
 python -m uvicorn src.api:app --host 127.0.0.1 --port 8000
-```
+cd frontend && npm ci && npm run dev        # open http://127.0.0.1:3000 (proxies /api to :8000)
 
-**Terminal B — Enterprise Frontend (React + TypeScript + Tailwind):**
-```bash
-cd frontend
-npm run dev
-```
-Open **`http://127.0.0.1:3000`** in your browser. (The Vite frontend automatically proxies `/api` requests to `http://127.0.0.1:8000`).
-
----
-
-## 🖥️ Alternative Interfaces & CLI Workflows
-
-### Streamlit Application
-The original Streamlit dashboard is fully preserved and updated:
-```bash
+# Streamlit dashboard
 streamlit run app.py
+
+# Score any company-year file (CSV/XLSX, headers auto-mapped), top-5% watch-list with SHAP memos
+python score_any.py data/indian/financials.csv --soft data/indian/soft_signals.csv --asof 2019-06-30
 ```
 
-### Command-Line Scoring (`score_any.py`)
-Score any raw CSV/XLSX financial statement, automatically map columns, and generate the top-5% priority watchlist with SHAP memos:
-```bash
-python score_any.py data/indian/financials.csv
-# Output generated at: artifacts/watchlist_any.csv
+Retrain from scratch with `python run_all.py --retrain` (about 5 minutes on 2 CPU cores). This changes the model-file hashes, so `indian.evaluate()` will refuse to run until the change is logged in `docs/DEVIATIONS.md` and the configuration is re-frozen (`python -m src.config --freeze`).
+
+## How leakage is prevented
+
+| Risk | Control | Where it is checked |
+|---|---|---|
+| Same row in train and test | exact duplicates removed before the split; hold-out carved first, used once | `src/model.py` |
+| Preprocessing on test rows | imputer, calibrator and threshold fitted on development folds only | `src/model.py` |
+| "Missing = bankrupt" artefact | Attr27 dropped; median imputation | `tests/test_audit.py::test_imputer_makes_missingness_uninformative` |
+| Future filings | fiscal year used only after `public_date` (FY end + 120 days); observation = event − 3L months | `src/indian.py::assert_no_leakage`, `test_real_panel_point_in_time` |
+| Future soft signals | used only if dated ≤ observation date, within the prior 365 days | `test_real_soft_signals_point_in_time` |
+| Peer timing | peers observed on the same calendar date as their matched defaulter | `test_real_panel_point_in_time` |
+| Late event dates (inflated lead) | earliest documented credit event, each with a source URL | `test_core_events_are_sourced_and_verified` |
+| Tuning on the test set | frozen config with SHA-256; evaluation refuses edited weights or models | `test_frozen_config_detects_tampering`, `test_evaluation_refuses_unfrozen_changes` |
+
+## Data provenance
+
+- `data/polish/`: UCI Polish Companies Bankruptcy, all five horizon files (row and bankruptcy counts match UCI).
+- `data/indian/financials.csv`: 484 company-years for 41 listed companies from Screener.in standalone statements (Rs crore). Current assets/liabilities are Screener's "other assets / other liabilities" (proxy, flagged `bs_proxy=1`). The four defaulters added in this audit are transcribed in `data/indian/screener_raw/` with their source pages, and every balance sheet adds up (tested).
+- `data/indian/events.csv`: 10 defaulters with the earliest documented credit event and a source URL (exchange filing, rating-agency release, trustee notice or NCLT order).
+- `data/indian/peers.csv`: 31 same-sector peers, listed at the event date, with no default found through event + 8 quarters.
+- `data/indian/soft_signals.csv`: 5 verified rating actions with URLs. The earlier unverified list is kept in `soft_signals_unverified.csv` and is **not used**.
+- `data/indian/removed_reconstructed_rows.csv`: 14 earlier rows that were estimates rather than filings. They were removed and are never used (see `docs/DEVIATIONS.md`).
+
+## Repository structure
+
+```
+run_all.py                 one command: train (if needed), simulate, evaluate India, post-hoc, watch-list
+score_any.py               score any statements file -> top-5% watch-list with memos
+app.py                     Streamlit dashboard
+src/model.py               lead-matched LightGBM training, calibration, hold-out metrics, ablation, model comparison
+src/features.py            39 India-portable ratios, Polish <-> Indian mapping, monotone signs (v2)
+src/scores.py              Altman Z'', Beneish M, Piotroski F
+src/rank.py                overlay, SHAP drivers, memos, 800-borrower budget simulation
+src/indian.py              point-in-time panel, leakage guard, pre-registered evaluation (peer cutoff + Wilson CI)
+src/config.py              pre-registration freeze / verify (SHA-256)
+src/posthoc.py             post-hoc AUC, lead-time curve, case timelines, exploratory univariate diagnostic
+src/api.py                 FastAPI backend for the React app
+frontend/                  React 18 + TypeScript + Tailwind web app (7 pages)
+config/                    frozen_config.json (primary), frozen_config_v2.json (post-hoc variant)
+data/                      Polish benchmark + sourced Indian panel
+artifacts/                 models, metrics, curves, Indian results, figures
+docs/                      REPORT.md, METHODOLOGY.md, DEVIATIONS.md, CROSS_EXAM_QA.md, DATA_ENTRY.md
+tests/                     40 tests: leakage, provenance, scores by hand, pre-registration, API, end-to-end
 ```
 
-### Reproduce Full Scientific Pipeline & Retrain Models
-```bash
-python run_all.py --retrain
-```
+## Limitations (stated up front)
 
-### Run Test Suite
-```bash
-pytest -v
-# Executes 17 unit and integration tests across data leakage, cost policies, API endpoints, and models
-```
-
----
-
-## 🔬 Scientific ML Pipeline & Benchmark Results
-
-### 1. Multi-Model Algorithmic Comparison (Identical 5-Fold Stratified CV on Development Set, N = 34,724)
-| Model Family | Missing Value Handling | CV PR-AUC | CV ROC-AUC | Recall @ 5% Budget | Brier Score | Selected for Production |
-|---|---|---|---|---|---|---|
-| **Logistic Regression (Baseline)** | Median Imputed + Scaled | 0.1154 | 0.7385 | 21.66% | 0.03598 | No |
-| **Random Forest (Baseline)** | Median Imputed | 0.1413 | 0.7617 | 24.88% | 0.03541 | No |
-| **XGBoost** | Native NaN | 0.2139 | 0.8012 | 30.41% | 0.03450 | No |
-| **LightGBM (Default)** | Native NaN | 0.2036 | 0.7978 | 31.34% | 0.03418 | No |
-| **LightGBM (Median Imputed)** | Median Imputed | 0.2097 | 0.7945 | 30.41% | 0.03429 | No |
-| **LightGBM (Optimized)** | **Native NaN (Informative)** | **0.2148** | **0.7976** | **31.80%** | **0.03345** | **✅ YES (Production)** |
-
-### 2. Untouched Holdout Evaluation (N = 8,681)
-- **Holdout PR-AUC:** **`0.3394`** vs **`0.0389`** No-Skill Baseline (**8.7x enrichment**)
-- **Holdout ROC-AUC:** **`0.8179`**
-- **Brier Reliability Score:** **`0.03144`** (Isotonic probability calibration)
-- **Holdout Recall @ Top 5% Review Budget:** **`32.18%`**
-
-### 3. Leakage Guard: The Polish Attr27 Missingness Artifact
-- **The Artifact:** In the raw Polish bankruptcy dataset, 309 records had missing `Attr27` (EBIT / financial expenses) because they were insolvent or reported zero interest expenses. **38.8%** of those firms defaulted (vs 2.3% baseline).
-- **The Pitfall:** Naive models exploit `Attr27 == NaN` as a target leakage shortcut to claim an artificial **~0.78 PR-AUC**, which collapses when applied to real Indian MCA/SEBI corporate disclosures.
-- **CreditWatch Solution:** We systematically audited and purged the missingness artifact, validating that the genuine leak-free performance is **0.370** on Polish data and **0.3394** on the 39 India-portable financial ratios.
-
-### 4. Asymmetric Error-Cost Matrix Policy
-Under commercial lending realities, missing an impending corporate insolvency is catastrophic ($C_{FN} = 20$), whereas auditing a solvent firm is merely an operational review overhead ($C_{FP} = 1$):
-$$\text{Expected Cost} = 20 \cdot \text{FN} + 1 \cdot \text{FP}$$
-The theoretical Bayes-optimal decision threshold is:
-$$t^* = \frac{C_{FP}}{C_{FN} + C_{FP}} = \frac{1}{20 + 1} \approx 0.0476 \quad (4.76\%)$$
-Evaluating the calibrated ensemble under this policy delivers a **45.7% expected cost reduction** over non-monitoring.
-
-### 5. Empirical Indian Corporate Panel Backtest (10 Defaulters + 32 Solvent Peers)
-- **10 Core Corporate Insolvencies:** Jet Airways, Reliance Capital, Future Retail, Coffee Day Enterprises, Alok Industries, Bhushan Steel, Sintex Industries, Videocon Industries, Reliance Communications, Gitanjali Gems.
-- **4Q-Lead Recall (Model-Only):** **38.3%**
-- **4Q-Lead Recall (with EWS Forensic & Soft-Signal Overlay):** **60.0%**
-- **8Q-Lead Recall (2 Years Prior):** **37.5%**
-
----
-
-## 🌐 Web Application Features & Architecture
-
-The application comprises **7 dedicated institutional pages**:
-
-1. **Executive Dashboard (`DashboardPage.tsx`):**
-   - Live KPI cards: Total Portfolio, High-Risk Borrowers, Average Predicted Risk, 4Q-Lead Recall.
-   - Sector Vulnerability Bar Chart & Portfolio Risk Bands Pie Chart.
-   - High-Risk Borrowers Ranking Table with deep-dive triggers.
-   - Live EWS Soft Signals & Governance Alert Feed.
-
-2. **Company Risk Dossier (`CompanyAnalysisPage.tsx`):**
-   - Interactive dropdown for all 42 Indian companies or **Manual Financials Form** for custom statements.
-   - Risk Tiers (High / Medium / Low) with Bayes threshold flags ($p \ge 4.76\%$).
-   - 4 Forensic Cards: Altman Z″-score, Beneish M-score, Piotroski F-score, and Interest Coverage Ratio.
-   - Qualitative soft signals (auditor resignations, promoter share pledge > 80%, filing delays).
-   - Local **SHAP Waterfall Bar Chart** powered by TreeExplainer log-odds contributions with peer medians.
-   - Credit Officer EWS Action Memo with recommended underwriting steps.
-
-3. **Forensic Accounting & Accounting Anomaly Workspace (`ForensicsPage.tsx`):**
-   - Beneish M-Score 8-Variable Mechanics (DSRI, GMI, AQI, SGI, DEPI, SGAI, LVGI, TATA).
-   - Interactive portfolio forensic cross-section table with filters (Beneish flagged, Altman distress, ICR < 1.0).
-   - Prominent disclaimer: Beneish M is an accounting manipulation screening indicator, not a judicial fraud verdict.
-   - Architecture boundary: Corporate credit distress vs payment transaction fraud.
-
-4. **Portfolio Watchlist & Review Queue (`WatchlistPage.tsx`):**
-   - Review budget capacity slider (1% to 25%, defaulting to the standard 5% cap / 40 of 800 loans).
-   - Strict separation between Priority Mandated Review (within budget cap) and Overflow Watchlist.
-   - Multi-field sorting, filtering by sector and risk tier.
-   - Direct CSV export (`/api/watchlist/export`).
-
-5. **Model Benchmarking & Retraining (`ModelPerformancePage.tsx`):**
-   - Side-by-side multi-model comparison table.
-   - Precision-Recall Curve, ROC Curve, and Isotonic Calibration Reliability Diagram.
-   - Polish Attr27 missingness artifact ablation study.
-   - Controlled Retrain Model modal with confirmation safeguards, background CV, and artifact backups.
-
-6. **Data Ingestion & Schema Validator (`DataUploadPage.tsx`):**
-   - Drag-and-drop CSV / XLSX file uploader.
-   - Automatic schema validation against 39 portable financial line items.
-   - Missing fields report and 5-row raw preview.
-   - Downloadable sample CSV templates.
-
-7. **Methodology & Policy (`MethodologyPage.tsx`):**
-   - Mathematical documentation of the 20:1 cost function and Bayes-optimal cutoff.
-   - 5% review cap operational rationale.
-   - Temporal information barriers ($t_{public} \le t_{obs}$).
-   - NBFC / Commercial bank limitations documentation.
-
----
-
-## ⚠️ Important Institutional Limitations & Boundaries
-
-1. **Commercial Banks & NBFCs:**
-   - Traditional industrial distress ratios (Altman Z″, Beneish M, Working Capital, Gross Margin) are mathematically invalid for financial institutions (e.g. DHFL, Reliance Capital, Yes Bank) due to liability inversion (deposits are liabilities, loans are assets).
-   - CreditWatch flags financial entities as *"NBFC / Financial"* and applies modified Basel capital/leverage overlays.
-
-2. **Corporate Distress vs Payment Card Transaction Fraud:**
-   - CreditWatch evaluates annual and quarterly corporate financial disclosures to predict insolvency and earnings manipulation risk.
-   - It does not process streaming transaction logs (ISO 8583 / ISO 20022), card-not-present flags, or user device telemetry for transaction fraud. A future integration blueprint for Kafka + Graph Neural Networks is outlined in the Forensics module.
-
----
-
-## 📁 Repository Structure
-```
-creditwatch-ews/
-├── app.py                      # Original Streamlit application
-├── run_all.py                  # Full pipeline runner & retraining CLI
-├── score_any.py                # Standalone arbitrary file scoring CLI
-├── requirements.txt            # Python dependencies
-├── .env.example                # Environment configuration template
-├── README.md                   # System documentation
-├── SUBMISSION.md               # Zeckathon submission report
-├── artifacts/                  # Calibrated models, benchmark JSONs, curves, and watchlist exports
-├── data/
-│   ├── indian/                 # 10 Defaulters + 32 Peers financial data, events, soft signals
-│   └── polish/                 # 5 Polish bankruptcy horizon datasets
-├── src/
-│   ├── api.py                  # FastAPI backend server
-│   ├── model.py                # ML pipeline: multi-model CV, LightGBM, calibration, holdout metrics
-│   ├── features.py             # 39 India-portable financial ratios & mapping
-│   ├── scores.py               # Altman Z'', Beneish M, Piotroski F, ICR
-│   ├── rank.py                 # EWS overlays, SHAP TreeExplainer, watchlist ranking
-│   ├── indian.py               # Indian corporate evaluation harness
-│   ├── screener.py             # Rule screener & anomaly detectors
-│   └── ingest.py               # Data templates and file parsing
-├── tests/
-│   ├── test_pipeline.py        # Core ML pipeline & leakage unit tests
-│   └── test_api.py             # FastAPI endpoints & scoring integration tests
-└── frontend/                   # React 18 + TypeScript + Tailwind CSS Web Application
-    ├── index.html
-    ├── package.json
-    ├── vite.config.ts
-    ├── tailwind.config.js
-    └── src/
-        ├── api.ts              # Typed API client
-        ├── types.ts            # Data models
-        ├── index.css           # Design system tokens & utility styles
-        ├── App.tsx             # Enterprise shell & active tab navigation
-        └── pages/              # 7 Full-featured institutional dashboard pages
-```
+- The benchmark has no calendar dates or firm IDs, so the hold-out is out-of-sample in firms, not in time.
+- 10 Indian defaulters cannot support strong statistical claims: a 0/10 result has a Wilson upper bound of 28%.
+- Screener shows the latest restated figures, not always the numbers as first published, and its balance sheet is condensed (working-capital proxy).
+- Standalone statements miss group-level stress (ITNL, Coffee Day). Consolidated data would be the first upgrade.
+- Peers stand in for the performing book in place of a full 800-firm point-in-time universe.
+- Banks and NBFCs (DHFL, Reliance Capital) get the model score but no Z/M/F; a lender-specific module (ALM mismatch, CP dependence) is future work.

@@ -67,7 +67,7 @@ export const ModelPerformancePage: React.FC = () => {
       setRetraining(true);
       setRetrainLogs('Initializing 5-Fold Stratified CV, multi-model benchmark, and isotonic probability calibrator...');
       const res = await triggerRetrain({ optimize: true, evaluate_all: true });
-      setRetrainLogs(`Retraining successfully completed! Model saved to artifacts/model_production.joblib. Holdout PR-AUC: ${res.report?.holdout_metrics?.pr_auc?.toFixed(4) || '0.3394'}`);
+      setRetrainLogs(`Retraining successfully completed! Model saved to artifacts/model_production.joblib. Holdout PR-AUC: ${res.report?.holdout_metrics?.pr_auc?.toFixed(4) ?? 'n/a'}`);
       await loadMetrics();
       setTimeout(() => {
         setShowRetrainModal(false);
@@ -134,7 +134,7 @@ export const ModelPerformancePage: React.FC = () => {
           </div>
           <div className="mt-3 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-slate-900">
-              {holdout.pr_auc?.toFixed(4) || '0.3394'}
+              {holdout.pr_auc?.toFixed(4) ?? 'n/a'}
             </span>
             <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
               8.7x Baseline
@@ -212,7 +212,7 @@ export const ModelPerformancePage: React.FC = () => {
               Trained and evaluated on identical development partitions without data leakage
             </p>
           </div>
-          <span className="text-xs font-semibold text-slate-600">N = 34,724 dev records</span>
+          <span className="text-xs font-semibold text-slate-600">4Q model: 4,680 dev records (UCI 5year file)</span>
         </div>
 
         <div className="overflow-x-auto">
@@ -250,7 +250,7 @@ export const ModelPerformancePage: React.FC = () => {
                         ? 'bg-emerald-50 text-emerald-800'
                         : 'bg-slate-100 text-slate-700'
                     }`}>
-                      {m.supports_native_nan ? 'Native NaN (Informative)' : 'Median Imputed + Scaled'}
+                      {m.supports_native_nan ? 'Native NaN' : 'Median Imputed'}
                     </span>
                   </td>
 
@@ -307,7 +307,7 @@ export const ModelPerformancePage: React.FC = () => {
           <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
             <div>
               <h3 className="text-sm font-bold text-slate-900">Precision-Recall Curve</h3>
-              <p className="text-[11px] text-slate-500">Holdout PR-AUC = 0.3394</p>
+              <p className="text-[11px] text-slate-500">Holdout PR-AUC = 0.486 (4Q)</p>
             </div>
             <span className="badge badge-primary text-[10px]">Primary Metric</span>
           </div>
@@ -431,7 +431,7 @@ export const ModelPerformancePage: React.FC = () => {
 
           <div className="p-3 bg-brand-50 rounded-lg border border-brand-200">
             <div className="font-bold text-brand-950">CreditWatch Production (39 Portable)</div>
-            <div className="text-xl font-extrabold text-brand-700 mt-1">PR-AUC = 0.3394</div>
+            <div className="text-xl font-extrabold text-brand-700 mt-1">PR-AUC = 0.486</div>
             <p className="text-[11px] text-brand-800 mt-1">
               Generalizes reliably to Indian BSE/NSE financial reporting standards with zero leakage.
             </p>
@@ -459,12 +459,12 @@ export const ModelPerformancePage: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              This executes an end-to-end scientific training pipeline on the 34,724 training development records:
+              This executes an end-to-end scientific training pipeline on the development records of the lead-matched UCI files (4,680 for 4Q, 7,768 for 8Q):
             </p>
 
             <ul className="list-disc list-inside text-xs text-slate-600 space-y-1 bg-slate-50 p-3 rounded-lg border border-slate-200">
               <li>Evaluates 6 model families with 5-Fold Stratified Cross Validation.</li>
-              <li>Preserves untouched 8,681-record holdout partition.</li>
+              <li>Preserves the untouched 20% stratified hold-out (1,170 records for 4Q, 1,942 for 8Q).</li>
               <li>Saves a backup of the current production model before writing new weights.</li>
               <li>Fits an out-of-fold Isotonic probability calibrator to ensure calibrated Brier score.</li>
             </ul>

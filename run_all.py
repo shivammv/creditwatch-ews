@@ -80,6 +80,9 @@ if __name__ == "__main__":
             print(f"{lead}: recall above 95th-pct peer cutoff -> full {pc['full']['caught']}/{pc['full']['n_defaulters']} "
                   f"{pc['full']['recall_wilson95']}, model-only {pc['model_only']['caught']}/{pc['model_only']['n_defaulters']}, "
                   f"forensic-only {pc['forensic_only']['caught']}, soft-only {pc['soft_only']['caught']}")
+        from src import posthoc
+        ph = posthoc.run()
+        print("post-hoc AUC 4Q (model):", ph["lead_4q_auc"]["p_model"], "| univariate 4Q:", ph["univariate_auc_exploratory"]["lead_4q"])
         import subprocess
         subprocess.run([sys.executable, "score_any.py", "data/indian/financials.csv", "--soft", "data/indian/soft_signals.csv"], check=False)
     else:

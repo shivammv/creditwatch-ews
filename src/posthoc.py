@@ -88,9 +88,33 @@ def run(max_lead: int = 12, variant: str = "") -> dict:
     out["n_defaulters_by_lead"] = {int(k): int(v) for k, v in c.groupby("lead_q").size().items()}
     first = c[c.flagged].groupby("company").lead_q.max()
     out["earliest_flag_lead_q_per_defaulter"] = {k: int(v) for k, v in first.items()}
+    out["univariate_auc_exploratory"] = univariate_auc(variant)
     (ART / f"indian_posthoc{variant}.json").write_text(json.dumps(out, indent=2))
     _figures(c, variant)
     return out
+
+
+# sign: +1 if a higher value should mean higher risk
+UNIVARIATE = {"cf_liab2": -1, "int_cover": -1, "net_profit_ta": -1, "ebit_ta": -1, "liabilities_ta": +1, "equity_ta": -1,
+              "retained_ta": -1, "asset_turn": -1, "altman_z": -1, "wc_ta": -1, "current_ratio": -1, "op_margin": -1,
+              "p_model": +1, "risk": +1}
+
+
+def univariate_auc(variant: str = "") -> dict:
+    """EXPLORATORY (n = 10 defaulters): how well single classic ratios separate Indian defaulters from matched peers.
+    Chosen and read AFTER the frozen results; not used to build or tune any score in this submission."""
+    d = pd.read_csv(ART / f"indian_scored{variant}.csv")
+    res = {}
+    for lead in (4, 8):
+        x = d[d.lead_q == lead]
+        r = {}
+        for c, sgn in UNIVARIATE.items():
+            v = pd.to_numeric(x[c], errors="coerce")
+            m = v.notna()
+            if x.loc[m, "is_defaulter"].nunique() == 2:
+                r[c] = round(float(roc_auc_score(x.loc[m, "is_defaulter"], sgn * v[m])), 3)
+        res[f"lead_{lead}q"] = dict(sorted(r.items(), key=lambda kv: -kv[1]))
+    return res
 
 
 def _figures(c: pd.DataFrame, variant: str = ""):
