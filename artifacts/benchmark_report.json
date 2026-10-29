@@ -4,8 +4,8 @@
     "lead": "4Q",
     "label_horizon_years": 1,
     "model_version": "3.0.0-lead-matched",
-    "training_timestamp": "2026-10-29T16:04:05.483479+00:00",
-    "training_duration_seconds": 69.0,
+    "training_timestamp": "2026-10-29T16:07:09.050332+00:00",
+    "training_duration_seconds": 66.65,
     "n_rows": 5850,
     "n_duplicates_removed": 60,
     "bankrupt_rate": 0.0697,
@@ -312,7 +312,10 @@
     "india_portable_39": 0.464,
     "india_portable_39_plus_Attr27_missing_flag": 0.653,
     "attr27_missing_flag_only": 0.146,
-    "note": "Attr27 (operating profit / financial expenses) is NaN for 309 firms of which 38.8% went bankrupt (2.3% otherwise). That missing-data pattern, not the ratio itself, carries about half of the apparent skill of the 64-attribute model and cannot transfer to Indian filings (a debt-free company has zero interest cost). The production model therefore excludes it."
+    "attr27_missing_n": 390,
+    "attr27_missing_bankrupt_rate": 0.315,
+    "attr27_present_bankrupt_rate": 0.052,
+    "note": "Attr27 (operating profit / financial expenses) is NaN for 390 firms, of which 31.5% went bankrupt (5.2% otherwise). That missing-data pattern, not the ratio itself, carries a large share of the apparent skill of the 64-attribute model and cannot transfer to Indian filings (a debt-free company has zero interest cost). The production model excludes Attr27 and median-imputes every other ratio, so missingness carries no signal."
   },
   "model_comparison": [
     {
@@ -321,7 +324,7 @@
       "roc_auc": 0.8079,
       "brier_score": 0.16317,
       "recall_at_5pct": 0.3252,
-      "cv_training_time_sec": 3.68,
+      "cv_training_time_sec": 3.58,
       "supports_native_nan": false,
       "selected_as_production": false
     },
@@ -331,7 +334,7 @@
       "roc_auc": 0.8552,
       "brier_score": 0.0838,
       "recall_at_5pct": 0.3374,
-      "cv_training_time_sec": 9.69,
+      "cv_training_time_sec": 9.58,
       "supports_native_nan": false,
       "selected_as_production": false
     },
@@ -341,7 +344,7 @@
       "roc_auc": 0.8705,
       "brier_score": 0.04945,
       "recall_at_5pct": 0.3742,
-      "cv_training_time_sec": 3.58,
+      "cv_training_time_sec": 3.32,
       "supports_native_nan": true,
       "selected_as_production": false
     },
@@ -351,7 +354,7 @@
       "roc_auc": 0.8732,
       "brier_score": 0.05007,
       "recall_at_5pct": 0.3712,
-      "cv_training_time_sec": 3.95,
+      "cv_training_time_sec": 4.08,
       "supports_native_nan": true,
       "selected_as_production": false
     },
@@ -361,7 +364,7 @@
       "roc_auc": 0.8703,
       "brier_score": 0.05008,
       "recall_at_5pct": 0.3528,
-      "cv_training_time_sec": 3.68,
+      "cv_training_time_sec": 3.87,
       "supports_native_nan": true,
       "selected_as_production": false
     },
@@ -371,7 +374,7 @@
       "roc_auc": 0.8683,
       "brier_score": 0.05,
       "recall_at_5pct": 0.3558,
-      "cv_training_time_sec": 3.19,
+      "cv_training_time_sec": 3.25,
       "supports_native_nan": false,
       "selected_as_production": true
     }

@@ -5,7 +5,7 @@
     "roc_auc": 0.8079,
     "brier_score": 0.16317,
     "recall_at_5pct": 0.3252,
-    "cv_training_time_sec": 3.68,
+    "cv_training_time_sec": 3.58,
     "supports_native_nan": false,
     "selected_as_production": false
   },
@@ -15,7 +15,7 @@
     "roc_auc": 0.8552,
     "brier_score": 0.0838,
     "recall_at_5pct": 0.3374,
-    "cv_training_time_sec": 9.69,
+    "cv_training_time_sec": 9.58,
     "supports_native_nan": false,
     "selected_as_production": false
   },
@@ -25,7 +25,7 @@
     "roc_auc": 0.8705,
     "brier_score": 0.04945,
     "recall_at_5pct": 0.3742,
-    "cv_training_time_sec": 3.58,
+    "cv_training_time_sec": 3.32,
     "supports_native_nan": true,
     "selected_as_production": false
   },
@@ -35,7 +35,7 @@
     "roc_auc": 0.8732,
     "brier_score": 0.05007,
     "recall_at_5pct": 0.3712,
-    "cv_training_time_sec": 3.95,
+    "cv_training_time_sec": 4.08,
     "supports_native_nan": true,
     "selected_as_production": false
   },
@@ -45,7 +45,7 @@
     "roc_auc": 0.8703,
     "brier_score": 0.05008,
     "recall_at_5pct": 0.3528,
-    "cv_training_time_sec": 3.68,
+    "cv_training_time_sec": 3.87,
     "supports_native_nan": true,
     "selected_as_production": false
   },
@@ -55,7 +55,7 @@
     "roc_auc": 0.8683,
     "brier_score": 0.05,
     "recall_at_5pct": 0.3558,
-    "cv_training_time_sec": 3.19,
+    "cv_training_time_sec": 3.25,
     "supports_native_nan": false,
     "selected_as_production": true
   }

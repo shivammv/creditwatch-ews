@@ -1,0 +1,17 @@
+# Deviations and audit log
+
+Every change to the plan, and any change after the pre-registration freeze, is recorded here. Times are IST, 29 Oct 2026.
+
+| # | When | What changed | Why | Effect |
+|---|---|---|---|---|
+| 1 | before freeze | Production model moved from the UCI `1year` file (label 5 years ahead) to lead-matched models: `5year` file for the 4-quarter lead and `4year` file for the 8-quarter lead | The Indian test measures 4Q and 8Q lead times, so the benchmark target must match it | 4Q hold-out PR-AUC 0.486 (baseline 0.070); 8Q 0.395 (baseline 0.053) |
+| 2 | before freeze | Production models median-impute missing ratios (imputer fitted on training rows only, inside every CV fold) instead of LightGBM's native NaN handling | In the UCI data, missing values cluster in bankrupt firms (e.g. Attr27). Native NaN lets the model learn "missing = bankrupt", which would wrongly flag Indian firms with an uncollected line item | 5-fold dev-set PR-AUC 0.429 vs 0.432 native-NaN: almost no cost |
+| 3 | before freeze | `indian_to_portable` no longer fills missing COGS, SG&A, inventory, receivables, cash or depreciation with 0 | Zero-filling fabricated values (e.g. 100% gross margin, zero inventory days) for every Screener-sourced company | Missing ratios are now "no information" (imputed), never fake extremes |
+| 4 | before freeze | Removed 14 "reconstructed" rows for IL&FS, DHFL, Bhushan Steel and Sintex (round-number estimates from news summaries) and replaced them with Screener standalone statements for IL&FS Transportation Networks, DHFL, Bhushan Steel and Sintex | The rows were not from filings | Old rows kept in `data/indian/removed_reconstructed_rows.csv`, never used |
+| 5 | before freeze | IL&FS Ltd (unlisted parent) replaced by listed IL&FS Transportation Networks (ITNL); IL&FS peers re-matched to ITNL | No exchange filings exist for the unlisted parent | |
+| 6 | before freeze | Event dates moved to the earliest documented credit event, each with a source URL (e.g. Jet 31 Dec 2018 payment default, not the Apr 2019 grounding; DHFL 4 Jun 2019 default, not the Nov 2019 RBI supersession) | A later event date overstates warning lead time | Lead-time results are more conservative |
+| 7 | before freeze | Devyani International dropped as a Coffee Day peer | It listed in Aug 2021, after the Sep 2019 event | 31 peers |
+| 8 | before freeze | Soft signals replaced by five rating actions verified against agency/press sources with URLs; the earlier list (no URLs, approximate dates) moved to `soft_signals_unverified.csv` and not used | Unverified dates can create look-ahead | Soft-signal coverage is thin and disclosed |
+| 9 | before freeze | Non-12-month fiscal periods annualised (flows x 12/months), e.g. Alok's two 18-month periods | 18-month sales and profits inflate turnover/profitability ratios | |
+| 10 | before freeze | Dashboard no longer shows hard-coded fallback numbers when artifacts are missing | Avoids displaying results that were not computed | |
+| 11 | re-freeze before any Indian scoring | Models re-serialised through the package import (identical code, data and seeds; identical metrics) and the configuration re-frozen | The first save pickled the calibrator under `__main__`, so other scripts could not load it. The pipeline stopped in the Polish-only watch-list step, before any Indian case was scored | Same hold-out metrics; new model-file hashes in `config/frozen_config.json` |

@@ -456,7 +456,9 @@ def train_lead_models(run_full_comparison: bool = True) -> dict:
 
 
 if __name__ == "__main__":
-    reps = train_lead_models(run_full_comparison=True)
+    # import through the package so pickled classes resolve as src.model.Calibrator (not __main__.Calibrator)
+    from src.model import train_lead_models as _train
+    reps = _train(run_full_comparison=True)
     for k, r in reps.items():
         print(k, "PR-AUC:", r["production"]["pr_auc"], "baseline:", r["production"]["pr_auc_baseline"],
               "ROC-AUC:", r["production"]["roc_auc"])

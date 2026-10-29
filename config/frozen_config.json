@@ -13,8 +13,8 @@
     "event_rule": "earliest documented credit event (payment default disclosure, rating to D, or CIRP admission) with source URL",
     "model": {
       "artifact_sha256": {
-        "model_production.joblib": "ce2f73e2e55f662e64f8b9cef315bf63cb31e114f1ad4cf422ab71d5dadc2331",
-        "model_production_8q.joblib": "92478bfc930045809ea29ab553dad46022949f08c779590990735bab15273275"
+        "model_production.joblib": "2308a4649ec59e385771f6e6a7bd62d70353a2d9ee8667eb22abb6be1aa2ecdd",
+        "model_production_8q.joblib": "cad110dc21cf61a29e6cadca02fdd963fb988020ac944ef0d7f5c8ce28010c67"
       },
       "family": "LightGBM, median-imputed (imputer fitted on training rows only), Platt-calibrated on OOF",
       "features": "39 India-portable ratios (src/features.py FEATURE_NAMES)",
@@ -63,6 +63,6 @@
       "related_party_stress"
     ]
   },
-  "frozen_at_utc": "2026-10-29T16:05:40.068805+00:00",
-  "sha256": "4bb5c305d55a07a758c1e2576e229308b54bc9ef4905c4f079c921b95d9cbe8a"
+  "frozen_at_utc": "2026-10-29T16:07:40.703176+00:00",
+  "sha256": "b3a50ee6f3f97089ccecabd3bcfd8af1532f13fe7475a65193814d1db3b09531"
 }
